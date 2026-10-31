@@ -1,0 +1,162 @@
+[
+  {
+    "recipeSerializer": "botanypots:crop",
+    "displayName": "Botany Pots - Crop",
+    "modId": "botanypots",
+    "stationItem": "botanypots:botany_pot",
+    "extraFields": [
+      {
+        "key": "categories",
+        "type": "string",
+        "default": "dirt",
+        "label": "Soil categories (comma separated, e.g. dirt)",
+        "required": true
+      },
+      {
+        "key": "displayBlock",
+        "type": "string",
+        "default": "minecraft:wheat",
+        "label": "Display block (block id shown in the pot)",
+        "required": true
+      },
+      {
+        "key": "growthTicks",
+        "type": "int",
+        "default": "1200",
+        "label": "Growth Ticks"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botanypots",
+      "requiresAddon": "kubejs-botany-pots",
+      "argsTemplate": "event.recipes.botanypots.crop({input} /* seed */, /* categories */ [], /* displayBlock */ {}, {output} /* drops, chance+rolls */, /* growthTicks */ 10, /* growthModifier */ 1){extra}",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "seed": "$slot:main_input:ingredient",
+      "categories": "$field:categories:list",
+      "growthTicks": "$field:growthTicks",
+      "display": {
+        "block": "$field:displayBlock"
+      },
+      "drops": "$outputs:bp_drop"
+    }
+  },
+  {
+    "recipeSerializer": "botanypots:soil",
+    "displayName": "Botany Pots - Soil",
+    "modId": "botanypots",
+    "stationItem": "botanypots:botany_pot",
+    "extraFields": [
+      {
+        "key": "soilItem",
+        "type": "item",
+        "default": "minecraft:dirt",
+        "label": "Soil item (item or #tag)",
+        "required": true
+      },
+      {
+        "key": "displayBlock",
+        "type": "string",
+        "default": "minecraft:dirt",
+        "label": "Display block (block id shown in the pot)",
+        "required": true
+      },
+      {
+        "key": "categories",
+        "type": "string",
+        "default": "dirt",
+        "label": "Categories (comma separated, e.g. dirt)",
+        "required": true
+      },
+      {
+        "key": "growthModifier",
+        "type": "float",
+        "default": "1.0",
+        "label": "Growth Modifier"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botanypots",
+      "requiresAddon": "kubejs-botany-pots",
+      "argsTemplate": "event.recipes.botanypots.soil({input} /* soil item */, /* displayBlock */ {}, /* categories */ [], /* growthTicks */ 100, /* growthModifier */ 1)",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "input": "$field:soilItem:ingredient",
+      "display": {
+        "block": "$field:displayBlock"
+      },
+      "categories": "$field:categories:list",
+      "growthModifier": "$field:growthModifier"
+    }
+  },
+  {
+    "recipeSerializer": "botanypots:fertilizer",
+    "displayName": "Botany Pots - Fertilizer",
+    "modId": "botanypots",
+    "stationItem": "botanypots:botany_pot",
+    "extraFields": [
+      {
+        "key": "fertilizerItem",
+        "type": "item",
+        "default": "minecraft:bone_meal",
+        "label": "Fertilizer item (item or #tag)",
+        "required": true
+      },
+      {
+        "key": "minGrowthTicks",
+        "type": "int",
+        "default": "400",
+        "label": "Min growth (ticks)"
+      },
+      {
+        "key": "maxGrowthTicks",
+        "type": "int",
+        "default": "550",
+        "label": "Max growth (ticks)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botanypots",
+      "requiresAddon": "kubejs-botany-pots",
+      "argsTemplate": "event.recipes.botanypots.fertilizer({input}, /* minGrowthTicks */ 10, /* maxGrowthTicks */ 20)",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredient": "$field:fertilizerItem:ingredient",
+      "min_growth": "$field:minGrowthTicks",
+      "max_growth": "$field:maxGrowthTicks"
+    }
+  }
+]

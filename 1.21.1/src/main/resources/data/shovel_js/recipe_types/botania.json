@@ -1,0 +1,900 @@
+[
+  {
+    "recipeSerializer": "botania:petal_apothecary",
+    "displayName": "Botania - Petal Apothecary",
+    "modId": "botania",
+    "extraFields": [
+      {
+        "key": "reagent",
+        "type": "string",
+        "default": "#botania:seed_apothecary_reagent",
+        "label": "Reactivo (item o #tag, ej. semillas)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botania",
+      "requiresAddon": "kubejs-botania",
+      "argsTemplate": "event.recipes.botania.petal_apothecary({output}, {inputs})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "offering",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 16,
+      "ringFromInputs": true
+    },
+    "stationItem": "botania:petal_apothecary",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "reagent": "$field:reagent:ingredient"
+    }
+  },
+  {
+    "recipeSerializer": "botania:runic_altar",
+    "displayName": "Botania - Runic Altar",
+    "modId": "botania",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "6400",
+        "label": "Mana Cost (max 99999 per recipe)",
+        "required": true
+      },
+      {
+        "key": "reagent",
+        "type": "string",
+        "default": "botania:livingrock",
+        "label": "Reactivo (item o #tag)",
+        "required": true
+      },
+      {
+        "key": "catalysts",
+        "type": "string",
+        "default": "",
+        "label": "Catalizadores devueltos (items/#tags separados por coma)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botania",
+      "requiresAddon": "kubejs-botania",
+      "argsTemplate": "event.recipes.botania.runic_altar({output}, {inputs}, {field:mana})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "offering",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 16,
+      "ringFromInputs": true
+    },
+    "stationItem": "botania:runic_altar",
+    "rawJson": {
+      "catalysts": "$field:catalysts:ingredient_list||[]",
+      "ingredients": "$inputs:ingredient",
+      "mana": "$field:mana",
+      "output": "$slot:output_item:item_stack",
+      "reagent": "$field:reagent:ingredient"
+    }
+  },
+  {
+    "recipeSerializer": "botania:terra_plate",
+    "displayName": "Botania - Terrestrial Agglomeration Plate (Terrasteel)",
+    "modId": "botania",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "99999",
+        "label": "Mana Cost (max 99999 per recipe)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botania",
+      "requiresAddon": "kubejs-botania",
+      "argsTemplate": "event.recipes.botania.terra_plate({output}, {inputs}, {field:mana})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "offering",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 16,
+      "ringFromInputs": true
+    },
+    "stationItem": "botania:terrestrial_agglomeration_plate",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "mana": "$field:mana",
+      "result": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "botania:mana_infusion",
+    "displayName": "Botania - Mana Pool Infusion",
+    "modId": "botania",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "8000",
+        "label": "Mana Cost (max 99999 per recipe)",
+        "required": true
+      },
+      {
+        "key": "catalyst",
+        "type": "string",
+        "default": "",
+        "label": "Catalizador debajo de la piscina (id de bloque, opcional - ej. botania:alchemy_catalyst)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botania",
+      "requiresAddon": "kubejs-botania",
+      "argsTemplate": "event.recipes.botania.mana_infusion({output}, {input}, {field:mana}, {field:catalyst})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "botania:mana_pool",
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "catalyst": "$field:catalyst:botania_block",
+      "input": "$slot:main_input:ingredient",
+      "mana": "$field:mana",
+      "output": "$slot:output_item:item_stack"
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          0,
+          -1,
+          0
+        ],
+        "block": "botania:alchemy_catalyst"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "botania:elven_trade",
+    "displayName": "Botania - Elven Trade (Portal de Alfheim)",
+    "modId": "botania",
+    "stationItem": "botania:elven_gateway_core",
+    "extraFields": [],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_output",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "repeatable": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "output": "$outputs:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "botania:pure_daisy",
+    "displayName": "Botania - Pure Daisy",
+    "modId": "botania",
+    "stationItem": "botania:pure_daisy",
+    "extraFields": [
+      {
+        "key": "time",
+        "type": "int",
+        "default": "150",
+        "label": "Tiempo (ticks)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque (o #tag)"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque resultante"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:input:botania_state",
+      "output": "$slot:output:botania_state",
+      "time": "$field:time"
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          0,
+          -1,
+          0
+        ],
+        "block": "minecraft:grass_block"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          0
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          0
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "botania:orechid",
+    "displayName": "Botania - Orechid",
+    "modId": "botania",
+    "stationItem": "botania:orechid",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "17500",
+        "label": "Mana por conversion",
+        "required": true
+      },
+      {
+        "key": "weight",
+        "type": "int",
+        "default": "100",
+        "label": "Peso (probabilidad relativa)",
+        "required": true
+      },
+      {
+        "key": "cooldown",
+        "type": "int",
+        "default": "100",
+        "label": "Enfriamiento (ticks)"
+      },
+      {
+        "key": "biome_bonus_tag",
+        "type": "string",
+        "default": "",
+        "label": "Tag de bioma con bonus (opcional, sin #)"
+      },
+      {
+        "key": "biome_bonus_weight",
+        "type": "int",
+        "default": "0",
+        "label": "Peso extra en esos biomas"
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque que se convierte (o #tag)"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque resultante"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "biome_bonus_tag": "$field:biome_bonus_tag",
+      "biome_bonus_weight": "$field:biome_bonus_weight",
+      "cooldown": "$field:cooldown",
+      "input": "$slot:input:botania_state",
+      "mana": "$field:mana",
+      "output": "$slot:output:botania_state",
+      "weight": "$field:weight"
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          0,
+          -1,
+          0
+        ],
+        "block": "minecraft:grass_block"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          0
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          0
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "botania:orechid_ignem",
+    "displayName": "Botania - Orechid Ignem",
+    "modId": "botania",
+    "stationItem": "botania:orechid_ignem",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "20000",
+        "label": "Mana por conversion",
+        "required": true
+      },
+      {
+        "key": "weight",
+        "type": "int",
+        "default": "100",
+        "label": "Peso (probabilidad relativa)",
+        "required": true
+      },
+      {
+        "key": "cooldown",
+        "type": "int",
+        "default": "100",
+        "label": "Enfriamiento (ticks)"
+      },
+      {
+        "key": "biome_bonus_tag",
+        "type": "string",
+        "default": "",
+        "label": "Tag de bioma con bonus (opcional, sin #)"
+      },
+      {
+        "key": "biome_bonus_weight",
+        "type": "int",
+        "default": "0",
+        "label": "Peso extra en esos biomas"
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque que se convierte (o #tag)"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque resultante"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "biome_bonus_tag": "$field:biome_bonus_tag",
+      "biome_bonus_weight": "$field:biome_bonus_weight",
+      "cooldown": "$field:cooldown",
+      "input": "$slot:input:botania_state",
+      "mana": "$field:mana",
+      "output": "$slot:output:botania_state",
+      "weight": "$field:weight"
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          0,
+          -1,
+          0
+        ],
+        "block": "minecraft:soul_soil"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          0
+        ],
+        "block": "minecraft:netherrack"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          0
+        ],
+        "block": "minecraft:netherrack"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          1
+        ],
+        "block": "minecraft:netherrack"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          -1
+        ],
+        "block": "minecraft:netherrack"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          1
+        ],
+        "block": "minecraft:netherrack"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          -1
+        ],
+        "block": "minecraft:netherrack"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          1
+        ],
+        "block": "minecraft:netherrack"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          -1
+        ],
+        "block": "minecraft:netherrack"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "botania:marimorphosis",
+    "displayName": "Botania - Marimorphosis",
+    "modId": "botania",
+    "stationItem": "botania:marimorphosis",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "12",
+        "label": "Mana por conversion",
+        "required": true
+      },
+      {
+        "key": "weight",
+        "type": "int",
+        "default": "100",
+        "label": "Peso (probabilidad relativa)",
+        "required": true
+      },
+      {
+        "key": "cooldown",
+        "type": "int",
+        "default": "0",
+        "label": "Enfriamiento (ticks)"
+      },
+      {
+        "key": "biome_bonus_tag",
+        "type": "string",
+        "default": "",
+        "label": "Tag de bioma con bonus (opcional, sin #)"
+      },
+      {
+        "key": "biome_bonus_weight",
+        "type": "int",
+        "default": "0",
+        "label": "Peso extra en esos biomas"
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque que se convierte (o #tag)"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque resultante"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "biome_bonus_tag": "$field:biome_bonus_tag",
+      "biome_bonus_weight": "$field:biome_bonus_weight",
+      "cooldown": "$field:cooldown",
+      "input": "$slot:input:botania_state",
+      "mana": "$field:mana",
+      "output": "$slot:output:botania_state",
+      "weight": "$field:weight"
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          0,
+          -1,
+          0
+        ],
+        "block": "minecraft:grass_block"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          0
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          0
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          1,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          1
+        ],
+        "block": "minecraft:stone"
+      },
+      {
+        "pos": [
+          -1,
+          0,
+          -1
+        ],
+        "block": "minecraft:stone"
+      }
+    ]
+  }
+]

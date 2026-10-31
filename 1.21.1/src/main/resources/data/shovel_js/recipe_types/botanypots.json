@@ -1,0 +1,323 @@
+[
+  {
+    "recipeSerializer": "botanypots:crop",
+    "displayName": "Botany Pots - Crop",
+    "modId": "botanypots",
+    "stationItem": "botanypots:terracotta_botany_pot",
+    "extraFields": [
+      {
+        "key": "soil",
+        "type": "string",
+        "default": "",
+        "label": "Soil (item or #tag, optional - empty = any soil)"
+      },
+      {
+        "key": "growTime",
+        "type": "int",
+        "default": "1200",
+        "label": "Grow Time (ticks)"
+      },
+      {
+        "key": "displayBlock",
+        "type": "string",
+        "default": "minecraft:wheat",
+        "label": "Display block (block id shown in the pot)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botanypots",
+      "requiresAddon": "kubejs-botany-pots",
+      "argsTemplate": "event.recipes.botanypots.crop({input} /* seed */, /* categories */ [], /* displayBlock */ {}, {output} /* drops, chance+rolls */, /* growthTicks */ 10, /* growthModifier */ 1){extra}",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "soil": "$field:soil:ingredient",
+      "grow_time": "$field:growTime",
+      "display": {
+        "type": "botanypots:simple",
+        "block_state": {
+          "block": "$field:displayBlock"
+        }
+      },
+      "drops": [
+        {
+          "type": "botanypots:items",
+          "items": "$outputs:bp_drop"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "botanypots:soil",
+    "displayName": "Botany Pots - Soil",
+    "modId": "botanypots",
+    "stationItem": "botanypots:terracotta_botany_pot",
+    "extraFields": [
+      {
+        "key": "soilItem",
+        "type": "item",
+        "default": "minecraft:dirt",
+        "label": "Soil item (item or #tag)",
+        "required": true
+      },
+      {
+        "key": "displayBlock",
+        "type": "string",
+        "default": "minecraft:dirt",
+        "label": "Display block (block id shown in the pot)",
+        "required": true
+      },
+      {
+        "key": "growthModifier",
+        "type": "float",
+        "default": "1.0",
+        "label": "Growth Modifier"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botanypots",
+      "requiresAddon": "kubejs-botany-pots",
+      "argsTemplate": "event.recipes.botanypots.soil({input} /* soil item */, /* displayBlock */ {}, /* categories */ [], /* growthTicks */ 100, /* growthModifier */ 1)",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "input": "$field:soilItem:ingredient",
+      "display": {
+        "type": "botanypots:simple",
+        "block_state": {
+          "block": "$field:displayBlock"
+        }
+      },
+      "growth_modifier": "$field:growthModifier"
+    }
+  },
+  {
+    "recipeSerializer": "botanypots:fertilizer",
+    "displayName": "Botany Pots - Fertilizer",
+    "modId": "botanypots",
+    "stationItem": "botanypots:terracotta_botany_pot",
+    "extraFields": [
+      {
+        "key": "fertilizerItem",
+        "type": "item",
+        "default": "minecraft:bone_meal",
+        "label": "Fertilizer item (item or #tag)",
+        "required": true
+      },
+      {
+        "key": "minGrowthTicks",
+        "type": "int",
+        "default": "400",
+        "label": "Min growth (ticks)"
+      },
+      {
+        "key": "maxGrowthTicks",
+        "type": "int",
+        "default": "600",
+        "label": "Max growth (ticks)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botanypots",
+      "requiresAddon": "kubejs-botany-pots",
+      "argsTemplate": "event.recipes.botanypots.fertilizer({input}, /* minGrowthTicks */ 10, /* maxGrowthTicks */ 20)",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "held_item": "$field:fertilizerItem:ingredient",
+      "growth": {
+        "type": "botanypots:ranged",
+        "min": "$field:minGrowthTicks",
+        "max": "$field:maxGrowthTicks"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "botanypots:block_derived_crop",
+    "displayName": "Botany Pots - Crop (derivado del bloque)",
+    "modId": "botanypots",
+    "stationItem": "botanypots:terracotta_botany_pot",
+    "extraFields": [
+      {
+        "key": "block",
+        "type": "string",
+        "default": "",
+        "label": "Bloque del cultivo (vacio = el del item)"
+      },
+      {
+        "key": "soil",
+        "type": "string",
+        "default": "",
+        "label": "Suelo (item o #tag, vacio = el que defina el bloque)"
+      }
+    ],
+    "rawJson": {
+      "block": "$field:block||$input:item_id",
+      "input": "$input:ingredient",
+      "soil": "$field:soil:ingredient"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "seed",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Semilla / bloque del cultivo"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:wheat",
+          "label": "Cultivo de la maceta"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "botanypots:block_derived_soil",
+    "displayName": "Botany Pots - Soil (derivado del bloque)",
+    "modId": "botanypots",
+    "stationItem": "botanypots:terracotta_botany_pot",
+    "extraFields": [],
+    "rawJson": {
+      "block": "$input:item_id"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "block",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque que sirve de suelo"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:dirt",
+          "label": "Suelo de la maceta"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "botanypots:pot_interaction",
+    "displayName": "Botany Pots - Interaccion con la maceta",
+    "modId": "botanypots",
+    "stationItem": "botanypots:terracotta_botany_pot",
+    "extraFields": [
+      {
+        "key": "sound",
+        "type": "string",
+        "default": "",
+        "label": "Sonido (id, opcional)"
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "held_item",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Item en la mano"
+        },
+        {
+          "id": "soil_item",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Suelo actual"
+        },
+        {
+          "id": "new_soil",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Suelo nuevo"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "held_item": "$slot:held_item:ingredient",
+      "soil_item": "$slot:soil_item:ingredient",
+      "new_soil": "$slot:new_soil:item_stack",
+      "sound_effect": {
+        "id": "$field:sound",
+        "category": "BLOCKS"
+      }
+    }
+  }
+]

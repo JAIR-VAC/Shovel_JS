@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kve.client.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "shovel_api.refmap.json",
+  "client": [
+    "GuiGraphicsTooltipScaleMixin",
+    "GameRendererEditorMixin",
+    "MinecraftFramerateMixin"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kve.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "shovel_api.refmap.json",
+  "mixins": [
+    "AttributeMapAccessor",
+    "MeleeAttackGoalMixin",
+    "SinglePoolElementMixin",
+    "TemplateStructurePieceMixin"
+  ]
+}

@@ -1,0 +1,112 @@
+# ARCHIVO DE DESARROLLO (runClient): declara los dos mods juntos porque en
+# dev comparten source set. Los jars usan src/packaging/runtime y
+# src/packaging/editor (ver build.gradle) - mantener los tres en sync.
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/JAIR-VAC/shovel_js/issues"
+
+[[mixins]]
+    config="shovel_api.mixins.json"
+
+[[mods]]
+modId="shovel_api"
+version="1.0.0"
+displayName="Shovel API"
+authors="Jairvac"
+logoFile="logo_api.png"
+displayURL="https://github.com/JAIR-VAC/shovel_js"
+description='''
+Shovel API (runtime of Shovel JS): applies in game everything made with the Shovel JS editor
+(item/mob/block rules, ShovelAPI for KubeJS scripts, structure spawn caps, trades).
+Keep this jar in a modpack even after removing the editor (shovel_js) - edits keep working.
+Shovel JS is an in-game visual studio for modpack makers on Forge 1.20.1.
+Edit recipes (vanilla and modded machines such as Create, Mekanism, Ars Nouveau and more),
+items, blocks, mobs, tags, loot tables, villager trades, events, world generation and
+structures from a GUI - no code required. Changes are exported as KubeJS scripts and
+datapack files, with a pending-changes queue, diffs and undo.
+Adds a Shovel JS button to JEI and EMI to open any recipe in the editor.
+Some features require KubeJS (and its addons) - run /reload after applying changes.
+'''
+
+[[dependencies.shovel_api]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.2,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shovel_api]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shovel_api]]
+    modId="kubejs"
+    mandatory=false
+    versionRange="[2001,)"
+    # AFTER (not NONE): when KubeJS IS present we want it fully constructed
+    # before KVE's own mod-init runs, since our optional integration
+    # (com.kve.integration.kubejs) assumes KubeJS's classes are safe to
+    # touch once ModList.get().isLoaded("kubejs") is true. Harmless either
+    # way when KubeJS is absent.
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.shovel_api]]
+    modId="jade"
+    mandatory=false
+    versionRange="[11,)"
+    # Jade discovers plugins itself via its own @WailaPlugin annotation
+    # scan (see KveJadePlugin's class doc) rather than anything Forge's
+    # mod-loading order controls, so AFTER/BEFORE/NONE make no functional
+    # difference here - AFTER kept only for consistency with the kubejs
+    # entry above. side=BOTH because Jade itself supports being installed
+    # on just the client (tooltips are a client-only feature), but KVE's
+    # own compat needs BOTH present when the requirement was declared on a
+    # dedicated server - see BlockToolRuleSyncPacket's class doc.
+    ordering="AFTER"
+    side="BOTH"
+
+[[mods]]
+modId="shovel_js"
+version="1.0.0"
+displayName="Shovel JS"
+authors="Jairvac"
+logoFile="logo.png"
+displayURL="https://github.com/JAIR-VAC/shovel_js"
+# El editor es opcional en cada lado: no marcar el servidor como incompatible si falta.
+displayTest="IGNORE_ALL_VERSION"
+description='''
+Shovel JS is an in-game visual studio for modpack makers on Forge 1.20.1.
+Edit recipes (vanilla and modded machines such as Create, Mekanism, Ars Nouveau and more),
+items, blocks, mobs, tags, loot tables, villager trades, events, world generation and
+structures from a GUI - no code required. Changes are exported as KubeJS scripts and
+datapack files, with a pending-changes queue, diffs and undo.
+Requires Shovel API (shovel_api). Remove this jar when the pack is done:
+everything you made keeps working with the runtime alone.
+'''
+
+[[dependencies.shovel_js]]
+    modId="shovel_api"
+    mandatory=true
+    versionRange="[1.0.0,)"
+    # El runtime se construye antes (carga KVEConfig y el estado que el editor usa).
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.shovel_js]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.2,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shovel_js]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.21)"
+    ordering="NONE"
+    side="BOTH"

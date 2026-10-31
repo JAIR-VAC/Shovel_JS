@@ -1,0 +1,670 @@
+[
+  {
+    "recipeSerializer": "ars_nouveau:enchanting_apparatus",
+    "displayName": "Ars Nouveau - Enchanting Apparatus",
+    "modId": "ars_nouveau",
+    "extraFields": [
+      {
+        "key": "reagent",
+        "type": "item",
+        "default": "",
+        "label": "Reagent (central item)",
+        "required": true
+      },
+      {
+        "key": "sourceCost",
+        "type": "int",
+        "default": "1000",
+        "label": "Source Cost"
+      },
+      {
+        "key": "keepNbtOfReagent",
+        "type": "boolean",
+        "default": "false",
+        "label": "Keep NBT of Reagent (like a smithing recipe)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "ars_nouveau",
+      "requiresAddon": "kubejs-ars-nouveau",
+      "argsTemplate": "event.recipes.ars_nouveau.enchanting_apparatus({inputs}, {field:reagent}, {output}, {field:sourceCost}, {field:keepNbtOfReagent})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "pedestal_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 8,
+      "centerField": "reagent",
+      "ringFromInputs": true
+    },
+    "stationItem": "ars_nouveau:enchanting_apparatus",
+    "rawJson": {
+      "reagent": [
+        "$field:reagent:ingredient"
+      ],
+      "pedestalItems": "$inputs:ingredient||[]",
+      "output": "$slot:output_item:item_stack",
+      "sourceCost": "$field:sourceCost",
+      "keepNbtOfReagent": "$field:keepNbtOfReagent"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:enchantment",
+    "displayName": "Ars Nouveau - Enchanting Apparatus (Apply Enchantment)",
+    "modId": "ars_nouveau",
+    "extraFields": [
+      {
+        "key": "enchantment",
+        "type": "string",
+        "default": "minecraft:sharpness",
+        "label": "Enchantment ID",
+        "required": true
+      },
+      {
+        "key": "level",
+        "type": "int",
+        "default": "1",
+        "label": "Enchantment Level"
+      },
+      {
+        "key": "sourceCost",
+        "type": "int",
+        "default": "1000",
+        "label": "Source Cost"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "ars_nouveau",
+      "requiresAddon": "kubejs-ars-nouveau",
+      "argsTemplate": "event.recipes.ars_nouveau.enchantment({inputs}, {field:enchantment}, {field:level}, {field:sourceCost})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "ars_nouveau:enchanting_apparatus",
+    "rawJson": {
+      "enchantment": "$field:enchantment",
+      "level": "$field:level",
+      "sourceCost": "$field:sourceCost",
+      "pedestalItems": "$inputs:wrapped_ingredient||[]"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:glyph",
+    "displayName": "Ars Nouveau - Scribe's Table (Glyph Recipe)",
+    "modId": "ars_nouveau",
+    "idFromOutput": true,
+    "extraFields": [
+      {
+        "key": "exp",
+        "type": "int",
+        "default": "3",
+        "label": "Experience Cost"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "ars_nouveau",
+      "requiresAddon": "kubejs-ars-nouveau",
+      "argsTemplate": "event.recipes.ars_nouveau.glyph({output} /* must be a valid, already-registered glyph item - this call can only REPLACE an existing glyph's recipe, not create a brand-new one */, {inputs}, {field:exp})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "ars_nouveau:scribes_table",
+    "rawJson": {
+      "output": "$slot:output_item:item_id",
+      "count": "$slot:output_item:amount",
+      "exp": "$field:exp",
+      "inputItems": "$inputs:wrapped_ingredient"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:imbuement",
+    "displayName": "Ars Nouveau - Imbuement Chamber",
+    "modId": "ars_nouveau",
+    "extraFields": [
+      {
+        "key": "sourceCost",
+        "type": "int",
+        "default": "1000",
+        "label": "Source Cost"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "ars_nouveau",
+      "requiresAddon": "kubejs-ars-nouveau",
+      "argsTemplate": "event.recipes.ars_nouveau.imbuement({input}, {output}, {field:sourceCost}, {field:pedestalItems})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "ars_nouveau:imbuement_chamber",
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "pedestal_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "output": "$slot:output_item:item_id",
+      "count": "$slot:output_item:amount",
+      "source": "$field:sourceCost",
+      "pedestalItems": "$inputs:wrapped_ingredient:main_input||[]"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:crush",
+    "displayName": "Ars Nouveau - Crusher (Crush Block)",
+    "modId": "ars_nouveau",
+    "stationItem": "ars_nouveau:glyph_crush",
+    "extraFields": [
+      {
+        "key": "skipBlockPlace",
+        "type": "boolean",
+        "default": "false",
+        "label": "Skip Block Place"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "ars_nouveau",
+      "requiresAddon": "kubejs-ars-nouveau",
+      "argsTemplate": "event.recipes.ars_nouveau.crush({input}, [Item.of({output}).withChance(1)], {field:dropsInWorld})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_output",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "repeatable": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "output": "$outputs:ars_crush_result",
+      "skip_block_place": "$field:skipBlockPlace"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:caster_tome",
+    "displayName": "Ars Nouveau - Caster Tome (registry-style, not an ingredient/output recipe)",
+    "modId": "ars_nouveau",
+    "extraFields": [
+      {
+        "key": "tomeName",
+        "type": "string",
+        "default": "My Custom Tome",
+        "label": "Tome Name (shown in /ars-tome)",
+        "required": true
+      },
+      {
+        "key": "flavourText",
+        "type": "string",
+        "default": "",
+        "label": "Flavour Text"
+      },
+      {
+        "key": "spellGlyphs",
+        "type": "string",
+        "default": "ars_nouveau:glyph_self",
+        "label": "Spell Glyphs (comma separated)",
+        "required": true,
+        "repeatable": true
+      },
+      {
+        "key": "soundFamily",
+        "type": "string",
+        "default": "ars_nouveau:default_family",
+        "label": "Sound Family"
+      },
+      {
+        "key": "colorRed",
+        "type": "int",
+        "default": "255",
+        "label": "Color Red (0-255)"
+      },
+      {
+        "key": "colorGreen",
+        "type": "int",
+        "default": "255",
+        "label": "Color Green (0-255)"
+      },
+      {
+        "key": "colorBlue",
+        "type": "int",
+        "default": "255",
+        "label": "Color Blue (0-255)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "ars_nouveau",
+      "requiresAddon": "kubejs-ars-nouveau",
+      "argsTemplate": "event.custom({ type: 'ars_nouveau:caster_tome', tome_type: 'ars_nouveau:caster_tome', name: {field:tomeName}, flavour_text: {field:flavourText}, color: { type: 'ars_nouveau:constant', red: 255, green: 255, blue: 255 } /* 1.20.1 shape - edit RGB or swap for a packed int on 1.20.4+ */, sound: { family: {field:soundFamily}, pitch: 1, volume: 1 }, spell: {field:spellGlyphs} }).id('shovel_js:example_tome')",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "tome_type": "ars_nouveau:caster_tome",
+      "name": "$field:tomeName",
+      "flavour_text": "$field:flavourText",
+      "color": {
+        "type": "ars_nouveau:constant",
+        "red": "$field:colorRed",
+        "green": "$field:colorGreen",
+        "blue": "$field:colorBlue"
+      },
+      "sound": {
+        "family": "$field:soundFamily",
+        "pitch": 1.0,
+        "volume": 1.0
+      },
+      "spell": "$field:spellGlyphs:list"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:budding_conversion",
+    "displayName": "Ars Nouveau - Budding Conversion (Ritual)",
+    "modId": "ars_nouveau",
+    "stationItem": "ars_nouveau:ritual_brazier",
+    "extraFields": [],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque brotante"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:input:item_id",
+      "result": "$slot:result:item_id"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:scry_ritual",
+    "displayName": "Ars Nouveau - Ritual of Scrying",
+    "modId": "ars_nouveau",
+    "stationItem": "ars_nouveau:ritual_brazier",
+    "extraFields": [
+      {
+        "key": "augment",
+        "type": "string",
+        "default": "forge:ores/iron",
+        "label": "Tag de item que activa (sin #)",
+        "required": true
+      },
+      {
+        "key": "highlight",
+        "type": "string",
+        "default": "forge:ores/iron",
+        "label": "Tag de bloque a resaltar (sin #)",
+        "required": true
+      }
+    ],
+    "rawJson": {
+      "augment": "$field:augment",
+      "highlight": "$field:highlight"
+    },
+    "noOutput": true,
+    "noIngredients": true
+  },
+  {
+    "recipeSerializer": "ars_nouveau:summon_ritual",
+    "displayName": "Ars Nouveau - Ritual of Summoning",
+    "modId": "ars_nouveau",
+    "stationItem": "ars_nouveau:ritual_brazier",
+    "extraFields": [
+      {
+        "key": "count",
+        "type": "int",
+        "default": "3",
+        "label": "Cantidad de mobs",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "augment",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Aumento"
+        },
+        {
+          "id": "mob",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "label": "Huevo del mob (cantidad = peso)"
+        },
+        {
+          "id": "extra_mob",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "repeatable": true,
+          "label": "Huevo del mob (cantidad = peso)"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "augment": "$slot:augment:ingredient",
+      "count": "$field:count",
+      "mobs": "$outputs:weighted_entity",
+      "source": "MOB_LIST"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:dispel_entity",
+    "displayName": "Ars Nouveau - Dispel (loot al disipar)",
+    "modId": "ars_nouveau",
+    "stationItem": "ars_nouveau:glyph_dispel",
+    "extraFields": [
+      {
+        "key": "loot_table",
+        "type": "string",
+        "default": "",
+        "label": "Loot table que suelta",
+        "required": true
+      },
+      {
+        "key": "loot_conditions",
+        "type": "string",
+        "default": "",
+        "label": "Condiciones de loot (JSON, opcional)"
+      }
+    ],
+    "rawJson": {
+      "entity": "$input:entity_id",
+      "loot_conditions": "$field:loot_conditions||[]",
+      "loot_table": "$field:loot_table"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "mob",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Huevo del mob"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:chest",
+          "label": "Loot al disiparlo"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:dye",
+    "displayName": "Ars Nouveau - Teñido (crafting)",
+    "modId": "ars_nouveau",
+    "stationItem": "minecraft:crafting_table",
+    "extraFields": [],
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "result": "$output:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "ars_nouveau:armor_upgrade",
+    "displayName": "Ars Nouveau - Mejora de armadura (Enchanting Apparatus)",
+    "modId": "ars_nouveau",
+    "stationItem": "ars_nouveau:enchanting_apparatus",
+    "extraFields": [
+      {
+        "key": "tier",
+        "type": "int",
+        "default": "1",
+        "label": "Nivel de la armadura (1-3)",
+        "required": true
+      },
+      {
+        "key": "sourceCost",
+        "type": "int",
+        "default": "2500",
+        "label": "Coste de Source",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "pedestal",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "label": "Pedestal"
+        },
+        {
+          "id": "extra_pedestal",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 26,
+          "repeatable": true,
+          "label": "Pedestal"
+        }
+      ],
+      "arrow": {
+        "x": 68,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 96,
+          "y": 26,
+          "item": "minecraft:netherite_chestplate",
+          "label": "La armadura sube de nivel"
+        }
+      ]
+    },
+    "rawJson": {
+      "pedestalItems": "$inputs:wrapped_ingredient",
+      "sourceCost": "$field:sourceCost",
+      "tier": "$field:tier"
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          2,
+          0,
+          0
+        ],
+        "block": "ars_nouveau:arcane_pedestal"
+      },
+      {
+        "pos": [
+          -2,
+          0,
+          0
+        ],
+        "block": "ars_nouveau:arcane_pedestal"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          2
+        ],
+        "block": "ars_nouveau:arcane_pedestal"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          -2
+        ],
+        "block": "ars_nouveau:arcane_pedestal"
+      }
+    ],
+    "noOutput": true
+  }
+]

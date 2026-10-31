@@ -1,0 +1,344 @@
+[
+  {
+    "recipeSerializer": "minecraft:smelting",
+    "displayName": "Minecraft - Horno",
+    "modId": "minecraft",
+    "stationItem": "minecraft:furnace",
+    "extraFields": [
+      {
+        "key": "experience",
+        "type": "float",
+        "default": "0.1",
+        "label": "Experiencia"
+      },
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo de coccion (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 2,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 58,
+          "y": 20,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 26,
+        "y": 22,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 2,
+          "y": 38,
+          "item": "minecraft:coal",
+          "label": "Combustible (no es parte de la receta)"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:output:item_stack",
+      "experience": "$field:experience",
+      "cookingtime": "$field:cookingtime"
+    },
+    "stationBlockState": "lit=true"
+  },
+  {
+    "recipeSerializer": "minecraft:blasting",
+    "displayName": "Minecraft - Alto horno",
+    "modId": "minecraft",
+    "stationItem": "minecraft:blast_furnace",
+    "extraFields": [
+      {
+        "key": "experience",
+        "type": "float",
+        "default": "0.1",
+        "label": "Experiencia"
+      },
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "100",
+        "label": "Tiempo de coccion (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 2,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 58,
+          "y": 20,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 26,
+        "y": 22,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 2,
+          "y": 38,
+          "item": "minecraft:coal",
+          "label": "Combustible (no es parte de la receta)"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:output:item_stack",
+      "experience": "$field:experience",
+      "cookingtime": "$field:cookingtime"
+    },
+    "stationBlockState": "lit=true"
+  },
+  {
+    "recipeSerializer": "minecraft:smoking",
+    "displayName": "Minecraft - Ahumador",
+    "modId": "minecraft",
+    "stationItem": "minecraft:smoker",
+    "extraFields": [
+      {
+        "key": "experience",
+        "type": "float",
+        "default": "0.1",
+        "label": "Experiencia"
+      },
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "100",
+        "label": "Tiempo de coccion (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 2,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 58,
+          "y": 20,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 26,
+        "y": 22,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 2,
+          "y": 38,
+          "item": "minecraft:coal",
+          "label": "Combustible (no es parte de la receta)"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:output:item_stack",
+      "experience": "$field:experience",
+      "cookingtime": "$field:cookingtime"
+    },
+    "stationBlockState": "lit=true"
+  },
+  {
+    "recipeSerializer": "minecraft:campfire_cooking",
+    "displayName": "Minecraft - Fogata",
+    "modId": "minecraft",
+    "stationItem": "minecraft:campfire",
+    "extraFields": [
+      {
+        "key": "experience",
+        "type": "float",
+        "default": "0.1",
+        "label": "Experiencia"
+      },
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "600",
+        "label": "Tiempo de coccion (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 20,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 58,
+          "y": 20,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 26,
+        "y": 22,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:output:item_stack",
+      "experience": "$field:experience",
+      "cookingtime": "$field:cookingtime"
+    },
+    "stationBlockState": "lit=true"
+  },
+  {
+    "recipeSerializer": "minecraft:stonecutting",
+    "displayName": "Minecraft - Cortapiedras",
+    "modId": "minecraft",
+    "stationItem": "minecraft:stonecutter",
+    "extraFields": [],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 20,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 58,
+          "y": 20,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 26,
+        "y": 22,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:output:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "minecraft:smithing_transform",
+    "displayName": "Minecraft - Mesa de herreria (mejora)",
+    "modId": "minecraft",
+    "stationItem": "minecraft:smithing_table",
+    "extraFields": [],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "template",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 20,
+          "required": true,
+          "label": "Plantilla"
+        },
+        {
+          "id": "base",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 20,
+          "required": true,
+          "label": "Base"
+        },
+        {
+          "id": "addition",
+          "role": "input",
+          "type": "item",
+          "x": 38,
+          "y": 20,
+          "required": true,
+          "label": "Material"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 94,
+          "y": 20,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 62,
+        "y": 22,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "template": "$slot:template:ingredient",
+      "base": "$slot:base:ingredient",
+      "addition": "$slot:addition:ingredient",
+      "result": "$slot:output:item_stack"
+    }
+  }
+]

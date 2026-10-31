@@ -1,0 +1,611 @@
+[
+  {
+    "recipeSerializer": "ad_astra:compressing",
+    "displayName": "Ad Astra - Compressor",
+    "modId": "ad_astra",
+    "stationItem": "ad_astra:compressor",
+    "extraFields": [
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo (ticks)",
+        "required": true
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "20",
+        "label": "Energia por tick (FE)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 16,
+          "y": 20,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 72,
+          "y": 20,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 44,
+        "y": 21,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 56,
+        "field": "energy",
+        "unit": "FE/t"
+      }
+    },
+    "rawJson": {
+      "cookingtime": "$field:cookingtime",
+      "energy": "$field:energy",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:id_stack"
+    }
+  },
+  {
+    "recipeSerializer": "ad_astra:alloying",
+    "displayName": "Ad Astra - Etrionic Blast Furnace",
+    "modId": "ad_astra",
+    "stationItem": "ad_astra:etrionic_blast_furnace",
+    "extraFields": [
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "100",
+        "label": "Tiempo (ticks)",
+        "required": true
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "20",
+        "label": "Energia por tick (FE)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input_1",
+          "role": "input",
+          "type": "item",
+          "x": 16,
+          "y": 10,
+          "required": true,
+          "label": "Ingrediente 1"
+        },
+        {
+          "id": "input_2",
+          "role": "input",
+          "type": "item",
+          "x": 34,
+          "y": 10,
+          "label": "Ingrediente 2"
+        },
+        {
+          "id": "input_3",
+          "role": "input",
+          "type": "item",
+          "x": 16,
+          "y": 28,
+          "label": "Ingrediente 3"
+        },
+        {
+          "id": "input_4",
+          "role": "input",
+          "type": "item",
+          "x": 34,
+          "y": 28,
+          "label": "Ingrediente 4"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 88,
+          "y": 19,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 60,
+        "y": 20,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 56,
+        "field": "energy",
+        "unit": "FE/t"
+      }
+    },
+    "rawJson": {
+      "cookingtime": "$field:cookingtime",
+      "energy": "$field:energy",
+      "ingredients": [
+        "$slot:input_1:ingredient",
+        "$slot:input_2:ingredient",
+        "$slot:input_3:ingredient",
+        "$slot:input_4:ingredient"
+      ],
+      "result": "$slot:result:id_stack"
+    }
+  },
+  {
+    "recipeSerializer": "ad_astra:cryo_freezing",
+    "displayName": "Ad Astra - Cryo Freezer",
+    "modId": "ad_astra",
+    "stationItem": "ad_astra:cryo_freezer",
+    "extraFields": [
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "120",
+        "label": "Tiempo (ticks)",
+        "required": true
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "40",
+        "label": "Energia por tick (FE)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 16,
+          "y": 20,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "fluid",
+          "x": 72,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "h": 56,
+          "label": "Fluido"
+        }
+      ],
+      "arrow": {
+        "x": 44,
+        "y": 21,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 56,
+        "field": "energy",
+        "unit": "FE/t"
+      }
+    },
+    "rawJson": {
+      "cookingtime": "$field:cookingtime",
+      "energy": "$field:energy",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:astra_fluid"
+    }
+  },
+  {
+    "recipeSerializer": "ad_astra:refining",
+    "displayName": "Ad Astra - Fuel Refinery",
+    "modId": "ad_astra",
+    "stationItem": "ad_astra:fuel_refinery",
+    "extraFields": [
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "1",
+        "label": "Tiempo (ticks)",
+        "required": true
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "30",
+        "label": "Energia por tick (FE)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "fluid",
+          "x": 16,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "h": 56,
+          "label": "Fluido de entrada (id o #tag)"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "fluid",
+          "x": 72,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "h": 56,
+          "label": "Fluido refinado"
+        }
+      ],
+      "arrow": {
+        "x": 44,
+        "y": 21,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 56,
+        "field": "energy",
+        "unit": "FE/t"
+      }
+    },
+    "rawJson": {
+      "cookingtime": "$field:cookingtime",
+      "energy": "$field:energy",
+      "input": "$slot:input:astra_fluid_ingredient",
+      "result": "$slot:result:astra_fluid"
+    }
+  },
+  {
+    "recipeSerializer": "ad_astra:oxygen_loading",
+    "displayName": "Ad Astra - Oxygen Loader",
+    "modId": "ad_astra",
+    "stationItem": "ad_astra:oxygen_loader",
+    "extraFields": [
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "1",
+        "label": "Tiempo (ticks)",
+        "required": true
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "30",
+        "label": "Energia por tick (FE)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "fluid",
+          "x": 16,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "h": 56,
+          "label": "Fluido de entrada (id o #tag)"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "fluid",
+          "x": 72,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "h": 56,
+          "label": "Oxigeno"
+        }
+      ],
+      "arrow": {
+        "x": 44,
+        "y": 21,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 0,
+        "y": 0,
+        "w": 6,
+        "h": 56,
+        "field": "energy",
+        "unit": "FE/t"
+      }
+    },
+    "rawJson": {
+      "cookingtime": "$field:cookingtime",
+      "energy": "$field:energy",
+      "input": "$slot:input:astra_fluid_ingredient",
+      "result": "$slot:result:astra_fluid"
+    }
+  },
+  {
+    "recipeSerializer": "ad_astra:nasa_workbench",
+    "displayName": "Ad Astra - NASA Workbench",
+    "modId": "ad_astra",
+    "stationItem": "ad_astra:nasa_workbench",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "part_0",
+          "role": "input",
+          "type": "item",
+          "x": 27,
+          "y": 0,
+          "required": true,
+          "label": "Punta"
+        },
+        {
+          "id": "part_1",
+          "role": "input",
+          "type": "item",
+          "x": 18,
+          "y": 18,
+          "required": true,
+          "label": "Cuerpo 1"
+        },
+        {
+          "id": "part_2",
+          "role": "input",
+          "type": "item",
+          "x": 36,
+          "y": 18,
+          "required": true,
+          "label": "Cuerpo 2"
+        },
+        {
+          "id": "part_3",
+          "role": "input",
+          "type": "item",
+          "x": 18,
+          "y": 36,
+          "required": true,
+          "label": "Cuerpo 3"
+        },
+        {
+          "id": "part_4",
+          "role": "input",
+          "type": "item",
+          "x": 36,
+          "y": 36,
+          "required": true,
+          "label": "Cuerpo 4"
+        },
+        {
+          "id": "part_5",
+          "role": "input",
+          "type": "item",
+          "x": 18,
+          "y": 54,
+          "required": true,
+          "label": "Cuerpo 5"
+        },
+        {
+          "id": "part_6",
+          "role": "input",
+          "type": "item",
+          "x": 36,
+          "y": 54,
+          "required": true,
+          "label": "Cuerpo 6"
+        },
+        {
+          "id": "part_7",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 72,
+          "required": true,
+          "label": "Aleta izquierda"
+        },
+        {
+          "id": "part_8",
+          "role": "input",
+          "type": "item",
+          "x": 18,
+          "y": 72,
+          "required": true,
+          "label": "Tanque 1"
+        },
+        {
+          "id": "part_9",
+          "role": "input",
+          "type": "item",
+          "x": 36,
+          "y": 72,
+          "required": true,
+          "label": "Tanque 2"
+        },
+        {
+          "id": "part_10",
+          "role": "input",
+          "type": "item",
+          "x": 54,
+          "y": 72,
+          "required": true,
+          "label": "Aleta derecha"
+        },
+        {
+          "id": "part_11",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 90,
+          "required": true,
+          "label": "Aleta inf. izquierda"
+        },
+        {
+          "id": "part_12",
+          "role": "input",
+          "type": "item",
+          "x": 27,
+          "y": 90,
+          "required": true,
+          "label": "Motor"
+        },
+        {
+          "id": "part_13",
+          "role": "input",
+          "type": "item",
+          "x": 54,
+          "y": 90,
+          "required": true,
+          "label": "Aleta inf. derecha"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 104,
+          "y": 45,
+          "required": true,
+          "label": "Cohete"
+        }
+      ],
+      "arrow": {
+        "x": 78,
+        "y": 46,
+        "direction": "right"
+      },
+      "notes": [
+        {
+          "x": 78,
+          "y": 30,
+          "text": "14 piezas",
+          "color": "8899BB"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredients": [
+        "$slot:part_0:ingredient",
+        "$slot:part_1:ingredient",
+        "$slot:part_2:ingredient",
+        "$slot:part_3:ingredient",
+        "$slot:part_4:ingredient",
+        "$slot:part_5:ingredient",
+        "$slot:part_6:ingredient",
+        "$slot:part_7:ingredient",
+        "$slot:part_8:ingredient",
+        "$slot:part_9:ingredient",
+        "$slot:part_10:ingredient",
+        "$slot:part_11:ingredient",
+        "$slot:part_12:ingredient",
+        "$slot:part_13:ingredient"
+      ],
+      "result": "$slot:result:id_stack"
+    }
+  },
+  {
+    "recipeSerializer": "ad_astra:space_station_recipe",
+    "displayName": "Ad Astra - Space Station",
+    "modId": "ad_astra",
+    "stationItem": "ad_astra:launch_pad",
+    "extraFields": [
+      {
+        "key": "dimension",
+        "type": "string",
+        "default": "ad_astra:earth_orbit",
+        "label": "Dimension orbital",
+        "required": true,
+        "options": [
+          "ad_astra:earth_orbit",
+          "ad_astra:moon_orbit",
+          "ad_astra:mars_orbit",
+          "ad_astra:venus_orbit",
+          "ad_astra:mercury_orbit",
+          "ad_astra:glacio_orbit"
+        ]
+      },
+      {
+        "key": "structure",
+        "type": "string",
+        "default": "ad_astra:space_station",
+        "label": "Estructura",
+        "required": true
+      }
+    ],
+    "rawJson": {
+      "dimension": "$field:dimension",
+      "ingredients": "$inputs:sized_ingredient",
+      "structure": "$field:structure"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "material",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true
+        },
+        {
+          "id": "extra_material",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 26,
+          "repeatable": true
+        }
+      ],
+      "arrow": {
+        "x": 68,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 96,
+          "y": 26,
+          "item": "minecraft:ender_eye",
+          "label": "Estacion en orbita"
+        }
+      ]
+    }
+  }
+]

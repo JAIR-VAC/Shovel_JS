@@ -1,0 +1,504 @@
+[
+  {
+    "recipeSerializer": "apotheosis:fletching",
+    "displayName": "Apotheosis - Fletching Table",
+    "modId": "apotheosis",
+    "stationItem": "minecraft:fletching_table",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input_1",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Ingrediente 1 (punta)"
+        },
+        {
+          "id": "input_2",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 18,
+          "label": "Ingrediente 2 (vara)"
+        },
+        {
+          "id": "input_3",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 36,
+          "label": "Ingrediente 3 (pluma)"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 18,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 19,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredients": [
+        "$slot:input_1:ingredient",
+        "$slot:input_2:ingredient",
+        "$slot:input_3:ingredient"
+      ],
+      "result": "$slot:result:item_stack"
+    },
+    "unsupported": true,
+    "unsupportedReason": "Apotheosis 8 (1.21.1) ya no tiene la mesa de flechas: el serializer apotheosis:fletching no existe en Apotheosis-1.21.1-8.9.0.jar."
+  },
+  {
+    "recipeSerializer": "apothic_enchanting:infusion",
+    "displayName": "Apothic Enchanting - Infusion (mesa de encantar)",
+    "modId": "apothic_enchanting",
+    "stationItem": "minecraft:enchanting_table",
+    "extraFields": [
+      {
+        "key": "eterna",
+        "type": "float",
+        "default": "10",
+        "label": "Eterna minima",
+        "required": true
+      },
+      {
+        "key": "quanta",
+        "type": "float",
+        "default": "10",
+        "label": "Quanta minima",
+        "required": true
+      },
+      {
+        "key": "arcana",
+        "type": "float",
+        "default": "0",
+        "label": "Arcana minima",
+        "required": true
+      },
+      {
+        "key": "maxEterna",
+        "type": "float",
+        "default": "-1",
+        "label": "Eterna maxima (-1 = sin limite)"
+      },
+      {
+        "key": "maxQuanta",
+        "type": "float",
+        "default": "-1",
+        "label": "Quanta maxima (-1 = sin limite)"
+      },
+      {
+        "key": "maxArcana",
+        "type": "float",
+        "default": "-1",
+        "label": "Arcana maxima (-1 = sin limite)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Item a infusionar",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "minecraft:bookshelf",
+          "label": "Estanterias alrededor: dan Eterna / Quanta / Arcana"
+        }
+      ],
+      "notes": [
+        {
+          "x": 0,
+          "y": 42,
+          "text": "Eterna/Quanta/Arcana: campos",
+          "color": "C9A0FF"
+        }
+      ]
+    },
+    "rawJson": {
+      "input": "$slot:input:ingredient",
+      "requirements": {
+        "eterna": "$field:eterna",
+        "quanta": "$field:quanta",
+        "arcana": "$field:arcana"
+      },
+      "max_requirements": {
+        "eterna": "$field:maxEterna",
+        "quanta": "$field:maxQuanta",
+        "arcana": "$field:maxArcana"
+      },
+      "result": "$slot:result:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "apotheosis:salvaging",
+    "displayName": "Apotheosis - Salvaging Table",
+    "modId": "apotheosis",
+    "stationItem": "apotheosis:salvaging_table",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Item a reciclar",
+          "maxCount": 1
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "repeatable": true,
+          "label": "Salidas: cantidad = maximo, probabilidad (Ctrl+rueda) = minimo en % del maximo"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 22,
+          "item": "apotheosis:salvaging_table",
+          "label": "Salvaging Table"
+        }
+      ],
+      "notes": [
+        {
+          "x": 0,
+          "y": 44,
+          "text": "Ctrl+rueda en salida = minimo"
+        }
+      ]
+    },
+    "rawJson": {
+      "input": "$slot:input:ingredient",
+      "outputs": "$outputs:apoth_salvage"
+    }
+  },
+  {
+    "recipeSerializer": "apothic_spawners:spawner_modifier",
+    "displayName": "Apothic Spawners - Modificador de spawner",
+    "modId": "apothic_spawners",
+    "stationItem": "minecraft:spawner",
+    "extraFields": [
+      {
+        "key": "stat",
+        "type": "string",
+        "default": "apothic_spawners:min_delay",
+        "label": "Estadistica del spawner",
+        "required": true,
+        "options": [
+          "min_delay",
+          "max_delay",
+          "spawn_count",
+          "max_nearby_entities",
+          "req_player_range",
+          "spawn_range",
+          "ignore_players",
+          "ignore_conditions",
+          "ignore_light",
+          "redstone_control",
+          "no_ai",
+          "silent",
+          "baby"
+        ]
+      },
+      {
+        "key": "value",
+        "type": "auto",
+        "default": "-10",
+        "label": "Cambio (numero, o true/false para las de si/no)",
+        "required": true
+      },
+      {
+        "key": "consumes_offhand",
+        "type": "boolean",
+        "default": "true",
+        "label": "Consume el item de la mano secundaria"
+      },
+      {
+        "key": "mode",
+        "type": "string",
+        "default": "add",
+        "label": "Modo (add / set / multiply)"
+      }
+    ],
+    "rawJson": {
+      "mainhand": "$inputAt:0:ingredient",
+      "offhand": "$inputAt:1:ingredient",
+      "consumes_offhand": "$field:consumes_offhand",
+      "stat_changes": [
+        {
+          "type": "$field:stat:default_ns:apothic_spawners",
+          "mode": "$field:mode",
+          "value": "$field:value"
+        }
+      ]
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "mainhand",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Mano principal"
+        },
+        {
+          "id": "offhand",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 26,
+          "maxCount": 1,
+          "label": "Mano secundaria (opcional)"
+        }
+      ],
+      "arrow": {
+        "x": 48,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 76,
+          "y": 26,
+          "item": "minecraft:comparator",
+          "label": "Cambia los stats del spawner"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "apotheosis:reforging",
+    "displayName": "Apotheosis - Reforging Table (coste)",
+    "modId": "apotheosis",
+    "stationItem": "apotheosis:reforging_table",
+    "extraFields": [
+      {
+        "key": "rarity",
+        "type": "string",
+        "default": "apotheosis:common",
+        "label": "Rareza",
+        "required": true,
+        "options": [
+          "apotheosis:common",
+          "apotheosis:uncommon",
+          "apotheosis:rare",
+          "apotheosis:epic",
+          "apotheosis:mythic",
+          "apotheosis:ancient"
+        ]
+      },
+      {
+        "key": "material_cost",
+        "type": "int",
+        "default": "1",
+        "label": "Coste de material de rareza",
+        "required": true
+      },
+      {
+        "key": "sigil_cost",
+        "type": "int",
+        "default": "0",
+        "label": "Coste de Sigils of Rebirth",
+        "required": true
+      },
+      {
+        "key": "level_cost",
+        "type": "int",
+        "default": "2",
+        "label": "Coste de niveles de XP",
+        "required": true
+      }
+    ],
+    "rawJson": {
+      "rarity": "$field:rarity",
+      "material_cost": "$field:material_cost",
+      "sigil_cost": "$field:sigil_cost",
+      "level_cost": "$field:level_cost",
+      "tables": [
+        "apotheosis:simple_reforging_table",
+        "apotheosis:reforging_table"
+      ]
+    },
+    "noOutput": true,
+    "noIngredients": true
+  },
+  {
+    "recipeSerializer": "apotheosis:sized_upgrade_recipe",
+    "displayName": "Apotheosis - Smithing (mejora con cantidad)",
+    "modId": "apotheosis",
+    "stationItem": "minecraft:smithing_table",
+    "extraFields": [],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "template",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Plantilla"
+        },
+        {
+          "id": "base",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Item base"
+        },
+        {
+          "id": "addition",
+          "role": "input",
+          "type": "item",
+          "x": 40,
+          "y": 0,
+          "required": true,
+          "label": "Material (cantidad = la del stack)"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 84,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "addition": "$slot:addition:mek_item",
+      "base": "$slot:base:ingredient",
+      "result": "$slot:result:item_stack",
+      "template": "$slot:template:ingredient"
+    }
+  },
+  {
+    "recipeSerializer": "apotheosis:purity_upgrade",
+    "displayName": "Apotheosis - Gem Cutting (subir pureza)",
+    "modId": "apotheosis",
+    "stationItem": "apotheosis:gem_cutting_table",
+    "extraFields": [
+      {
+        "key": "purity",
+        "type": "string",
+        "default": "chipped",
+        "label": "Pureza que mejora",
+        "required": true,
+        "options": [
+          "cracked",
+          "chipped",
+          "flawed",
+          "normal",
+          "flawless"
+        ]
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "left",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "label": "Material principal (cantidad = stack)"
+        },
+        {
+          "id": "right",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 26,
+          "repeatable": true,
+          "label": "Materiales extra"
+        }
+      ],
+      "arrow": {
+        "x": 68,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 96,
+          "y": 26,
+          "item": "apotheosis:gem_cutting_table",
+          "label": "La gema sube de pureza"
+        }
+      ]
+    },
+    "rawJson": {
+      "left": [
+        "$slot:left:mek_item"
+      ],
+      "purity": "$field:purity",
+      "right": "$inputs:mek_item:left"
+    },
+    "noOutput": true
+  }
+]

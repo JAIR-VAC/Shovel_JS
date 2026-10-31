@@ -1,0 +1,180 @@
+[
+  {
+    "recipeSerializer": "farmersdelight:cutting",
+    "displayName": "Farmer's Delight - Cutting Board",
+    "modId": "farmersdelight",
+    "extraFields": [
+      {
+        "key": "tool",
+        "type": "string",
+        "default": "#forge:tools/knives",
+        "label": "Tool (item or #tag)"
+      },
+      {
+        "key": "sound",
+        "type": "string",
+        "default": "",
+        "label": "Sound event (optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "farmersdelight",
+      "requiresAddon": "kubejs-farmers-delight",
+      "argsTemplate": "event.recipes.farmersdelight.cutting({input}, {field:tool}, [{output}], {field:sound})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "rawJson": {
+      "ingredients": [
+        "$slot:main_input:ingredient"
+      ],
+      "tool": "$field:tool:ingredient",
+      "result": "$outputs:create_result",
+      "sound": "$field:sound"
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "primary_output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_output",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "repeatable": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "farmersdelight:cutting_board"
+  },
+  {
+    "recipeSerializer": "farmersdelight:cooking",
+    "displayName": "Farmer's Delight - Cooking Pot",
+    "modId": "farmersdelight",
+    "extraFields": [
+      {
+        "key": "container",
+        "type": "string",
+        "default": "",
+        "label": "Container (item id, optional - e.g. minecraft:bowl)"
+      },
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "200",
+        "label": "Cooking Time (ticks)"
+      },
+      {
+        "key": "experience",
+        "type": "float",
+        "default": "1.0",
+        "label": "Experience"
+      },
+      {
+        "key": "recipeBookTab",
+        "type": "string",
+        "default": "",
+        "label": "Recipe book tab (optional - meals, drinks or misc)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "heatSourceHint": true,
+      "containerFieldSlot": {
+        "extraFieldKey": "container",
+        "label": "Container",
+        "x": 128,
+        "y": 10
+      },
+      "slots": [
+        {
+          "id": "input_0",
+          "role": "input",
+          "type": "item",
+          "x": 10,
+          "y": 10
+        },
+        {
+          "id": "input_1",
+          "role": "input",
+          "type": "item",
+          "x": 28,
+          "y": 10
+        },
+        {
+          "id": "input_2",
+          "role": "input",
+          "type": "item",
+          "x": 46,
+          "y": 10
+        },
+        {
+          "id": "input_3",
+          "role": "input",
+          "type": "item",
+          "x": 10,
+          "y": 28
+        },
+        {
+          "id": "input_4",
+          "role": "input",
+          "type": "item",
+          "x": 28,
+          "y": 28
+        },
+        {
+          "id": "input_5",
+          "role": "input",
+          "type": "item",
+          "x": 46,
+          "y": 28
+        },
+        {
+          "id": "primary_output",
+          "role": "output",
+          "type": "item",
+          "x": 128,
+          "y": 46,
+          "required": true
+        }
+      ],
+      "arrow": {
+        "x": 100,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "stationItem": "farmersdelight:cooking_pot",
+    "stationBlockState": "support=tray",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "result": "$slot:primary_output:item_stack",
+      "container": "$field:container:item_stack",
+      "cookingtime": "$field:cookingtime",
+      "experience": "$field:experience",
+      "recipe_book_tab": "$field:recipeBookTab"
+    }
+  }
+]

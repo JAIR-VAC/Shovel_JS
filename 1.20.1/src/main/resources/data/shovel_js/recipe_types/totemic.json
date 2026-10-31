@@ -1,0 +1,122 @@
+[
+  {
+    "recipeSerializer": "totemic:ceremony",
+    "displayName": "Totemic - Ceremony (registry object, not a datapack recipe)",
+    "modId": "totemic",
+    "extraFields": [
+      {
+        "key": "musicNeeded",
+        "type": "int",
+        "default": "12000",
+        "label": "Music Needed to Start",
+        "required": true
+      },
+      {
+        "key": "maxStartupTime",
+        "type": "int",
+        "default": "600",
+        "label": "Max Startup Time (ticks, 30*20 default)",
+        "required": true
+      },
+      {
+        "key": "selectors",
+        "type": "string",
+        "default": "[]",
+        "label": "Selecting Instruments (list of instrument IDs)",
+        "required": true
+      },
+      {
+        "key": "effectDuration",
+        "type": "int",
+        "default": "100",
+        "label": "Effect Duration (ticks, optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "totemic",
+      "requiresAddon": "kubejs-totemic",
+      "argsTemplate": "TotemicEvents.registerCeremonies(event => { event.create('kve_{id}').musicNeeded({field:musicNeeded}).maxStartupTime({field:maxStartupTime}).selectors({field:selectors}).effect((level, pos, context) => { /* TODO: KVE can't generate ceremony game logic - implement the effect by hand */ }){extra} })",
+      "extraFieldCallTemplates": {
+        "effectDuration": ".effectDuration({value})"
+      },
+      "preferOverRawJson": true,
+      "skipAutoId": true
+    },
+    "stationItem": "totemic:totem_base"
+  },
+  {
+    "recipeSerializer": "totemic:music_instrument",
+    "displayName": "Totemic - Music Instrument (registry object, not a datapack recipe)",
+    "modId": "totemic",
+    "extraFields": [
+      {
+        "key": "baseOutput",
+        "type": "int",
+        "default": "240",
+        "label": "Base Music Output",
+        "required": true
+      },
+      {
+        "key": "musicMaximum",
+        "type": "int",
+        "default": "3000",
+        "label": "Music Maximum (Totem Base saturation)",
+        "required": true
+      },
+      {
+        "key": "displayItem",
+        "type": "item",
+        "default": "",
+        "label": "Display Item"
+      },
+      {
+        "key": "sound",
+        "type": "string",
+        "default": "",
+        "label": "Sound Event"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "totemic",
+      "requiresAddon": "kubejs-totemic",
+      "argsTemplate": "TotemicEvents.registerMusicInstruments(event => { event.create('kve_{id}').baseOutput({field:baseOutput}).musicMaximum({field:musicMaximum}){extra} })",
+      "extraFieldCallTemplates": {
+        "displayItem": ".displayItem({value})",
+        "sound": ".sound({value})"
+      },
+      "preferOverRawJson": true,
+      "skipAutoId": true
+    }
+  },
+  {
+    "recipeSerializer": "totemic:totem_carving",
+    "displayName": "Totemic - Totem Carving (registry object, not a datapack recipe)",
+    "modId": "totemic",
+    "extraFields": [
+      {
+        "key": "potion",
+        "type": "string",
+        "default": "",
+        "label": "Simple Potion Effect (optional)"
+      },
+      {
+        "key": "medicineBagDrain",
+        "type": "int",
+        "default": "80",
+        "label": "Medicine Bag Drain (ticks, optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "totemic",
+      "requiresAddon": "kubejs-totemic",
+      "argsTemplate": "TotemicEvents.registerTotemCarvings(event => { event.create('kve_{id}'){extra} })",
+      "extraFieldCallTemplates": {
+        "potion": ".potion({value})",
+        "medicineBagDrain": ".medicineBagDrain({value})"
+      },
+      "preferOverRawJson": true,
+      "skipAutoId": true
+    },
+    "stationItem": "totemic:totem_pole"
+  }
+]

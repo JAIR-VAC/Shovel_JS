@@ -1,0 +1,448 @@
+[
+  {
+    "recipeSerializer": "industrialforegoing:laser_drill_ore",
+    "displayName": "Industrial Foregoing - Laser Drill (Ore Output)",
+    "stationItem": "industrialforegoing:ore_laser_base",
+    "modId": "industrialforegoing",
+    "extraFields": [
+      {
+        "key": "catalyst",
+        "type": "item",
+        "default": "",
+        "label": "Focus/Catalyst Item",
+        "required": true
+      },
+      {
+        "key": "rarity",
+        "type": "string",
+        "default": "",
+        "label": "Rareza (array JSON; vacio = profundidad -64..256, peso 8, cualquier bioma)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "industrialforegoing",
+      "requiresAddon": "kubejs-industrial-foregoing",
+      "argsTemplate": "event.recipes.industrialforegoing.laser_drill_ore({output}, {field:catalyst}, [])",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "rawJson": {
+      "catalyst": "$field:catalyst:ingredient",
+      "output": "$output:ingredient",
+      "pointer": 0,
+      "rarity": "$field:rarity||[{\"blacklist\":{},\"depth_max\":256,\"depth_min\":-64,\"weight\":8,\"whitelist\":{}}]"
+    }
+  },
+  {
+    "recipeSerializer": "industrialforegoing:laser_drill_fluid",
+    "displayName": "Industrial Foregoing - Laser Drill (Fluid Output)",
+    "stationItem": "industrialforegoing:fluid_laser_base",
+    "modId": "industrialforegoing",
+    "extraFields": [
+      {
+        "key": "catalyst",
+        "type": "item",
+        "default": "",
+        "label": "Focus/Catalyst Item",
+        "required": true
+      },
+      {
+        "key": "rarity",
+        "type": "string",
+        "default": "",
+        "label": "Rareza (array JSON; vacio = profundidad -64..256, peso 8, cualquier bioma)"
+      },
+      {
+        "key": "entity",
+        "type": "string",
+        "default": "",
+        "label": "Entidad requerida cerca (vacio = minecraft:empty, ninguna)"
+      },
+      {
+        "key": "outputFluid",
+        "type": "fluid_id",
+        "default": "minecraft:lava",
+        "label": "Fluido extraido",
+        "required": true
+      },
+      {
+        "key": "outputFluidAmount",
+        "type": "int",
+        "default": "100",
+        "label": "Cantidad por operacion (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "industrialforegoing",
+      "requiresAddon": "kubejs-industrial-foregoing",
+      "argsTemplate": "event.recipes.industrialforegoing.laser_drill_fluid({output} /* fluid */, /* catalyst */ 'minecraft:diamond', /* rarity[] */ [], /* entity */ 'minecraft:zombie')",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "catalyst": "$field:catalyst:ingredient",
+      "entity": "$field:entity||\"minecraft:empty\"",
+      "output": "$field:outputFluid:if_fluid:outputFluidAmount",
+      "pointer": 0,
+      "rarity": "$field:rarity||[{\"blacklist\":{},\"depth_max\":256,\"depth_min\":-64,\"weight\":8,\"whitelist\":{}}]"
+    }
+  },
+  {
+    "recipeSerializer": "industrialforegoing:fermentation_station",
+    "displayName": "Industrial Foregoing - Fermentation Station",
+    "stationItem": "industrialforegoing:fermentation_station",
+    "modId": "industrialforegoing",
+    "extraFields": [
+      {
+        "key": "inputFluid",
+        "type": "fluid_id",
+        "default": "industrialforegoing:sludge",
+        "label": "Input Fluid ID",
+        "required": true
+      },
+      {
+        "key": "inputAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Input Fluid Amount (mB)"
+      },
+      {
+        "key": "outputFluid",
+        "type": "fluid_id",
+        "default": "industrialforegoing:biofuel",
+        "label": "Output Fluid ID",
+        "required": true
+      },
+      {
+        "key": "outputAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Output Fluid Amount (mB)"
+      },
+      {
+        "key": "processingTime",
+        "type": "int",
+        "default": "100",
+        "label": "Processing Time (ticks)"
+      }
+    ],
+    "unsupported": true,
+    "unsupportedReason": "KVE-crafteditor-json-verification-SPEC 2026-08-21, seccion 5. Confirmado contra el repo real (InnovativeOnlineIndustries/Industrial-Foregoing, rama 1.20): la Fermentation Station NO tiene ningun RecipeSerializer/RecipeType registrado - es enteramente config-driven via OreFluidEntryFermenter en Java (FermentationStationTile), no un recipe JSON de datapack. No hay 'industrialforegoing:fermentation_station' que KubeJS pueda cargar como recipe en absoluto, asi que ni el JSON generico ni un builder dedicado pueden funcionar nunca para este tipo - no es un problema de nombres de clave, el tipo entero no existe como recipe cargable. Candidato a remover del catalogo, no solo a marcar unsupported."
+  },
+  {
+    "recipeSerializer": "industrialforegoing:dissolution_chamber",
+    "displayName": "Industrial Foregoing - Dissolution Chamber",
+    "stationItem": "industrialforegoing:dissolution_chamber",
+    "modId": "industrialforegoing",
+    "extraFields": [
+      {
+        "key": "inputFluid",
+        "type": "fluid_id",
+        "default": "minecraft:water",
+        "label": "Input Fluid ID",
+        "required": true
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "100",
+        "label": "Processing Time (ticks)"
+      },
+      {
+        "key": "outputFluid",
+        "type": "fluid_id",
+        "default": "",
+        "label": "Output Fluid (optional, chained)"
+      },
+      {
+        "key": "inputFluidAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Input Fluid Amount (mB)"
+      },
+      {
+        "key": "outputFluidAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Output Fluid Amount (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "industrialforegoing",
+      "requiresAddon": "kubejs-industrial-foregoing",
+      "argsTemplate": "event.recipes.industrialforegoing.dissolution_chamber({inputs}, {field:inputFluid}, {output}, {field:time}){extra}",
+      "extraFieldCallTemplates": {
+        "outputFluid": ".outputFluid({value})"
+      },
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input_1",
+          "role": "input",
+          "type": "item",
+          "x": 23,
+          "y": 4,
+          "required": true,
+          "label": "Entrada 1",
+          "maxCount": 1
+        },
+        {
+          "id": "input_2",
+          "role": "input",
+          "type": "item",
+          "x": 45,
+          "y": 2,
+          "label": "Entrada 2",
+          "maxCount": 1
+        },
+        {
+          "id": "input_3",
+          "role": "input",
+          "type": "item",
+          "x": 67,
+          "y": 4,
+          "label": "Entrada 3",
+          "maxCount": 1
+        },
+        {
+          "id": "input_4",
+          "role": "input",
+          "type": "item",
+          "x": 21,
+          "y": 26,
+          "label": "Entrada 4",
+          "maxCount": 1
+        },
+        {
+          "id": "input_5",
+          "role": "input",
+          "type": "item",
+          "x": 69,
+          "y": 26,
+          "label": "Entrada 5",
+          "maxCount": 1
+        },
+        {
+          "id": "input_6",
+          "role": "input",
+          "type": "item",
+          "x": 23,
+          "y": 48,
+          "label": "Entrada 6",
+          "maxCount": 1
+        },
+        {
+          "id": "input_7",
+          "role": "input",
+          "type": "item",
+          "x": 45,
+          "y": 50,
+          "label": "Entrada 7",
+          "maxCount": 1
+        },
+        {
+          "id": "input_8",
+          "role": "input",
+          "type": "item",
+          "x": 67,
+          "y": 48,
+          "label": "Entrada 8",
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 118,
+          "y": 9,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "fieldTanks": [
+        {
+          "x": 45,
+          "y": 26,
+          "h": 18,
+          "idField": "inputFluid",
+          "amountField": "inputFluidAmount",
+          "role": "input",
+          "label": "Fluido de entrada"
+        },
+        {
+          "x": 139,
+          "y": 10,
+          "h": 50,
+          "idField": "outputFluid",
+          "amountField": "outputFluidAmount",
+          "role": "output",
+          "label": "Fluido de salida (opcional)"
+        }
+      ],
+      "arrow": {
+        "x": 94,
+        "y": 30,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 2,
+        "y": 6,
+        "w": 8,
+        "h": 52,
+        "unit": "FE"
+      }
+    },
+    "rawJson": {
+      "input": "$inputs:ingredient",
+      "inputFluid": "$field:inputFluid:if_fluid:inputFluidAmount",
+      "output": "$slot:output_item:item_stack",
+      "outputFluid": "$field:outputFluid:if_fluid:outputFluidAmount",
+      "processingTime": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "industrialforegoing:fluid_extractor",
+    "displayName": "Industrial Foregoing - Fluid Extractor",
+    "stationItem": "industrialforegoing:fluid_extractor",
+    "modId": "industrialforegoing",
+    "extraFields": [
+      {
+        "key": "outputBlock",
+        "type": "string",
+        "default": "",
+        "label": "Bloque resultante (ej. minecraft:stripped_oak_log)",
+        "required": true
+      },
+      {
+        "key": "breakChance",
+        "type": "float",
+        "default": "0.5",
+        "label": "Break Chance"
+      },
+      {
+        "key": "outputFluid",
+        "type": "fluid_id",
+        "default": "minecraft:water",
+        "label": "Output Fluid ID",
+        "required": true
+      },
+      {
+        "key": "outputFluidAmount",
+        "type": "int",
+        "default": "4",
+        "label": "Fluido por operacion (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "industrialforegoing",
+      "requiresAddon": "kubejs-industrial-foregoing",
+      "argsTemplate": "event.recipes.industrialforegoing.fluid_extractor({input}, {field:outputBlock}, {field:breakChance}, {field:outputFluid})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "rawJson": {
+      "input": "$input:ingredient",
+      "result": "$field:outputBlock",
+      "breakChance": "$field:breakChance",
+      "output": "$field:outputFluid:if_fluid:outputFluidAmount",
+      "defaultRecipe": false
+    }
+  },
+  {
+    "recipeSerializer": "industrialforegoing:crusher",
+    "displayName": "Industrial Foregoing - Stonework Factory (Crusher/Pickaxe)",
+    "stationItem": "industrialforegoing:material_stonework_factory",
+    "modId": "industrialforegoing",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "industrialforegoing",
+      "requiresAddon": "kubejs-industrial-foregoing",
+      "argsTemplate": "event.recipes.industrialforegoing.crusher({input}, {output})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "output": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "industrialforegoing:stonework_generate",
+    "displayName": "Industrial Foregoing - Stonework Factory (Block Generation)",
+    "stationItem": "industrialforegoing:material_stonework_factory",
+    "modId": "industrialforegoing",
+    "extraFields": [
+      {
+        "key": "waterNeeded",
+        "type": "int",
+        "default": "100",
+        "label": "Water Needed",
+        "required": true
+      },
+      {
+        "key": "lavaNeeded",
+        "type": "int",
+        "default": "100",
+        "label": "Lava Needed",
+        "required": true
+      },
+      {
+        "key": "waterConsumed",
+        "type": "int",
+        "default": "50",
+        "label": "Water Consumed"
+      },
+      {
+        "key": "lavaConsumed",
+        "type": "int",
+        "default": "50",
+        "label": "Lava Consumed"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "industrialforegoing",
+      "requiresAddon": "kubejs-industrial-foregoing",
+      "argsTemplate": "event.recipes.industrialforegoing.stonework_generate({output}, {field:waterNeeded}, {field:lavaNeeded}, {field:waterConsumed}, {field:lavaConsumed})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "rawJson": {
+      "output": "$output:item_stack",
+      "waterNeed": "$field:waterNeeded",
+      "lavaNeed": "$field:lavaNeeded",
+      "waterConsume": "$field:waterConsumed",
+      "lavaConsume": "$field:lavaConsumed"
+    }
+  }
+]

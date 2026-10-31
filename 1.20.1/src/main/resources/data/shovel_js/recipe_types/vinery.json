@@ -1,0 +1,211 @@
+[
+  {
+    "recipeSerializer": "vinery:apple_mashing",
+    "displayName": "Vinery - Apple Press (moler)",
+    "modId": "vinery",
+    "stationItem": "vinery:apple_press",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Fruta",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 57,
+          "y": 16,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 9,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:input:ingredient",
+      "output": "$slot:result:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "vinery:apple_fermenting",
+    "displayName": "Vinery - Apple Press (fermentar)",
+    "modId": "vinery",
+    "stationItem": "vinery:apple_press",
+    "extraFields": [
+      {
+        "key": "wineBottle",
+        "type": "boolean",
+        "default": "true",
+        "label": "Requiere botella de vino"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Mosto",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 57,
+          "y": 11,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 12,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 0,
+          "y": 22,
+          "item": "vinery:wine_bottle",
+          "label": "Botella de vino (si 'Requiere botella')"
+        }
+      ]
+    },
+    "rawJson": {
+      "input": "$slot:input:ingredient",
+      "wine_bottle": {
+        "required": "$field:wineBottle"
+      },
+      "output": "$slot:result:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "vinery:wine_fermentation",
+    "displayName": "Vinery - Fermentation Barrel",
+    "modId": "vinery",
+    "stationItem": "vinery:fermentation_barrel",
+    "extraFields": [
+      {
+        "key": "juiceType",
+        "type": "string",
+        "default": "red_general",
+        "label": "Tipo de jugo",
+        "options": [
+          "red_general",
+          "white_general",
+          "red_jungle",
+          "white_jungle",
+          "red_taiga",
+          "white_taiga",
+          "red_savanna",
+          "white_savanna",
+          "apple"
+        ]
+      },
+      {
+        "key": "juiceAmount",
+        "type": "int",
+        "default": "7",
+        "label": "Cantidad de jugo"
+      },
+      {
+        "key": "wineBottle",
+        "type": "boolean",
+        "default": "true",
+        "label": "Requiere botella de vino"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input_1",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Ingrediente 1"
+        },
+        {
+          "id": "input_2",
+          "role": "input",
+          "type": "item",
+          "x": 18,
+          "y": 0,
+          "label": "Ingrediente 2"
+        },
+        {
+          "id": "input_3",
+          "role": "input",
+          "type": "item",
+          "x": 36,
+          "y": 0,
+          "label": "Ingrediente 3"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 90,
+          "y": 11,
+          "required": true,
+          "label": "Vino"
+        }
+      ],
+      "arrow": {
+        "x": 62,
+        "y": 12,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 18,
+          "y": 22,
+          "item": "vinery:wine_bottle",
+          "label": "Botella de vino (si 'Requiere botella')"
+        }
+      ],
+      "notes": [
+        {
+          "x": 0,
+          "y": 44,
+          "text": "Jugo: campos juiceType / juiceAmount",
+          "color": "C07AD0"
+        }
+      ]
+    },
+    "rawJson": {
+      "juice": {
+        "type": "$field:juiceType",
+        "amount": "$field:juiceAmount"
+      },
+      "ingredients": [
+        "$slot:input_1:ingredient",
+        "$slot:input_2:ingredient",
+        "$slot:input_3:ingredient"
+      ],
+      "wine_bottle": {
+        "required": "$field:wineBottle"
+      },
+      "result": "$slot:result:item_stack"
+    }
+  }
+]

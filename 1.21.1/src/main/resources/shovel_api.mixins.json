@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kve.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AttributeMapAccessor",
+    "MeleeAttackGoalMixin",
+    "SinglePoolElementMixin",
+    "TemplateStructurePieceMixin"
+  ]
+}

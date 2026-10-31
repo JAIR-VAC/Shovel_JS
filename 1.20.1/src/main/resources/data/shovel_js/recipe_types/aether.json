@@ -1,0 +1,669 @@
+[
+  {
+    "recipeSerializer": "aether:enchanting",
+    "displayName": "Aether - Altar (encantar)",
+    "modId": "aether",
+    "stationItem": "aether:altar",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "enchanting_misc",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "enchanting_misc",
+          "enchanting_food",
+          "enchanting_blocks",
+          "enchanting_repair"
+        ]
+      },
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "500",
+        "label": "Tiempo (ticks)"
+      },
+      {
+        "key": "experience",
+        "type": "float",
+        "default": "1.0",
+        "label": "Experiencia"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 60,
+          "y": 18,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 26,
+        "y": 19,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 0,
+          "y": 36,
+          "item": "aether:ambrosium_shard",
+          "label": "Combustible del Altar: Ambrosium Shard"
+        }
+      ],
+      "notes": [
+        {
+          "x": 22,
+          "y": 42,
+          "text": "Combustible"
+        }
+      ]
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "cookingtime": "$field:cookingtime",
+      "experience": "$field:experience",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "aether:freezing",
+    "displayName": "Aether - Freezer",
+    "modId": "aether",
+    "stationItem": "aether:freezer",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "freezable_misc",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "freezable_misc",
+          "freezable_blocks"
+        ]
+      },
+      {
+        "key": "cookingtime",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo (ticks)"
+      },
+      {
+        "key": "experience",
+        "type": "float",
+        "default": "0.1",
+        "label": "Experiencia"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 60,
+          "y": 18,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 26,
+        "y": 19,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 0,
+          "y": 36,
+          "item": "aether:icestone",
+          "label": "Combustible del Freezer: Icestone"
+        }
+      ],
+      "notes": [
+        {
+          "x": 22,
+          "y": 42,
+          "text": "Combustible"
+        }
+      ]
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "cookingtime": "$field:cookingtime",
+      "experience": "$field:experience",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "aether:repairing",
+    "displayName": "Aether - Altar (reparar)",
+    "modId": "aether",
+    "stationItem": "aether:altar",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "enchanting_repair",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "enchanting_misc",
+          "enchanting_food",
+          "enchanting_blocks",
+          "enchanting_repair"
+        ]
+      },
+      {
+        "key": "repairTime",
+        "type": "int",
+        "default": "600",
+        "label": "Tiempo de reparacion (ticks)"
+      }
+    ],
+    "rawJson": {
+      "category": "$field:category",
+      "ingredient": "$input:ingredient",
+      "repairTime": "$field:repairTime"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Item a reparar"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:anvil",
+          "label": "Reparado en el altar"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "aether:incubation",
+    "displayName": "Aether - Incubator",
+    "modId": "aether",
+    "stationItem": "aether:incubator",
+    "extraFields": [
+      {
+        "key": "tag",
+        "type": "snbt",
+        "default": "",
+        "label": "NBT de la entidad (SNBT, opcional)"
+      },
+      {
+        "key": "incubationtime",
+        "type": "int",
+        "default": "1000",
+        "label": "Tiempo de incubacion (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "entity",
+          "role": "output",
+          "type": "item",
+          "x": 60,
+          "y": 18,
+          "required": true,
+          "label": "Huevo de generacion de la entidad que nace",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 26,
+        "y": 19,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 0,
+          "y": 36,
+          "item": "aether:ambrosium_torch",
+          "label": "Combustible del Incubator: Ambrosium Torch"
+        }
+      ],
+      "notes": [
+        {
+          "x": 22,
+          "y": 42,
+          "text": "Combustible"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "entity": "$slot:entity:entity_id",
+      "tag": "$field:tag",
+      "incubationtime": "$field:incubationtime"
+    }
+  },
+  {
+    "recipeSerializer": "aether:placement_conversion",
+    "displayName": "Aether - Conversion al colocar",
+    "modId": "aether",
+    "stationItem": "aether:icestone",
+    "extraFields": [
+      {
+        "key": "biome",
+        "type": "string",
+        "default": "#aether:ultracold",
+        "label": "Bioma (id o #tag, opcional)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Bloque",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Bloque resultante",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "notes": [
+        {
+          "x": 0,
+          "y": 40,
+          "text": "Bioma: campo 'biome'"
+        }
+      ]
+    },
+    "rawJson": {
+      "biome": "$field:biome",
+      "ingredient": "$slot:input:block",
+      "result": "$slot:result:block"
+    }
+  },
+  {
+    "recipeSerializer": "aether:swet_ball_conversion",
+    "displayName": "Aether - Swet Ball",
+    "modId": "aether",
+    "stationItem": "aether:swet_ball",
+    "extraFields": [
+      {
+        "key": "biome",
+        "type": "string",
+        "default": "",
+        "label": "Bioma (id o #tag, opcional)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Bloque",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Bloque resultante",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "aether:swet_ball",
+          "label": "Swet Ball (clic derecho sobre el bloque)"
+        }
+      ],
+      "notes": [
+        {
+          "x": 0,
+          "y": 40,
+          "text": "Bioma: campo 'biome'"
+        }
+      ]
+    },
+    "rawJson": {
+      "biome": "$field:biome",
+      "ingredient": "$slot:input:block",
+      "result": "$slot:result:block"
+    }
+  },
+  {
+    "recipeSerializer": "aether:ambrosium_enchanting",
+    "displayName": "Aether - Ambrosium",
+    "modId": "aether",
+    "stationItem": "aether:ambrosium_shard",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Bloque",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Bloque resultante",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "aether:ambrosium_shard",
+          "label": "Ambrosium Shard (clic derecho sobre el bloque)"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:block",
+      "result": "$slot:result:block"
+    }
+  },
+  {
+    "recipeSerializer": "aether:icestone_freezable",
+    "displayName": "Aether - Icestone (congelar)",
+    "modId": "aether",
+    "stationItem": "aether:icestone",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Bloque",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Bloque resultante",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "aether:icestone",
+          "label": "Icestone cerca del bloque"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:block",
+      "result": "$slot:result:block"
+    }
+  },
+  {
+    "recipeSerializer": "aether:accessory_freezable",
+    "displayName": "Aether - Accesorio de hielo (congelar)",
+    "modId": "aether",
+    "stationItem": "aether:ice_ring",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Bloque",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Bloque resultante",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "aether:ice_ring",
+          "label": "Accesorio de hielo equipado (anillo/colgante)"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:block",
+      "result": "$slot:result:block"
+    }
+  },
+  {
+    "recipeSerializer": "aether:item_placement_ban",
+    "displayName": "Aether - Prohibir usar item",
+    "modId": "aether",
+    "stationItem": "aether:icestone",
+    "extraFields": [
+      {
+        "key": "biome",
+        "type": "string",
+        "default": "#aether:ultracold",
+        "label": "Bioma donde se prohibe (id o #tag)"
+      },
+      {
+        "key": "bypass",
+        "type": "string",
+        "default": "",
+        "label": "Bloque debajo que lo permite (id o #tag, opcional)"
+      }
+    ],
+    "rawJson": {
+      "biome": "$field:biome",
+      "bypass": "$field:bypass:block_ingredient",
+      "ingredient": "$input:ingredient"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Item prohibido"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:barrier",
+          "label": "No se puede usar en ese bioma"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "aether:block_placement_ban",
+    "displayName": "Aether - Prohibir colocar bloque",
+    "modId": "aether",
+    "stationItem": "aether:icestone",
+    "extraFields": [
+      {
+        "key": "biome",
+        "type": "string",
+        "default": "#aether:ultracold",
+        "label": "Bioma donde se prohibe (id o #tag)"
+      },
+      {
+        "key": "bypass",
+        "type": "string",
+        "default": "",
+        "label": "Bloque debajo que lo permite (id o #tag, opcional)"
+      }
+    ],
+    "rawJson": {
+      "biome": "$field:biome",
+      "bypass": "$field:bypass:block_ingredient",
+      "ingredient": "$input:block"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "block",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Bloque prohibido"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:barrier",
+          "label": "No se puede colocar en ese bioma"
+        }
+      ]
+    }
+  }
+]

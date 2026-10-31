@@ -1,0 +1,538 @@
+[
+  {
+    "recipeSerializer": "refurbished_furniture:cutting_board_slicing",
+    "displayName": "Refurbished Furniture - Tabla de cortar (rebanar)",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:oak_cutting_board",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 4,
+          "required": true,
+          "label": "Resultado (cantidad = count)"
+        }
+      ],
+      "arrow": {
+        "x": 62,
+        "y": 5,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 40,
+          "y": 5,
+          "item": "refurbished_furniture:knife",
+          "label": "Cuchillo (clic sobre la tabla)"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_id",
+      "count": "$slot:result:amount"
+    }
+  },
+  {
+    "recipeSerializer": "refurbished_furniture:cutting_board_combining",
+    "displayName": "Refurbished Furniture - Tabla de cortar (combinar)",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:oak_cutting_board",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "layer",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true,
+          "label": "Capas (en orden, de abajo hacia arriba)"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 94,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 66,
+        "y": 1,
+        "direction": "right"
+      },
+      "notes": [
+        {
+          "x": 0,
+          "y": 22,
+          "text": "Capas de abajo hacia arriba"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "result": "$slot:result:item_id",
+      "count": "$slot:result:amount"
+    }
+  },
+  {
+    "recipeSerializer": "refurbished_furniture:grill_cooking",
+    "displayName": "Refurbished Furniture - Parrilla",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:red_grill",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "food",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "food",
+          "blocks",
+          "items",
+          "misc"
+        ]
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Resultado",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "minecraft:charcoal",
+          "label": "Combustible de la parrilla (carbon / lena)"
+        }
+      ]
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_id",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "refurbished_furniture:freezer_solidifying",
+    "displayName": "Refurbished Furniture - Congelador",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:light_fridge",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "food",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "food",
+          "blocks",
+          "items",
+          "misc"
+        ]
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_stack",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "refurbished_furniture:toaster_heating",
+    "displayName": "Refurbished Furniture - Tostadora",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:light_toaster",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "food",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "food",
+          "blocks",
+          "items",
+          "misc"
+        ]
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "300",
+        "label": "Tiempo (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Resultado",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_id",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "refurbished_furniture:microwave_heating",
+    "displayName": "Refurbished Furniture - Microondas",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:light_microwave",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "food",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "food",
+          "blocks",
+          "items",
+          "misc"
+        ]
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_stack",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "refurbished_furniture:frying_pan_cooking",
+    "displayName": "Refurbished Furniture - Sarten",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:frying_pan",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "food",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "food",
+          "blocks",
+          "items",
+          "misc"
+        ]
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Resultado",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "refurbished_furniture:light_stove",
+          "label": "La sarten va encima de una cocina (Stove)"
+        }
+      ],
+      "heatSourceHint": true
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_id",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "refurbished_furniture:oven_baking",
+    "displayName": "Refurbished Furniture - Horno",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:light_stove",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "food",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "food",
+          "blocks",
+          "items",
+          "misc"
+        ]
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "300",
+        "label": "Tiempo (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 0,
+          "y": 38,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 1,
+        "y": 19,
+        "direction": "down"
+      }
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_stack",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "refurbished_furniture:workbench_constructing",
+    "displayName": "Refurbished Furniture - Workbench",
+    "modId": "refurbished_furniture",
+    "stationItem": "refurbished_furniture:workbench",
+    "extraFields": [
+      {
+        "key": "show_notification",
+        "type": "boolean",
+        "default": "false",
+        "label": "Mostrar notificacion al desbloquear"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "material",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true,
+          "label": "Materiales (la cantidad del stack cuenta)"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 94,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 66,
+        "y": 1,
+        "direction": "right"
+      },
+      "notes": [
+        {
+          "x": 0,
+          "y": 22,
+          "text": "La cantidad del stack cuenta"
+        }
+      ]
+    },
+    "rawJson": {
+      "materials": "$inputs:counted_ingredient",
+      "result": "$slot:result:item_stack",
+      "show_notification": "$field:show_notification"
+    }
+  }
+]

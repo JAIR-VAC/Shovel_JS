@@ -1,0 +1,108 @@
+[
+  {
+    "recipeSerializer": "celestisynth:starlit_factory",
+    "displayName": "Celestisynth - Starlit Factory",
+    "modId": "celestisynth",
+    "stationItem": "celestisynth:starlit_factory",
+    "extraFields": [
+      {
+        "key": "forging_time",
+        "type": "int",
+        "default": "400",
+        "label": "Tiempo de forja (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "supporting_material_top",
+          "role": "input",
+          "type": "item",
+          "x": 100,
+          "y": 0,
+          "required": true,
+          "label": "Soporte superior"
+        },
+        {
+          "id": "supporting_material_middle",
+          "role": "input",
+          "type": "item",
+          "x": 100,
+          "y": 18,
+          "required": true,
+          "label": "Soporte medio"
+        },
+        {
+          "id": "supporting_material_bottom",
+          "role": "input",
+          "type": "item",
+          "x": 100,
+          "y": 36,
+          "required": true,
+          "label": "Soporte inferior"
+        },
+        {
+          "id": "core_material",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Nucleo"
+        },
+        {
+          "id": "supporting_core_material",
+          "role": "input",
+          "type": "item",
+          "x": 36,
+          "y": 0,
+          "required": true,
+          "label": "Soporte del nucleo"
+        },
+        {
+          "id": "extra_core_material",
+          "role": "input",
+          "type": "item",
+          "x": 18,
+          "y": 36,
+          "required": true,
+          "label": "Nucleo extra"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 68,
+          "y": 17,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "notes": [
+        {
+          "x": 0,
+          "y": 58,
+          "text": "Nucleos",
+          "color": "E8C96A"
+        },
+        {
+          "x": 96,
+          "y": 58,
+          "text": "Soportes",
+          "color": "E8C96A"
+        }
+      ]
+    },
+    "rawJson": {
+      "core_material": "$slot:core_material:ingredient",
+      "supporting_core_material": "$slot:supporting_core_material:ingredient",
+      "extra_core_material": "$slot:extra_core_material:ingredient",
+      "supporting_material_top": "$slot:supporting_material_top:ingredient",
+      "supporting_material_middle": "$slot:supporting_material_middle:ingredient",
+      "supporting_material_bottom": "$slot:supporting_material_bottom:ingredient",
+      "forging_time": "$field:forging_time",
+      "result": "$slot:result:item_stack"
+    }
+  }
+]

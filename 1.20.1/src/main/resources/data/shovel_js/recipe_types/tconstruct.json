@@ -1,0 +1,682 @@
+[
+  {
+    "recipeSerializer": "tconstruct:alloy",
+    "displayName": "Tinkers' Construct - Alloying",
+    "modId": "tconstruct",
+    "extraFields": [
+      {
+        "key": "temperature",
+        "type": "int",
+        "default": "760",
+        "label": "Temperature",
+        "required": true
+      }
+    ],
+    "stationItem": "tconstruct:smeltery_controller",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input_1",
+          "role": "input",
+          "type": "fluid",
+          "x": 18,
+          "y": 18,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido 1"
+        },
+        {
+          "id": "fluid_input_2",
+          "role": "input",
+          "type": "fluid",
+          "x": 36,
+          "y": 18,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido 2"
+        },
+        {
+          "id": "fluid_input_3",
+          "role": "input",
+          "type": "fluid",
+          "x": 54,
+          "y": 18,
+          "tank": true,
+          "h": 34,
+          "label": "Fluido 3 (opcional)"
+        },
+        {
+          "id": "fluid_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 136,
+          "y": 18,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Aleacion resultante"
+        }
+      ],
+      "arrow": {
+        "x": 95,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "inputs": "$inputs:fluid_ingredient",
+      "result": "$slot:fluid_output:fluid_ingredient",
+      "temperature": "$field:temperature"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:melting",
+    "displayName": "Tinkers' Construct - Melting (Melter / Smeltery)",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_melter",
+    "extraFields": [
+      {
+        "key": "temperature",
+        "type": "int",
+        "default": "800",
+        "label": "Temperatura minima",
+        "required": true
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "60",
+        "label": "Tiempo (ticks)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 23,
+          "y": 25,
+          "required": true,
+          "label": "Item a fundir",
+          "maxCount": 1
+        },
+        {
+          "id": "fluid_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 95,
+          "y": 11,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido resultante"
+        },
+        {
+          "id": "byproduct",
+          "role": "output",
+          "type": "fluid",
+          "x": 115,
+          "y": 11,
+          "repeatable": true,
+          "tank": true,
+          "label": "Subproducto (fluido)"
+        }
+      ],
+      "arrow": {
+        "x": 60,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredient": "$slot:item_input:ingredient",
+      "result": "$slot:fluid_output:fluid_ingredient",
+      "temperature": "$field:temperature",
+      "time": "$field:time",
+      "byproducts": "$outputs:fluid_ingredient:fluid_output"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:casting_table",
+    "displayName": "Tinkers' Construct - Casting Table",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_table",
+    "extraFields": [
+      {
+        "key": "cooling_time",
+        "type": "int",
+        "default": "60",
+        "label": "Tiempo de enfriado (ticks)",
+        "required": true
+      },
+      {
+        "key": "cast_consumed",
+        "type": "boolean",
+        "default": "false",
+        "label": "El molde se consume"
+      },
+      {
+        "key": "switch_slots",
+        "type": "boolean",
+        "default": "false",
+        "label": "Intercambiar molde y resultado"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 10,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido"
+        },
+        {
+          "id": "cast",
+          "role": "input",
+          "type": "item",
+          "x": 37,
+          "y": 26,
+          "label": "Molde (opcional)",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 92,
+          "y": 25,
+          "required": true,
+          "label": "Resultado (cantidad 1)",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 64,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "cast": "$slot:cast:ingredient",
+      "cast_consumed": "$field:cast_consumed",
+      "fluid": "$slot:fluid_input:fluid_ingredient",
+      "result": "$slot:result:item_id",
+      "cooling_time": "$field:cooling_time",
+      "switch_slots": "$field:switch_slots"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:casting_basin",
+    "displayName": "Tinkers' Construct - Casting Basin",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_basin",
+    "extraFields": [
+      {
+        "key": "cooling_time",
+        "type": "int",
+        "default": "60",
+        "label": "Tiempo de enfriado (ticks)",
+        "required": true
+      },
+      {
+        "key": "cast_consumed",
+        "type": "boolean",
+        "default": "false",
+        "label": "El molde se consume"
+      },
+      {
+        "key": "switch_slots",
+        "type": "boolean",
+        "default": "false",
+        "label": "Intercambiar molde y resultado"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 10,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido"
+        },
+        {
+          "id": "cast",
+          "role": "input",
+          "type": "item",
+          "x": 37,
+          "y": 26,
+          "label": "Molde (opcional)",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 92,
+          "y": 25,
+          "required": true,
+          "label": "Resultado (cantidad 1)",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 64,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "cast": "$slot:cast:ingredient",
+      "cast_consumed": "$field:cast_consumed",
+      "fluid": "$slot:fluid_input:fluid_ingredient",
+      "result": "$slot:result:item_id",
+      "cooling_time": "$field:cooling_time",
+      "switch_slots": "$field:switch_slots"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:ore_melting",
+    "displayName": "Tinkers Construct - Melting (mena, escala con la fundicion)",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_melter",
+    "extraFields": [
+      {
+        "key": "temperature",
+        "type": "int",
+        "default": "800",
+        "label": "Temperatura minima",
+        "required": true
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "60",
+        "label": "Tiempo (ticks)",
+        "required": true
+      },
+      {
+        "key": "rate",
+        "type": "string",
+        "default": "metal",
+        "label": "Tipo de rendimiento",
+        "required": true,
+        "options": [
+          "metal",
+          "gem"
+        ]
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 23,
+          "y": 25,
+          "required": true,
+          "label": "Item a fundir",
+          "maxCount": 1
+        },
+        {
+          "id": "fluid_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 95,
+          "y": 11,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido resultante"
+        },
+        {
+          "id": "byproduct",
+          "role": "output",
+          "type": "fluid",
+          "x": 115,
+          "y": 11,
+          "repeatable": true,
+          "tank": true,
+          "label": "Subproducto (fluido)"
+        }
+      ],
+      "arrow": {
+        "x": 60,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredient": "$slot:item_input:ingredient",
+      "result": "$slot:fluid_output:fluid_ingredient",
+      "temperature": "$field:temperature",
+      "time": "$field:time",
+      "byproducts": "$outputs:fluid_ingredient:fluid_output",
+      "rate": "$field:rate"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:entity_melting",
+    "displayName": "Tinkers Construct - Entity Melting (fundicion)",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:smeltery_controller",
+    "extraFields": [
+      {
+        "key": "damage",
+        "type": "int",
+        "default": "2",
+        "label": "Dano por golpe",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "entity",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Huevo del mob o #tag de entidad"
+        },
+        {
+          "id": "fluid_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "label": "Fluido"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "damage": "$field:damage",
+      "entity": "$slot:entity:tc_entity",
+      "result": "$slot:fluid_output:fluid_ingredient"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:severing",
+    "displayName": "Tinkers Construct - Severing (cabezas/drops del modificador)",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:cleaver",
+    "extraFields": [
+      {
+        "key": "per_level_chance",
+        "type": "float",
+        "default": "0.05",
+        "label": "Probabilidad por nivel",
+        "required": true
+      },
+      {
+        "key": "looting_bonus",
+        "type": "float",
+        "default": "0.01",
+        "label": "Bonus por Looting",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "entity",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Huevo del mob o #tag de entidad"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "entity": "$slot:entity:tc_entity",
+      "looting_bonus": "$field:looting_bonus",
+      "per_level_chance": "$field:per_level_chance",
+      "result": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:melting_fuel",
+    "displayName": "Tinkers Construct - Melting Fuel",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:smeltery_controller",
+    "extraFields": [
+      {
+        "key": "fluid",
+        "type": "string",
+        "default": "minecraft:lava",
+        "label": "Fluido combustible (id o #tag)",
+        "required": true
+      },
+      {
+        "key": "amount",
+        "type": "int",
+        "default": "50",
+        "label": "Cantidad por uso (mB)",
+        "required": true
+      },
+      {
+        "key": "duration",
+        "type": "int",
+        "default": "100",
+        "label": "Duracion (ticks)",
+        "required": true
+      },
+      {
+        "key": "temperature",
+        "type": "int",
+        "default": "1000",
+        "label": "Temperatura",
+        "required": true
+      },
+      {
+        "key": "rate",
+        "type": "int",
+        "default": "10",
+        "label": "Velocidad",
+        "required": true
+      }
+    ],
+    "rawJson": {
+      "duration": "$field:duration",
+      "fluid": "$field:fluid:fluid_in:amount",
+      "rate": "$field:rate",
+      "temperature": "$field:temperature"
+    },
+    "noOutput": true,
+    "noIngredients": true
+  },
+  {
+    "recipeSerializer": "tconstruct:molding_table",
+    "displayName": "Tinkers Construct - Molding (mesa de moldes)",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_table",
+    "extraFields": [],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "material",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Material del molde (arena)"
+        },
+        {
+          "id": "pattern",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Patron"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true,
+          "maxCount": 1,
+          "label": "Molde"
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "material": "$slot:material:ingredient",
+      "pattern": "$slot:pattern:ingredient",
+      "result": "$slot:output_item:item_id"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:table_filling",
+    "displayName": "Tinkers Construct - Llenar en mesa de fundido",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_table",
+    "extraFields": [
+      {
+        "key": "fluid_amount",
+        "type": "int",
+        "default": "1000",
+        "label": "Cantidad de fluido (mB)",
+        "required": true
+      }
+    ],
+    "rawJson": {
+      "container": "$input:item_id",
+      "fluid_amount": "$field:fluid_amount"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "container",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Recipiente a llenar"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:lava_bucket",
+          "label": "Se llena con fluido"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:basin_filling",
+    "displayName": "Tinkers Construct - Llenar en cuenca de fundido",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_basin",
+    "extraFields": [
+      {
+        "key": "fluid_amount",
+        "type": "int",
+        "default": "1000",
+        "label": "Cantidad de fluido (mB)",
+        "required": true
+      }
+    ],
+    "rawJson": {
+      "container": "$input:item_id",
+      "fluid_amount": "$field:fluid_amount"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "container",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Recipiente a llenar"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:lava_bucket",
+          "label": "Se llena con fluido"
+        }
+      ]
+    }
+  }
+]

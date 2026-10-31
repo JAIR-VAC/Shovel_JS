@@ -1,0 +1,1744 @@
+[
+  {
+    "recipeSerializer": "mekanism:crushing",
+    "displayName": "Mekanism - Crushing (Crusher)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:crusher",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.crushing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 5,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 54,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 25,
+        "y": 27,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 103,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:mek_item",
+      "output": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:enriching",
+    "displayName": "Mekanism - Enriching (Enrichment Chamber)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:enrichment_chamber",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.enriching({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 5,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 54,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 25,
+        "y": 27,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 103,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:mek_item",
+      "output": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:smelting",
+    "displayName": "Mekanism - Smelting (Energized Smelter)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:energized_smelter",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.smelting({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 5,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 54,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 25,
+        "y": 27,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 103,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:mek_item",
+      "output": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:combining",
+    "displayName": "Mekanism - Combining (Combiner)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:combiner",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.combining({output}, {input}, {input2})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 5,
+          "required": true,
+          "label": "Entrada principal"
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 41,
+          "required": true,
+          "label": "Entrada extra"
+        },
+        {
+          "id": "output",
+          "role": "output",
+          "type": "item",
+          "x": 54,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 25,
+        "y": 27,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 103,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "mainInput": "$slot:main_input:mek_item",
+      "extraInput": "$slot:extra_input:mek_item",
+      "output": "$slot:output:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:compressing",
+    "displayName": "Mekanism - Compressing (Osmium Compressor)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:osmium_compressor",
+    "extraFields": [
+      {
+        "key": "inputGas",
+        "type": "string",
+        "default": "mekanism:hydrogen",
+        "label": "Input Gas ID",
+        "required": true,
+        "chemical": "gas"
+      },
+      {
+        "key": "inputGasAmount",
+        "type": "int",
+        "default": "1",
+        "label": "Input Gas Amount"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.compressing({output}, {input}, {gas: {field:inputGas}, amount: {field:inputGasAmount}})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 5,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 54,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "fieldTanks": [
+        {
+          "x": 2,
+          "y": 41,
+          "h": 18,
+          "idField": "inputGas",
+          "amountField": "inputGasAmount",
+          "chemical": "gas",
+          "role": "input",
+          "label": "Gas consumido (por tick)"
+        }
+      ],
+      "arrow": {
+        "x": 25,
+        "y": 27,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 103,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "chemicalInput": "$field:inputGas:chemical_ingredient:gas:inputGasAmount",
+      "itemInput": "$slot:main_input:mek_item",
+      "output": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:purifying",
+    "displayName": "Mekanism - Purifying (Purification Chamber)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:purification_chamber",
+    "extraFields": [
+      {
+        "key": "inputGas",
+        "type": "string",
+        "default": "mekanism:oxygen",
+        "label": "Input Gas ID",
+        "required": true,
+        "chemical": "gas"
+      },
+      {
+        "key": "inputGasAmount",
+        "type": "int",
+        "default": "1",
+        "label": "Input Gas Amount"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.purifying({output}, {input}, {gas: {field:inputGas}, amount: {field:inputGasAmount}})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 5,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 54,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "fieldTanks": [
+        {
+          "x": 2,
+          "y": 41,
+          "h": 18,
+          "idField": "inputGas",
+          "amountField": "inputGasAmount",
+          "chemical": "gas",
+          "role": "input",
+          "label": "Gas consumido (por tick)"
+        }
+      ],
+      "arrow": {
+        "x": 25,
+        "y": 27,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 103,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "chemicalInput": "$field:inputGas:chemical_ingredient:gas:inputGasAmount",
+      "itemInput": "$slot:main_input:mek_item",
+      "output": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:injecting",
+    "displayName": "Mekanism - Injecting (Chemical Injection Chamber)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:chemical_injection_chamber",
+    "extraFields": [
+      {
+        "key": "inputGas",
+        "type": "string",
+        "default": "mekanism:hydrogen_chloride",
+        "label": "Input Gas ID",
+        "required": true,
+        "chemical": "gas"
+      },
+      {
+        "key": "inputGasAmount",
+        "type": "int",
+        "default": "1",
+        "label": "Input Gas Amount"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.injecting({output}, {input}, {gas: {field:inputGas}, amount: {field:inputGasAmount}})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 5,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 54,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "fieldTanks": [
+        {
+          "x": 2,
+          "y": 41,
+          "h": 18,
+          "idField": "inputGas",
+          "amountField": "inputGasAmount",
+          "chemical": "gas",
+          "role": "input",
+          "label": "Gas consumido (por tick)"
+        }
+      ],
+      "arrow": {
+        "x": 25,
+        "y": 27,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 103,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "chemicalInput": "$field:inputGas:chemical_ingredient:gas:inputGasAmount",
+      "itemInput": "$slot:main_input:mek_item",
+      "output": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:metallurgic_infusing",
+    "displayName": "Mekanism - Metallurgic Infusing (Metallurgic Infuser)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:metallurgic_infuser",
+    "extraFields": [
+      {
+        "key": "infusionInput",
+        "type": "string",
+        "default": "mekanism:redstone",
+        "label": "Infusion Type",
+        "required": true,
+        "chemical": "infuse_type"
+      },
+      {
+        "key": "infusionAmount",
+        "type": "int",
+        "default": "10",
+        "label": "Infusion Amount"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.metallurgic_infusing({output}, {input}, {field:infusionInput}, {field:infusionAmount})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 50,
+          "y": 29,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 108,
+          "y": 29,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "fieldTanks": [
+        {
+          "x": 2,
+          "y": 2,
+          "h": 52,
+          "idField": "infusionInput",
+          "amountField": "infusionAmount",
+          "chemical": "infuse_type",
+          "role": "input",
+          "label": "Tipo de infusion"
+        }
+      ],
+      "arrow": {
+        "x": 78,
+        "y": 32,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 164,
+        "y": 2,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "chemicalInput": "$field:infusionInput:chemical_ingredient:infuse_type:infusionAmount",
+      "itemInput": "$slot:main_input:mek_item",
+      "output": "$slot:output_item:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:sawing",
+    "displayName": "Mekanism - Sawing (Electric Precision Sawmill)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:precision_sawmill",
+    "extraFields": [
+      {
+        "key": "extraOutput",
+        "type": "item",
+        "default": "minecraft:air",
+        "label": "Secondary Output (optional, leave as minecraft:air for none)"
+      },
+      {
+        "key": "extraOutputChance",
+        "type": "float",
+        "default": "0.3",
+        "label": "Secondary Output Chance"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.sawing({output}, {input}, Item.of({field:extraOutput}).withChance({field:extraOutputChance}))",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 5,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "primary_output",
+          "role": "output",
+          "type": "item",
+          "x": 54,
+          "y": 23,
+          "required": true,
+          "label": "Salida principal"
+        },
+        {
+          "id": "secondary_output",
+          "role": "output",
+          "type": "item",
+          "x": 76,
+          "y": 23,
+          "label": "Salida secundaria (Ctrl+rueda = probabilidad)"
+        }
+      ],
+      "arrow": {
+        "x": 25,
+        "y": 27,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 111,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:mek_item",
+      "mainOutput": "$slot:primary_output:item_stack",
+      "secondaryOutput": "$slot:secondary_output:item_stack",
+      "secondaryChance": "$slot:secondary_output:chance"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:chemical_infusing",
+    "displayName": "Mekanism - Chemical Infusing (Chemical Infuser)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:chemical_infuser",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.chemical_infusing({output}, {input}, {input2})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "left_gas_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 11,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas izquierdo"
+        },
+        {
+          "id": "right_gas_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 110,
+          "y": 11,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas derecho"
+        },
+        {
+          "id": "gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 56,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas resultante"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 37,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 92,
+        "y": 73,
+        "w": 52,
+        "h": 6,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "leftInput": "$slot:left_gas_input:chemical",
+      "rightInput": "$slot:right_gas_input:chemical",
+      "output": "$slot:gas_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:crystallizing",
+    "displayName": "Mekanism - Crystallizing (Chemical Crystallizer)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:chemical_crystallizer",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.crystallizing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "gas_or_slurry_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "slurry|gas|infuse_type|pigment",
+          "label": "Quimico de entrada"
+        },
+        {
+          "id": "item_output",
+          "role": "output",
+          "type": "item",
+          "x": 123,
+          "y": 54,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 48,
+        "y": 59,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 152,
+        "y": 21,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "chemicalType": "$slotKind:gas_or_slurry_input",
+      "input": "$slot:gas_or_slurry_input:chemical",
+      "output": "$slot:item_output:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:dissolution",
+    "displayName": "Mekanism - Dissolution (Chemical Dissolution Chamber)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:chemical_dissolution_chamber",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.dissolution({output}, {input2}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 22,
+          "y": 33,
+          "required": true,
+          "label": "Item a disolver"
+        },
+        {
+          "id": "gas_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas (ej. acido sulfurico)"
+        },
+        {
+          "id": "gas_or_slurry_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 126,
+          "y": 11,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "slurry|gas|infuse_type|pigment",
+          "label": "Quimico resultante"
+        }
+      ],
+      "arrow": {
+        "x": 59,
+        "y": 38,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 110,
+        "y": 73,
+        "w": 52,
+        "h": 6,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "itemInput": "$slot:item_input:mek_item",
+      "gasInput": "$slot:gas_input:chemical",
+      "output": "$slot:gas_or_slurry_output:boxed_chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:energy_conversion",
+    "displayName": "Mekanism - Item to Energy Conversion (Energy Cube)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:basic_energy_cube",
+    "extraFields": [
+      {
+        "key": "energyAmount",
+        "type": "long",
+        "default": "10000",
+        "label": "Energy Output (Joules)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-mekanism",
+      "argsTemplate": "event.recipes.mekanism.energy_conversion({input}, {field:energyAmount})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "rawJson": {
+      "input": "$input:mek_item",
+      "output": "$field:energyAmount"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:rotary",
+    "displayName": "Mekanism - Rotary Condensentrator (Rotary/De-Rotary)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:rotary_condensentrator",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.rotary(event, {machineOutputTuple}, {machineInputTuple}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 132,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "label": "Fluido a gasificar (fluido -> gas)"
+        },
+        {
+          "id": "gas_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "chemical": "gas",
+          "label": "Gas a condensar (gas -> fluido)"
+        },
+        {
+          "id": "gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 24,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "chemical": "gas",
+          "label": "Gas resultante (fluido -> gas)"
+        },
+        {
+          "id": "fluid_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 110,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "label": "Fluido resultante (gas -> fluido)"
+        }
+      ],
+      "arrow": {
+        "x": 58,
+        "y": 28,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 58,
+        "y": 70,
+        "w": 52,
+        "h": 6,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "fluidInput": "$slot:fluid_input:fluid_ingredient",
+      "gasOutput": "$slot:gas_output:chemical",
+      "gasInput": "$slot:gas_input:chemical",
+      "fluidOutput": "$slot:fluid_output:fluid_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:washing",
+    "displayName": "Mekanism - Chemical Washer (Washing)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:chemical_washer",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.washing(event, {machineOutputTuple}, {machineInputTuple}, {machineInputTuple2}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "label": "Fluido (ej. agua)"
+        },
+        {
+          "id": "dirty_slurry_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 23,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "slurry",
+          "label": "Slurry sucio"
+        },
+        {
+          "id": "clean_slurry_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 126,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "slurry",
+          "label": "Slurry limpio"
+        }
+      ],
+      "arrow": {
+        "x": 59,
+        "y": 28,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 110,
+        "y": 64,
+        "w": 52,
+        "h": 6,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "fluidInput": "$slot:fluid_input:fluid_ingredient",
+      "slurryInput": "$slot:dirty_slurry_input:chemical",
+      "output": "$slot:clean_slurry_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:separating",
+    "displayName": "Mekanism - Electrolytic Separator (Separating)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:electrolytic_separator",
+    "extraFields": [
+      {
+        "key": "energyMultiplier",
+        "type": "long",
+        "default": "",
+        "label": "Multiplicador de energia (opcional, >= 1)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.separating(event, [{machineOutputTuple}, {machineOutputTuple2}], {machineInputTuple}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "label": "Fluido a separar"
+        },
+        {
+          "id": "left_gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 55,
+          "y": 10,
+          "tank": true,
+          "h": 30,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas izquierdo"
+        },
+        {
+          "id": "right_gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 97,
+          "y": 10,
+          "tank": true,
+          "h": 30,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas derecho"
+        }
+      ],
+      "arrow": {
+        "x": 79,
+        "y": 44,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 161,
+        "y": 7,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:fluid_input:fluid_ingredient",
+      "leftGasOutput": "$slot:left_gas_output:chemical",
+      "rightGasOutput": "$slot:right_gas_output:chemical",
+      "energyMultiplier": "$field:energyMultiplier"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:oxidizing",
+    "displayName": "Mekanism - Chemical Oxidizer (Oxidizing)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:chemical_oxidizer",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.oxidizing(event, {machineOutputTuple}, {input}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 24,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 108,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas resultante"
+        }
+      ],
+      "arrow": {
+        "x": 41,
+        "y": 29,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 92,
+        "y": 64,
+        "w": 52,
+        "h": 6,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:item_input:mek_item",
+      "output": "$slot:gas_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:painting",
+    "displayName": "Mekanism - Painting Machine (Painting)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:painting_machine",
+    "extraFields": [
+      {
+        "key": "inputItemTag",
+        "type": "string",
+        "default": "mekanism:colorable/wool",
+        "label": "Input Item Tag (sin '#', ej. mekanism:colorable/wool)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.painting(event, {output}, {field:inputItemTag}, {machineInputTuple}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "dyeable_item_input",
+          "role": "input",
+          "type": "item",
+          "x": 21,
+          "y": 23,
+          "required": true,
+          "label": "Item a pintar"
+        },
+        {
+          "id": "pigment_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "pigment",
+          "label": "Pigmento"
+        },
+        {
+          "id": "painted_item_output",
+          "role": "output",
+          "type": "item",
+          "x": 92,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 58,
+        "y": 28,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 141,
+        "y": 4,
+        "w": 6,
+        "h": 54,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "chemicalInput": "$slot:pigment_input:chemical",
+      "itemInput": "$slot:dyeable_item_input:mek_item",
+      "output": "$slot:painted_item_output:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:pigment_extracting",
+    "displayName": "Mekanism - Pigment Extractor (Extracting)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:pigment_extractor",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.pigment_extracting(event, {machineOutputTuple}, {input}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 24,
+          "required": true,
+          "label": "Entrada"
+        },
+        {
+          "id": "pigment_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 108,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "pigment",
+          "label": "Pigmento resultante"
+        }
+      ],
+      "arrow": {
+        "x": 41,
+        "y": 29,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 92,
+        "y": 64,
+        "w": 52,
+        "h": 6,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:item_input:mek_item",
+      "output": "$slot:pigment_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:pigment_mixing",
+    "displayName": "Mekanism - Pigment Mixer (Mixing)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:pigment_mixer",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.pigment_mixing(event, {machineOutputTuple}, [{machineInputTuple}, {machineInputTuple2}], {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "left_pigment_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 11,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "pigment",
+          "label": "Pigmento izquierdo"
+        },
+        {
+          "id": "right_pigment_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 110,
+          "y": 11,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "pigment",
+          "label": "Pigmento derecho"
+        },
+        {
+          "id": "pigment_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 56,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "pigment",
+          "label": "Pigmento resultante"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 37,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 92,
+        "y": 73,
+        "w": 52,
+        "h": 6,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "leftInput": "$slot:left_pigment_input:chemical",
+      "rightInput": "$slot:right_pigment_input:chemical",
+      "output": "$slot:pigment_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:reaction",
+    "displayName": "Mekanism - Pressurized Reaction Chamber (Reaction)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:pressurized_reaction_chamber",
+    "extraFields": [
+      {
+        "key": "processingTicks",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo de proceso (ticks)"
+      },
+      {
+        "key": "energyPerTick",
+        "type": "long",
+        "default": "5",
+        "label": "Energia por tick (J)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.reaction(event, {output}, {machineOutputTuple}, {input}, {machineInputTuple}, {machineInputTuple2}, {field:processingTicks}, {field:energyPerTick}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 50,
+          "y": 26,
+          "required": true,
+          "label": "Item de entrada"
+        },
+        {
+          "id": "item_output",
+          "role": "output",
+          "type": "item",
+          "x": 112,
+          "y": 26,
+          "label": "Item resultante"
+        },
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "label": "Fluido de entrada"
+        },
+        {
+          "id": "gas_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 25,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas de entrada"
+        },
+        {
+          "id": "gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 137,
+          "y": 32,
+          "tank": true,
+          "h": 30,
+          "chemical": "gas",
+          "label": "Gas resultante"
+        }
+      ],
+      "arrow": {
+        "x": 74,
+        "y": 30,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 160,
+        "y": 8,
+        "w": 6,
+        "h": 54,
+        "unit": "J",
+        "field": "energyPerTick"
+      }
+    },
+    "rawJson": {
+      "itemInput": "$slot:item_input:mek_item",
+      "fluidInput": "$slot:fluid_input:fluid_ingredient",
+      "gasInput": "$slot:gas_input:chemical",
+      "energyRequired": "$field:energyPerTick",
+      "duration": "$field:processingTicks",
+      "itemOutput": "$slot:item_output:item_stack",
+      "gasOutput": "$slot:gas_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:centrifuging",
+    "displayName": "Mekanism - Isotopic Centrifuge (Centrifuging)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:isotopic_centrifuge",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.centrifuging(event, {machineOutputTuple}, {machineInputTuple}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "gas_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas de entrada"
+        },
+        {
+          "id": "gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 110,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas resultante"
+        }
+      ],
+      "arrow": {
+        "x": 41,
+        "y": 28,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 92,
+        "y": 64,
+        "w": 52,
+        "h": 6,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:gas_input:chemical",
+      "output": "$slot:gas_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:nucleosynthesizing",
+    "displayName": "Mekanism - Antiprotonic Nucleosynthesizer",
+    "modId": "mekanism",
+    "stationItem": "mekanism:antiprotonic_nucleosynthesizer",
+    "extraFields": [
+      {
+        "key": "processingTicks",
+        "type": "int",
+        "default": "200",
+        "label": "Tiempo de proceso (ticks)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "mekanism",
+      "requiresAddon": "kubejs-more-recipe-types",
+      "argsTemplate": "global.mrt.mekanism.nucleosynthesizing(event, {output}, {input}, {machineInputTuple}, {field:processingTicks}, {id})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 22,
+          "y": 23,
+          "required": true,
+          "label": "Item de entrada"
+        },
+        {
+          "id": "antiproton_gas_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 48,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas (ej. antimateria)"
+        },
+        {
+          "id": "item_output",
+          "role": "output",
+          "type": "item",
+          "x": 148,
+          "y": 23,
+          "required": true,
+          "label": "Salida"
+        }
+      ],
+      "arrow": {
+        "x": 84,
+        "y": 26,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 169,
+        "y": 2,
+        "w": 18,
+        "h": 48,
+        "unit": "J"
+      }
+    },
+    "rawJson": {
+      "itemInput": "$slot:item_input:mek_item",
+      "gasInput": "$slot:antiproton_gas_input:chemical",
+      "output": "$slot:item_output:item_stack",
+      "duration": "$field:processingTicks"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:activating",
+    "displayName": "Mekanism - Activating (Solar Neutron Activator)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:solar_neutron_activator",
+    "extraFields": [],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "gas_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas de entrada"
+        },
+        {
+          "id": "gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 110,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas resultante"
+        }
+      ],
+      "arrow": {
+        "x": 41,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:gas_input:chemical",
+      "output": "$slot:gas_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:evaporating",
+    "displayName": "Mekanism - Evaporating (Thermal Evaporation Plant)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:thermal_evaporation_controller",
+    "extraFields": [],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "label": "Fluido de entrada (ej. agua)"
+        },
+        {
+          "id": "fluid_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 148,
+          "y": 2,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "label": "Fluido resultante (ej. salmuera)"
+        }
+      ],
+      "arrow": {
+        "x": 75,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:fluid_input:fluid_ingredient",
+      "output": "$slot:fluid_output:fluid_stack"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:gas_conversion",
+    "displayName": "Mekanism - Item -> Gas Conversion (ranura de gas de las maquinas)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:osmium_compressor",
+    "extraFields": [],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 25,
+          "required": true,
+          "label": "Item que se convierte"
+        },
+        {
+          "id": "gas_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 60,
+          "y": 4,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "gas",
+          "label": "Gas que aporta"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:item_input:mek_item",
+      "output": "$slot:gas_output:chemical"
+    }
+  },
+  {
+    "recipeSerializer": "mekanism:infusion_conversion",
+    "displayName": "Mekanism - Item -> Infusion Conversion (Metallurgic Infuser)",
+    "modId": "mekanism",
+    "stationItem": "mekanism:metallurgic_infuser",
+    "extraFields": [],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 25,
+          "required": true,
+          "label": "Item que se convierte"
+        },
+        {
+          "id": "infuse_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 60,
+          "y": 4,
+          "tank": true,
+          "h": 60,
+          "required": true,
+          "chemical": "infuse_type",
+          "label": "Infusion que aporta"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:item_input:mek_item",
+      "output": "$slot:infuse_output:chemical"
+    }
+  }
+]

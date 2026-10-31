@@ -1,0 +1,317 @@
+[
+  {
+    "recipeSerializer": "garnished:red_dye_blowing",
+    "displayName": "Garnished - Bulk Dyeing (Red)",
+    "modId": "garnished",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "garnished",
+      "requiresAddon": "kubejs-garnished",
+      "argsTemplate": "event.recipes.garnished.red_dye_blowing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "create:encased_fan",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "results": "$outputs:garnished_result"
+    }
+  },
+  {
+    "recipeSerializer": "garnished:orange_dye_blowing",
+    "displayName": "Garnished - Bulk Dyeing (Orange)",
+    "modId": "garnished",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "garnished",
+      "requiresAddon": "kubejs-garnished",
+      "argsTemplate": "event.recipes.garnished.orange_dye_blowing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "create:encased_fan",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "results": "$outputs:garnished_result"
+    }
+  },
+  {
+    "recipeSerializer": "garnished:yellow_dye_blowing",
+    "displayName": "Garnished - Bulk Dyeing (Yellow)",
+    "modId": "garnished",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "garnished",
+      "requiresAddon": "kubejs-garnished",
+      "argsTemplate": "event.recipes.garnished.yellow_dye_blowing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "create:encased_fan",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "results": "$outputs:garnished_result"
+    }
+  },
+  {
+    "recipeSerializer": "garnished:green_dye_blowing",
+    "displayName": "Garnished - Bulk Dyeing (Green)",
+    "modId": "garnished",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "garnished",
+      "requiresAddon": "kubejs-garnished",
+      "argsTemplate": "event.recipes.garnished.green_dye_blowing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "create:encased_fan",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "results": "$outputs:garnished_result"
+    }
+  },
+  {
+    "recipeSerializer": "garnished:blue_dye_blowing",
+    "displayName": "Garnished - Bulk Dyeing (Blue)",
+    "modId": "garnished",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "garnished",
+      "requiresAddon": "kubejs-garnished",
+      "argsTemplate": "event.recipes.garnished.blue_dye_blowing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "create:encased_fan",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "results": "$outputs:garnished_result"
+    }
+  },
+  {
+    "recipeSerializer": "garnished:purple_dye_blowing",
+    "displayName": "Garnished - Bulk Dyeing (Purple)",
+    "modId": "garnished",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "garnished",
+      "requiresAddon": "kubejs-garnished",
+      "argsTemplate": "event.recipes.garnished.purple_dye_blowing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "create:encased_fan",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "results": "$outputs:garnished_result"
+    }
+  },
+  {
+    "recipeSerializer": "garnished:freezing",
+    "displayName": "Garnished - Bulk Freezing",
+    "modId": "garnished",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "garnished",
+      "requiresAddon": "kubejs-garnished",
+      "argsTemplate": "event.recipes.garnished.freezing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "create:encased_fan",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "results": "$outputs:garnished_result"
+    }
+  }
+]

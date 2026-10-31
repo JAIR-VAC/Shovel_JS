@@ -1,0 +1,60 @@
+[
+  {
+    "recipeSerializer": "simpleplanes:plane_workbench",
+    "displayName": "Simple Planes - Plane Workbench",
+    "modId": "simpleplanes",
+    "stationItem": "simpleplanes:plane_workbench",
+    "extraFields": [
+      {
+        "key": "material_amount",
+        "type": "int",
+        "default": "64",
+        "label": "Cantidad de material (madera, etc.)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Ingrediente (la cantidad del stack cuenta)"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 11,
+          "required": true,
+          "label": "Avion",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 12,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 0,
+          "y": 22,
+          "item": "minecraft:oak_planks",
+          "label": "Material (madera): cantidad = campo material_amount"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "ingredient_amount": "$slot:input:amount",
+      "material_amount": "$field:material_amount",
+      "result": "$slot:result:item_stack"
+    }
+  }
+]

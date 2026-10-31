@@ -1,0 +1,72 @@
+[
+  {
+    "recipeSerializer": "projecte:emc_value",
+    "displayName": "ProjectE - EMC Value (not a recipe: written to the pe_custom_conversions datapack file)",
+    "modId": "projecte",
+    "extraFields": [
+      {
+        "key": "item",
+        "type": "item",
+        "default": "",
+        "label": "Item",
+        "required": true
+      },
+      {
+        "key": "emc",
+        "type": "long",
+        "default": "0",
+        "label": "EMC Value",
+        "required": true
+      },
+      {
+        "key": "setBefore",
+        "type": "boolean",
+        "default": "false",
+        "label": "Set Before Conversions (allows EMC to propagate from this value)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "projecte",
+      "requiresAddon": "kubejs-projecte",
+      "argsTemplate": "ProjectEEvents.setEMC(event => { event.setEMC({field:item}, {field:emc}) /* or event.setEMCBefore(item, emc) */ })",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    }
+  },
+  {
+    "recipeSerializer": "projecte:world_transmutation",
+    "displayName": "ProjectE - Philosopher's Stone World Transmutation (not a recipe: written to the pe_world_transmutations datapack file)",
+    "modId": "projecte",
+    "extraFields": [
+      {
+        "key": "from",
+        "type": "item",
+        "default": "",
+        "label": "Source block",
+        "required": true
+      },
+      {
+        "key": "to",
+        "type": "item",
+        "default": "",
+        "label": "Result block",
+        "required": true
+      },
+      {
+        "key": "alt",
+        "type": "item",
+        "default": "",
+        "label": "Result with Shift (optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "projecte",
+      "requiresAddon": "kubejs-projecte",
+      "argsTemplate": "ProjectEEvents.registerWorldTransmutations(event => { event.transform({field:from}, {field:to}) })",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "noOutput": true,
+    "noIngredients": true
+  }
+]

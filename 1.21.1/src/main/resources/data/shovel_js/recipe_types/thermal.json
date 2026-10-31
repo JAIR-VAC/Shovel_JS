@@ -1,0 +1,574 @@
+[
+  {
+    "recipeSerializer": "thermal:pulverizer",
+    "displayName": "Thermal Series - Pulverizer",
+    "modId": "thermal",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.pulverizer({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:pulverizer"
+  },
+  {
+    "recipeSerializer": "thermal:smelter",
+    "displayName": "Thermal Series - Smelter (Induction Smelter)",
+    "modId": "thermal",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.smelter({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "primary_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "secondary_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 108,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 84,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:smelter"
+  },
+  {
+    "recipeSerializer": "thermal:sawmill",
+    "displayName": "Thermal Series - Sawmill",
+    "modId": "thermal",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.sawmill({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:sawmill"
+  },
+  {
+    "recipeSerializer": "thermal:centrifuge",
+    "displayName": "Thermal Series - Centrifuge (Magma Centrifuge)",
+    "modId": "thermal",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.centrifuge({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:centrifuge"
+  },
+  {
+    "recipeSerializer": "thermal:press",
+    "displayName": "Thermal Series - Press",
+    "modId": "thermal",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.press({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "mold_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 108,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 84,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:press"
+  },
+  {
+    "recipeSerializer": "thermal:insolator",
+    "displayName": "Thermal Series - Insolator",
+    "modId": "thermal",
+    "extraFields": [
+      {
+        "key": "water",
+        "type": "int",
+        "default": "400",
+        "label": "Water Amount (mB, optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.insolator({output}, {input}){extra}",
+      "extraFieldCallTemplates": {
+        "water": ".water({value})"
+      },
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:insolator"
+  },
+  {
+    "recipeSerializer": "thermal:furnace",
+    "displayName": "Thermal Series - Furnace (Redstone Furnace)",
+    "modId": "thermal",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.furnace({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:furnace"
+  },
+  {
+    "recipeSerializer": "thermal:crucible",
+    "displayName": "Thermal Series - Crucible",
+    "modId": "thermal",
+    "extraFields": [
+      {
+        "key": "fluidOutputId",
+        "type": "string",
+        "default": "minecraft:water",
+        "label": "Fluid Output ID",
+        "required": true
+      },
+      {
+        "key": "fluidOutputAmount",
+        "type": "int",
+        "default": "300",
+        "label": "Fluid Output Amount (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.crucible(Fluid.of({field:fluidOutputId}, {field:fluidOutputAmount}), {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "thermal:crucible"
+  },
+  {
+    "recipeSerializer": "thermal:chiller",
+    "displayName": "Thermal Series - Chiller",
+    "modId": "thermal",
+    "extraFields": [
+      {
+        "key": "fluidInputId",
+        "type": "string",
+        "default": "minecraft:water",
+        "label": "Fluid Input ID",
+        "required": true
+      },
+      {
+        "key": "fluidInputAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Fluid Input Amount (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.chiller({output}, [Fluid.of({field:fluidInputId}, {field:fluidInputAmount}), {input}])",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:chiller"
+  },
+  {
+    "recipeSerializer": "thermal:refinery",
+    "displayName": "Thermal Series - Refinery",
+    "modId": "thermal",
+    "extraFields": [
+      {
+        "key": "fluidInputId",
+        "type": "string",
+        "default": "thermal:refined_oil",
+        "label": "Fluid Input ID",
+        "required": true
+      },
+      {
+        "key": "fluidInputAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Fluid Input Amount (mB)"
+      },
+      {
+        "key": "fluidOutputId",
+        "type": "string",
+        "default": "minecraft:water",
+        "label": "Fluid Output ID",
+        "required": true
+      },
+      {
+        "key": "fluidOutputAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Fluid Output Amount (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.refinery(Fluid.of({field:fluidOutputId}, {field:fluidOutputAmount}), Fluid.of({field:fluidInputId}, {field:fluidInputAmount}))",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "thermal:refinery"
+  },
+  {
+    "recipeSerializer": "thermal:brewer",
+    "displayName": "Thermal Series - Brewer",
+    "modId": "thermal",
+    "extraFields": [
+      {
+        "key": "fluidInputId",
+        "type": "string",
+        "default": "minecraft:water",
+        "label": "Fluid Input ID",
+        "required": true
+      },
+      {
+        "key": "fluidInputAmount",
+        "type": "int",
+        "default": "250",
+        "label": "Fluid Input Amount (mB)"
+      },
+      {
+        "key": "fluidOutputId",
+        "type": "string",
+        "default": "minecraft:water",
+        "label": "Fluid Output ID",
+        "required": true
+      },
+      {
+        "key": "fluidOutputAmount",
+        "type": "int",
+        "default": "250",
+        "label": "Fluid Output Amount (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.brewer(Fluid.of({field:fluidOutputId}, {field:fluidOutputAmount}), [Fluid.of({field:fluidInputId}, {field:fluidInputAmount}), {input}])",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "thermal:brewer"
+  },
+  {
+    "recipeSerializer": "thermal:bottler",
+    "displayName": "Thermal Series - Bottler",
+    "modId": "thermal",
+    "extraFields": [
+      {
+        "key": "fluidInputId",
+        "type": "string",
+        "default": "minecraft:water",
+        "label": "Fluid Input ID",
+        "required": true
+      },
+      {
+        "key": "fluidInputAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Fluid Input Amount (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.bottler({output}, [Fluid.of({field:fluidInputId}, {field:fluidInputAmount}), {input}])",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "thermal:bottler"
+  },
+  {
+    "recipeSerializer": "thermal:pulverizer_catalyst",
+    "displayName": "Thermal Series - Pulverizer Catalyst",
+    "modId": "thermal",
+    "stationItem": "thermal:pulverizer",
+    "extraFields": [
+      {
+        "key": "primaryMod",
+        "type": "float",
+        "default": "1.0",
+        "label": "Primary Output Modifier"
+      },
+      {
+        "key": "secondaryMod",
+        "type": "float",
+        "default": "1.0",
+        "label": "Secondary Output Modifier"
+      },
+      {
+        "key": "energyMod",
+        "type": "float",
+        "default": "1.0",
+        "label": "Energy Modifier"
+      },
+      {
+        "key": "minChance",
+        "type": "float",
+        "default": "0.0",
+        "label": "Min Chance"
+      },
+      {
+        "key": "useChance",
+        "type": "float",
+        "default": "1.0",
+        "label": "Use Chance"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "thermal",
+      "requiresAddon": "kubejs-thermal",
+      "argsTemplate": "event.recipes.thermal.pulverizer_catalyst({output}){extra}",
+      "extraFieldCallTemplates": {
+        "primaryMod": ".primaryMod({value})",
+        "secondaryMod": ".secondaryMod({value})",
+        "energyMod": ".energyMod({value})",
+        "minChance": ".minChance({value})",
+        "useChance": ".useChance({value})"
+      },
+      "preferOverRawJson": true
+    }
+  }
+]

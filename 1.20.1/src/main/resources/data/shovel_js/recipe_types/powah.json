@@ -1,0 +1,111 @@
+[
+  {
+    "recipeSerializer": "powah:energizing",
+    "displayName": "Powah - Energizing Orb",
+    "modId": "powah",
+    "stationItem": "powah:energizing_orb",
+    "extraFields": [
+      {
+        "key": "energy",
+        "type": "long",
+        "default": "1000",
+        "label": "Energy Cost (FE)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "powah",
+      "requiresAddon": "kubejs-powah",
+      "argsTemplate": "event.recipes.powah.energizing({inputs}, {output}, {field:energy})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input_1",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "label": "Ingrediente 1",
+          "maxCount": 1
+        },
+        {
+          "id": "input_2",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 26,
+          "label": "Ingrediente 2",
+          "maxCount": 1
+        },
+        {
+          "id": "input_3",
+          "role": "input",
+          "type": "item",
+          "x": 40,
+          "y": 26,
+          "label": "Ingrediente 3",
+          "maxCount": 1
+        },
+        {
+          "id": "input_4",
+          "role": "input",
+          "type": "item",
+          "x": 60,
+          "y": 26,
+          "label": "Ingrediente 4",
+          "maxCount": 1
+        },
+        {
+          "id": "input_5",
+          "role": "input",
+          "type": "item",
+          "x": 80,
+          "y": 26,
+          "label": "Ingrediente 5",
+          "maxCount": 1
+        },
+        {
+          "id": "input_6",
+          "role": "input",
+          "type": "item",
+          "x": 100,
+          "y": 26,
+          "label": "Ingrediente 6",
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 148,
+          "y": 26,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 124,
+        "y": 29,
+        "direction": "right"
+      },
+      "energyBar": {
+        "x": 0,
+        "y": 48,
+        "w": 118,
+        "h": 6,
+        "field": "energy",
+        "unit": "FE"
+      }
+    },
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "energy": "$field:energy",
+      "result": "$slot:output_item:item_stack"
+    }
+  }
+]

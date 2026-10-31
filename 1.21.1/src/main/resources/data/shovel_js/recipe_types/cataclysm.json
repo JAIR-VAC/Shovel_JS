@@ -1,0 +1,116 @@
+[
+  {
+    "recipeSerializer": "cataclysm:weapon_fusion",
+    "displayName": "Cataclysm - Mechanical Fusion Anvil",
+    "modId": "cataclysm",
+    "stationItem": "cataclysm:mechanical_fusion_anvil",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "base",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Base",
+          "maxCount": 1
+        },
+        {
+          "id": "addition",
+          "role": "input",
+          "type": "item",
+          "x": 49,
+          "y": 0,
+          "required": true,
+          "label": "Adicion",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 107,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 78,
+        "y": 1,
+        "direction": "right"
+      },
+      "notes": [
+        {
+          "x": 30,
+          "y": 5,
+          "text": "+",
+          "color": "E8C96A"
+        }
+      ]
+    },
+    "rawJson": {
+      "base": "$slot:base:ingredient",
+      "addition": "$slot:addition:ingredient",
+      "result": "$slot:result:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "cataclysm:amethyst_bless",
+    "displayName": "Cataclysm - Altar of Amethyst",
+    "modId": "cataclysm",
+    "stationItem": "cataclysm:altar_of_amethyst",
+    "extraFields": [
+      {
+        "key": "time",
+        "type": "int",
+        "default": "120",
+        "label": "Tiempo (ticks)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 73,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 36,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 36,
+          "y": 22,
+          "item": "cataclysm:altar_of_amethyst",
+          "label": "Altar of Amethyst"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_stack",
+      "time": "$field:time"
+    }
+  }
+]

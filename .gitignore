@@ -1,0 +1,104 @@
+# ---------------------------------------------------------------
+# Gradle y compilacion (se regenera con gradlew build)
+# ---------------------------------------------------------------
+.gradle/
+build/
+out/
+bin/
+classes/
+local.properties
+.kotlin/
+
+# Carpetas de ejecucion de ForgeGradle / ModDevGradle (mundos, configs, logs de prueba)
+run/
+runs/
+logs/
+crash-reports/
+*.log
+hs_err_pid*.log
+replay_pid*.log
+
+# Salida que generan los tests al correr (no es parte del mod)
+/1.20.1/kubejs/
+/1.21.1/kubejs/
+
+# ---------------------------------------------------------------
+# Jars: los mods de referencia pesan GB y se bajan aparte.
+# Solo se sube el wrapper de Gradle, que hace falta para compilar.
+# ---------------------------------------------------------------
+extrasources/
+*.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+
+# ---------------------------------------------------------------
+# Secretos y credenciales: nunca se suben
+# ---------------------------------------------------------------
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+secrets.properties
+gradle-local.properties
+curseforge-token*
+modrinth-token*
+
+# ---------------------------------------------------------------
+# Editores e IDE
+# ---------------------------------------------------------------
+.idea/
+*.iml
+*.ipr
+*.iws
+.eclipse/
+.classpath
+.project
+.settings/
+.vscode/
+.vs/
+*.swp
+*~
+
+# Notas de Obsidian: la configuracion de la ventana cambia con cada uso
+**/.obsidian/workspace*.json
+**/.obsidian/cache/
+**/.trash/
+
+# ---------------------------------------------------------------
+# Sistema operativo
+# ---------------------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store
+$RECYCLE.BIN/
+
+# ---------------------------------------------------------------
+# Material de publicacion (descripciones, logos, presentaciones y sus scripts): no es parte del mod
+/curseforge/
+
+# Python y temporales
+# ---------------------------------------------------------------
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# Respaldo del historial de git anterior
+*.git-old/
+
+# ---------------------------------------------------------------
+# Material de diseno que no hace falta para compilar
+# ---------------------------------------------------------------
+/art/
+/DESIGN/
+/curseforge/
+
+# Notas personales de Obsidian: no forman parte del mod
+/Brain/
+/DESIGN.md

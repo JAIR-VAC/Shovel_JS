@@ -1,0 +1,8 @@
+[
+  {
+    "entityTypeId": "guardvillagers:guard_villager",
+    "displayName": "Guard Villager (Guard Villagers)",
+    "requiresMod": "guardvillagers",
+    "abstractVillagerCompatible": false
+  }
+]

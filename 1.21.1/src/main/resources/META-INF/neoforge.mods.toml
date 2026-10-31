@@ -1,0 +1,110 @@
+# ARCHIVO DE DESARROLLO (runClient): declara los dos mods juntos porque en
+# dev comparten source set. Los jars usan src/packaging/runtime y
+# src/packaging/editor (ver build.gradle) - mantener los tres en sync.
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+issueTrackerURL="https://github.com/JAIR-VAC/shovel_js/issues"
+
+# En NeoForge (a diferencia de Forge 1.20.1) este bloque SI es la forma de
+# declarar los mixins del mod - no hace falta el atributo MixinConfigs del
+# MANIFEST. Ver SinglePoolElementMixin / MeleeAttackGoalMixin.
+[[mixins]]
+    config="shovel_api.mixins.json"
+
+[[mixins]]
+    config="shovel_js.mixins.json"
+
+[[mods]]
+modId="shovel_api"
+version="1.0.0"
+displayName="Shovel API"
+authors="Jairvac"
+logoFile="logo_api.png"
+displayURL="https://github.com/JAIR-VAC/shovel_js"
+description='''
+Shovel API (runtime of Shovel JS): applies in game everything made with the Shovel JS editor
+(item/mob/block rules, ShovelAPI for KubeJS scripts, structure spawn caps, trades).
+Keep this jar in a modpack even after removing the editor (shovel_js) - edits keep working.
+Shovel JS is an in-game visual studio for modpack makers on NeoForge 1.21.1.
+Edit recipes (vanilla and modded machines such as Create, Mekanism, Ars Nouveau and more),
+items, blocks, mobs, tags, loot tables, villager trades, events, world generation and
+structures from a GUI - no code required. Changes are exported as KubeJS scripts and
+datapack files, with a pending-changes queue, diffs and undo.
+Adds a Shovel JS button to JEI and EMI to open any recipe in the editor.
+Some features require KubeJS (and its addons) - run /reload after applying changes.
+'''
+
+[[dependencies.shovel_api]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shovel_api]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1,1.21.2)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shovel_api]]
+    modId="kubejs"
+    type="optional"
+    versionRange="[2101,)"
+    # AFTER (not NONE): when KubeJS IS present we want it fully constructed
+    # before KVE's own mod-init runs, since our optional integration
+    # (com.kve.integration.kubejs) assumes KubeJS's classes are safe to
+    # touch once ModList.get().isLoaded("kubejs") is true.
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.shovel_api]]
+    modId="jade"
+    type="optional"
+    versionRange="[15,)"
+    # Jade discovers plugins itself via its own @WailaPlugin annotation
+    # scan (see KveJadePlugin's class doc), so ordering makes no functional
+    # difference - AFTER kept only for consistency with the kubejs entry.
+    ordering="AFTER"
+    side="BOTH"
+
+[[mods]]
+modId="shovel_js"
+version="1.0.0"
+displayName="Shovel JS"
+authors="Jairvac"
+logoFile="logo.png"
+displayURL="https://github.com/JAIR-VAC/shovel_js"
+description='''
+Shovel JS is an in-game visual studio for modpack makers on NeoForge 1.21.1.
+Edit recipes (vanilla and modded machines such as Create, Mekanism, Ars Nouveau and more),
+items, blocks, mobs, tags, loot tables, villager trades, events, world generation and
+structures from a GUI - no code required. Changes are exported as KubeJS scripts and
+datapack files, with a pending-changes queue, diffs and undo.
+Requires Shovel API (shovel_api). Remove this jar when the pack is done:
+everything you made keeps working with the runtime alone.
+'''
+
+[[dependencies.shovel_js]]
+    modId="shovel_api"
+    type="required"
+    versionRange="[1.0.0,)"
+    # El runtime se construye antes (carga KVEConfig y el estado que el editor usa).
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.shovel_js]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shovel_js]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1,1.21.2)"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,507 @@
+[
+  {
+    "recipeSerializer": "bloodmagic:altar",
+    "displayName": "Blood Magic - Blood Altar",
+    "modId": "bloodmagic",
+    "extraFields": [
+      {
+        "key": "upgradeLevel",
+        "type": "int",
+        "default": "0",
+        "label": "Required Altar Tier/Upgrade Level"
+      },
+      {
+        "key": "altarSyphon",
+        "type": "int",
+        "default": "0",
+        "label": "LP Syphoned from Altar"
+      },
+      {
+        "key": "consumptionRate",
+        "type": "int",
+        "default": "0",
+        "label": "Consumption Rate"
+      },
+      {
+        "key": "drainRate",
+        "type": "int",
+        "default": "0",
+        "label": "Drain Rate"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "bloodmagic",
+      "requiresAddon": "kubejs-blood-magic",
+      "argsTemplate": "event.recipes.bloodmagic.altar({output}, {input}){extra}",
+      "extraFieldCallTemplates": {
+        "upgradeLevel": ".upgradeLevel({value})",
+        "altarSyphon": ".altarSyphon({value})",
+        "consumptionRate": ".consumptionRate({value})",
+        "drainRate": ".drainRate({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "bloodmagic:altar",
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "upgradeLevel": "$field:upgradeLevel",
+      "altarSyphon": "$field:altarSyphon",
+      "consumptionRate": "$field:consumptionRate",
+      "drainRate": "$field:drainRate"
+    }
+  },
+  {
+    "recipeSerializer": "bloodmagic:alchemytable",
+    "displayName": "Blood Magic - Alchemy Table",
+    "modId": "bloodmagic",
+    "extraFields": [
+      {
+        "key": "syphon",
+        "type": "int",
+        "default": "0",
+        "label": "LP Syphon"
+      },
+      {
+        "key": "ticks",
+        "type": "int",
+        "default": "100",
+        "label": "Processing Ticks"
+      },
+      {
+        "key": "upgradeLevel",
+        "type": "int",
+        "default": "0",
+        "label": "Required Upgrade Level"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "bloodmagic",
+      "requiresAddon": "kubejs-blood-magic",
+      "argsTemplate": "event.recipes.bloodmagic.alchemytable({output}, {inputs}){extra}",
+      "extraFieldCallTemplates": {
+        "syphon": ".syphon({value})",
+        "ticks": ".ticks({value})",
+        "upgradeLevel": ".upgradeLevel({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "stationItem": "bloodmagic:alchemytable",
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$inputs:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "syphon": "$field:syphon",
+      "ticks": "$field:ticks",
+      "upgradeLevel": "$field:upgradeLevel"
+    }
+  },
+  {
+    "recipeSerializer": "bloodmagic:soulforge",
+    "displayName": "Blood Magic - Soul Forge (Hellfire Forge, 1.16+)",
+    "modId": "bloodmagic",
+    "extraFields": [
+      {
+        "key": "minimumDrain",
+        "type": "double",
+        "default": "0",
+        "label": "Minimum Will Drain"
+      },
+      {
+        "key": "drain",
+        "type": "double",
+        "default": "0",
+        "label": "Will Drain"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "bloodmagic",
+      "requiresAddon": "kubejs-blood-magic",
+      "argsTemplate": "event.recipes.bloodmagic.soulforge({output}, {inputs}){extra}",
+      "extraFieldCallTemplates": {
+        "minimumDrain": ".minimumDrain({value})",
+        "drain": ".drain({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "stationItem": "bloodmagic:soulforge",
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input0": "$inputAt:0:ingredient",
+      "input1": "$inputAt:1:ingredient",
+      "input2": "$inputAt:2:ingredient",
+      "input3": "$inputAt:3:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "minimumDrain": "$field:minimumDrain",
+      "drain": "$field:drain"
+    }
+  },
+  {
+    "recipeSerializer": "bloodmagic:tartaric_forge",
+    "displayName": "Blood Magic - Tartaric Forge (⚠ LEGACY 1.12.2 type - likely invalid on Blood Magic 1.20.1, addon only exposes soulforge; use Soul Forge instead)",
+    "modId": "bloodmagic",
+    "unsupported": true,
+    "unsupportedReason": "El campo estructurado no reflejaba lo que el propio displayName ya avisaba: tipo 1.12.2, el addon de KubeJS para Blood Magic 1.20.1 solo expone soulforge. No tiene sentido darle stationItem/slotLayout a un tipo que probablemente no resuelve a nada real - usar Soul Forge en su lugar.",
+    "extraFields": [
+      {
+        "key": "minimumSouls",
+        "type": "double",
+        "default": "0",
+        "label": "Minimum Souls in Tartaric Gem"
+      },
+      {
+        "key": "soulDrain",
+        "type": "double",
+        "default": "0",
+        "label": "Souls Consumed"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "bloodmagic",
+      "requiresAddon": "kubejs-blood-magic",
+      "argsTemplate": "event.recipes.bloodmagic.tartaricforge({output}, {inputs} /* up to 4 */, /* minimumSouls */ 0, /* soulDrain */ 0)",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    }
+  },
+  {
+    "recipeSerializer": "bloodmagic:arc",
+    "displayName": "Blood Magic - Alchemical Reaction Chamber (ARC)",
+    "modId": "bloodmagic",
+    "stationItem": "bloodmagic:alchemicalreactionchamber",
+    "extraFields": [
+      {
+        "key": "tool",
+        "type": "item",
+        "default": "",
+        "label": "Tool Item (if the tool slot is empty)",
+        "required": false
+      },
+      {
+        "key": "consumeIngredient",
+        "type": "boolean",
+        "default": "true",
+        "label": "Consume Tool"
+      },
+      {
+        "key": "outputFluid",
+        "type": "fluid_id",
+        "default": "",
+        "label": "Output Fluid (if the fluid slot is empty, 1000 mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "bloodmagic",
+      "requiresAddon": "kubejs-blood-magic",
+      "argsTemplate": "event.recipes.bloodmagic.arc({output}, {input}, {field:tool}){extra}",
+      "extraFieldCallTemplates": {
+        "consumeIngredient": ".consumeIngredient({value})",
+        "outputFluid": ".outputFluid({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "arrow": {
+        "x": 64,
+        "y": 22,
+        "direction": "right"
+      },
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 18,
+          "required": true
+        },
+        {
+          "id": "tool_input",
+          "role": "input",
+          "type": "item",
+          "x": 40,
+          "y": 0
+        },
+        {
+          "id": "input_fluid",
+          "tank": true,
+          "role": "input",
+          "type": "fluid",
+          "x": 20,
+          "y": 40,
+          "label": "Fluido de entrada (id o #tag)"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 90,
+          "y": 10,
+          "required": true
+        },
+        {
+          "id": "secondary_output",
+          "role": "output",
+          "type": "item",
+          "x": 90,
+          "y": 36
+        },
+        {
+          "id": "output_fluid",
+          "tank": true,
+          "role": "output",
+          "type": "fluid",
+          "x": 116,
+          "y": 10,
+          "label": "Fluido de salida"
+        }
+      ]
+    },
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "inputsize": "$slot:main_input:amount",
+      "tool": "$slot:tool_input:ingredient||$field:tool:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "addedoutput": [
+        "$slot:secondary_output:bm_added_output"
+      ],
+      "inputFluid": "$slot:input_fluid:fluid_ingredient",
+      "outputFluid": "$slot:output_fluid:fluid_stack||$field:outputFluid:create_fluid",
+      "consumeingredient": "$field:consumeIngredient"
+    }
+  },
+  {
+    "recipeSerializer": "bloodmagic:array",
+    "displayName": "Blood Magic - Ritual Array",
+    "modId": "bloodmagic",
+    "extraFields": [
+      {
+        "key": "baseInput",
+        "type": "item",
+        "default": "",
+        "label": "Base Input Item (or 1st ingredient)",
+        "required": false
+      },
+      {
+        "key": "addedInput",
+        "type": "item",
+        "default": "",
+        "label": "Added Input Item (or 2nd ingredient)",
+        "required": false
+      },
+      {
+        "key": "texture",
+        "type": "string",
+        "default": "",
+        "label": "Array Texture (optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "bloodmagic",
+      "requiresAddon": "kubejs-blood-magic",
+      "argsTemplate": "event.recipes.bloodmagic.array({output}, {field:baseInput}, {field:addedInput}){extra}",
+      "extraFieldCallTemplates": {
+        "texture": ".texture({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "baseinput": "$inputAt:0:ingredient||$field:baseInput:ingredient",
+      "addedinput": "$inputAt:1:ingredient||$field:addedInput:ingredient",
+      "output": "$output:item_stack",
+      "texture": "$field:texture"
+    }
+  },
+  {
+    "recipeSerializer": "bloodmagic:arc_potion",
+    "displayName": "Blood Magic - Alchemical Reaction Chamber (Potion Effect Item)",
+    "modId": "bloodmagic",
+    "stationItem": "bloodmagic:alchemicalreactionchamber",
+    "extraFields": [
+      {
+        "key": "tool",
+        "type": "item",
+        "default": "",
+        "label": "Tool Item (if the tool slot is empty)",
+        "required": false
+      },
+      {
+        "key": "consumeIngredient",
+        "type": "boolean",
+        "default": "true",
+        "label": "Consume Tool"
+      },
+      {
+        "key": "outputFluid",
+        "type": "fluid_id",
+        "default": "",
+        "label": "Output Fluid (if the fluid slot is empty, 1000 mB)"
+      }
+    ],
+    "slotLayout": {
+      "arrow": {
+        "x": 64,
+        "y": 22,
+        "direction": "right"
+      },
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 18,
+          "required": true
+        },
+        {
+          "id": "tool_input",
+          "role": "input",
+          "type": "item",
+          "x": 40,
+          "y": 0
+        },
+        {
+          "id": "input_fluid",
+          "tank": true,
+          "role": "input",
+          "type": "fluid",
+          "x": 20,
+          "y": 40,
+          "label": "Fluido de entrada (id o #tag)"
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 90,
+          "y": 10,
+          "required": true
+        },
+        {
+          "id": "secondary_output",
+          "role": "output",
+          "type": "item",
+          "x": 90,
+          "y": 36
+        },
+        {
+          "id": "output_fluid",
+          "tank": true,
+          "role": "output",
+          "type": "fluid",
+          "x": 116,
+          "y": 10,
+          "label": "Fluido de salida"
+        }
+      ]
+    },
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "inputsize": "$slot:main_input:amount",
+      "tool": "$slot:tool_input:ingredient||$field:tool:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "addedoutput": [
+        "$slot:secondary_output:bm_added_output"
+      ],
+      "inputFluid": "$slot:input_fluid:fluid_ingredient",
+      "outputFluid": "$slot:output_fluid:fluid_stack||$field:outputFluid:create_fluid",
+      "consumeingredient": "$field:consumeIngredient"
+    }
+  }
+]

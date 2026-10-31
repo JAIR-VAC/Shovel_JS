@@ -1,0 +1,223 @@
+[
+  {
+    "recipeSerializer": "irons_spellbooks:alchemist_cauldron_fill",
+    "displayName": "Iron's Spellbooks - Caldero (llenar)",
+    "modId": "irons_spellbooks",
+    "stationItem": "irons_spellbooks:alchemist_cauldron",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Item",
+          "maxCount": 1
+        },
+        {
+          "id": "fluid",
+          "role": "input",
+          "type": "fluid",
+          "x": 22,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "h": 40,
+          "label": "Fluido que se agrega al caldero"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 76,
+          "y": 11,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 48,
+        "y": 12,
+        "direction": "right"
+      },
+      "notes": [
+        {
+          "x": 0,
+          "y": 44,
+          "text": "Fuego debajo del caldero"
+        }
+      ],
+      "heatSourceHint": true
+    },
+    "rawJson": {
+      "input": "$slot:input:ingredient",
+      "fluid": "$slot:fluid:forge_fluid",
+      "result": "$slot:result:item_stack",
+      "sound": "$field:sound",
+      "mustFitAll": "$field:mustFitAll"
+    },
+    "extraFields": [
+      {
+        "key": "sound",
+        "type": "string",
+        "default": "",
+        "label": "Sound played when used (optional - e.g. minecraft:item.bucket.empty)"
+      },
+      {
+        "key": "mustFitAll",
+        "type": "boolean",
+        "default": "",
+        "label": "Must fit all (optional - true/false; blank = mod default)"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "irons_spellbooks:alchemist_cauldron_empty",
+    "displayName": "Iron's Spellbooks - Caldero (vaciar)",
+    "modId": "irons_spellbooks",
+    "stationItem": "irons_spellbooks:alchemist_cauldron",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Item",
+          "maxCount": 1
+        },
+        {
+          "id": "fluid",
+          "role": "input",
+          "type": "fluid",
+          "x": 22,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "h": 40,
+          "label": "Fluido que se saca del caldero"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 76,
+          "y": 11,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 48,
+        "y": 12,
+        "direction": "right"
+      },
+      "notes": [
+        {
+          "x": 0,
+          "y": 44,
+          "text": "Fuego debajo del caldero"
+        }
+      ],
+      "heatSourceHint": true
+    },
+    "rawJson": {
+      "input": "$slot:input:ingredient",
+      "fluid": "$slot:fluid:forge_fluid",
+      "result": "$slot:result:item_stack",
+      "sound": "$field:sound"
+    },
+    "extraFields": [
+      {
+        "key": "sound",
+        "type": "string",
+        "default": "",
+        "label": "Sound played when used (optional - e.g. minecraft:item.bucket.empty)"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "irons_spellbooks:alchemist_cauldron_brew",
+    "displayName": "Iron's Spellbooks - Caldero (preparar)",
+    "modId": "irons_spellbooks",
+    "stationItem": "irons_spellbooks:alchemist_cauldron",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "base_fluid",
+          "role": "input",
+          "type": "fluid",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "tank": true,
+          "h": 40,
+          "label": "Fluido base"
+        },
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 22,
+          "y": 11,
+          "required": true,
+          "label": "Item",
+          "maxCount": 1
+        },
+        {
+          "id": "byproduct",
+          "role": "output",
+          "type": "item",
+          "x": 76,
+          "y": 22,
+          "label": "Subproducto (opcional)"
+        },
+        {
+          "id": "results",
+          "role": "output",
+          "type": "fluid",
+          "x": 98,
+          "y": 0,
+          "repeatable": true,
+          "tank": true,
+          "h": 40,
+          "label": "Fluidos resultantes"
+        }
+      ],
+      "arrow": {
+        "x": 48,
+        "y": 12,
+        "direction": "right"
+      },
+      "notes": [
+        {
+          "x": 0,
+          "y": 44,
+          "text": "Fuego debajo del caldero"
+        }
+      ],
+      "heatSourceHint": true
+    },
+    "rawJson": {
+      "base_fluid": "$slot:base_fluid:irons_fluid:basePotion",
+      "input": "$slot:input:ingredient",
+      "results": "$outputs:forge_fluid||[]",
+      "byproduct": "$slot:byproduct:item_stack"
+    },
+    "extraFields": [
+      {
+        "key": "basePotion",
+        "type": "string",
+        "default": "",
+        "label": "Pocion base (solo si el fluido base es irons_spellbooks:potion, ej. minecraft:strong_healing)"
+      }
+    ]
+  }
+]

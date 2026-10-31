@@ -1,0 +1,877 @@
+[
+  {
+    "recipeSerializer": "create:crushing",
+    "displayName": "Create - Crushing Wheels",
+    "stationItem": "create:crushing_wheel",
+    "stationBlockState": "axis=x",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "processingTime",
+        "type": "int",
+        "default": "100",
+        "label": "Processing Time (ticks)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createCrushing({output}, {input}){extra}",
+      "extraFieldCallTemplates": {
+        "processingTime": ".processingTime({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result",
+      "processing_time": "$field:processingTime"
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "primary_output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_output",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "repeatable": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "create:cutting",
+    "displayName": "Create - Cutting (Mechanical Saw)",
+    "stationItem": "create:mechanical_saw",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "processingTime",
+        "type": "int",
+        "default": "100",
+        "label": "Processing Time (ticks)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createCutting({output}, {input}){extra}",
+      "extraFieldCallTemplates": {
+        "processingTime": ".processingTime({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result",
+      "processing_time": "$field:processingTime"
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "primary_output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_output",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "repeatable": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "create:milling",
+    "displayName": "Create - Milling (Millstone)",
+    "stationItem": "create:millstone",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "processingTime",
+        "type": "int",
+        "default": "100",
+        "label": "Processing Time (ticks)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createMilling({output}, {input}){extra}",
+      "extraFieldCallTemplates": {
+        "processingTime": ".processingTime({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result",
+      "processing_time": "$field:processingTime"
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "primary_output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_output",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "repeatable": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "create:pressing",
+    "displayName": "Create - Pressing (Mechanical Press)",
+    "stationItem": "create:mechanical_press",
+    "modId": "create",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createPressing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result"
+    },
+    "slotLayout": {
+      "sameRow": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          0,
+          -2,
+          0
+        ],
+        "block": "create:depot"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "create:sandpaper_polishing",
+    "displayName": "Create - Sandpaper Polishing",
+    "stationItem": "create:sand_paper",
+    "modId": "create",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createSandpaperPolishing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result"
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "create:haunting",
+    "displayName": "Create - Haunting (Encased Fan + Soul Fire)",
+    "stationItem": "create:encased_fan",
+    "stationBlockState": "facing=south",
+    "modId": "create",
+    "extraFields": [],
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result"
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "create:splashing",
+    "displayName": "Create - Splashing/Washing (Encased Fan + Water)",
+    "stationItem": "create:encased_fan",
+    "stationBlockState": "facing=south",
+    "modId": "create",
+    "extraFields": [],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createSplashing({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result"
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "primary_output",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_output",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "repeatable": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "create:compacting",
+    "displayName": "Create - Compacting (Mechanical Press + Basin)",
+    "stationItem": "create:mechanical_press",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "heatRequirement",
+        "type": "string",
+        "default": "",
+        "label": "Calor (vacio = ninguno)",
+        "options": [
+          "heated",
+          "superheated"
+        ]
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createCompacting({output}, {inputs})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "press_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 0,
+          "y": 24,
+          "tank": true,
+          "h": 36,
+          "label": "Fluido (opcional)"
+        },
+        {
+          "id": "basin_extra",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 90,
+          "y": 0,
+          "label": "Item resultante"
+        },
+        {
+          "id": "output_fluid",
+          "role": "output",
+          "type": "fluid",
+          "x": 90,
+          "y": 24,
+          "tank": true,
+          "label": "Fluido resultante"
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 66,
+        "y": 30,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result",
+      "heat_requirement": "$field:heatRequirement"
+    }
+  },
+  {
+    "recipeSerializer": "create:mixing",
+    "displayName": "Create - Mixing (Mechanical Mixer + Basin)",
+    "stationItem": "create:mechanical_mixer",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "heatRequirement",
+        "type": "string",
+        "default": "",
+        "label": "Calor (vacio = ninguno)",
+        "options": [
+          "heated",
+          "superheated"
+        ]
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createMixing({output}, {inputs})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "ingredient_1",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "ingredient_2",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0
+        },
+        {
+          "id": "ingredient_3",
+          "role": "input",
+          "type": "item",
+          "x": 40,
+          "y": 0
+        },
+        {
+          "id": "ingredient_extra",
+          "role": "input",
+          "type": "item",
+          "x": 60,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 0,
+          "y": 24,
+          "tank": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 114,
+          "y": 0,
+          "label": "Item resultante"
+        },
+        {
+          "id": "output_fluid",
+          "role": "output",
+          "type": "fluid",
+          "x": 114,
+          "y": 24,
+          "tank": true,
+          "label": "Fluido resultante"
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 90,
+        "y": 40,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredients": "$inputs:create_ingredient",
+      "results": "$outputs:create_result",
+      "heat_requirement": "$field:heatRequirement"
+    }
+  },
+  {
+    "recipeSerializer": "create:deploying",
+    "displayName": "Create - Deploying (Deployer)",
+    "stationItem": "create:deployer",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "keepHeldItem",
+        "type": "boolean",
+        "default": "false",
+        "label": "Keep Held Item"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createDeploying({output}, {inputs}){extra}",
+      "extraFieldCallTemplates": {
+        "keepHeldItem": ".keepHeldItem()"
+      },
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredients": [
+        "$slot:main_input:create_ingredient",
+        "$slot:deployed_item:create_ingredient"
+      ],
+      "results": "$outputs:create_result",
+      "keep_held_item": "$field:keepHeldItem"
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "deployed_item",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 84,
+        "y": 3,
+        "direction": "right"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "create:item_application",
+    "displayName": "Create - Item Application (Deployer sobre item fijo)",
+    "stationItem": "create:deployer",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "keepHeldItem",
+        "type": "boolean",
+        "default": "false",
+        "label": "Keep Held Item"
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "target_item",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "applied_item",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 106,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 84,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredients": [
+        "$slot:target_item:create_ingredient",
+        "$slot:applied_item:create_ingredient"
+      ],
+      "results": "$outputs:create_result",
+      "keep_held_item": "$field:keepHeldItem"
+    }
+  },
+  {
+    "recipeSerializer": "create:filling",
+    "displayName": "Create - Filling (Spout)",
+    "stationItem": "create:spout",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "fluidId",
+        "type": "string",
+        "default": "minecraft:water",
+        "label": "Fluid ID",
+        "required": true
+      },
+      {
+        "key": "fluidAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Fluid Amount (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createFilling({output}, [{input}, Fluid.of({field:fluidId}, {field:fluidAmount})])",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 25,
+          "required": true,
+          "label": "Item a llenar",
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 107,
+          "y": 25,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "fieldTanks": [
+        {
+          "x": 2,
+          "y": 6,
+          "h": 18,
+          "idField": "fluidId",
+          "amountField": "fluidAmount",
+          "role": "input",
+          "label": "Fluido del Spout"
+        }
+      ],
+      "arrow": {
+        "x": 50,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredients": [
+        "$slot:main_input:ingredient",
+        "$field:fluidId:create_fluid:fluidAmount"
+      ],
+      "results": [
+        "$slot:output_item:create_result"
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "create:emptying",
+    "displayName": "Create - Emptying (Item Drain)",
+    "stationItem": "create:item_drain",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "fluidOutputId",
+        "type": "string",
+        "default": "minecraft:water",
+        "label": "Output Fluid ID",
+        "required": true
+      },
+      {
+        "key": "fluidOutputAmount",
+        "type": "int",
+        "default": "1000",
+        "label": "Output Fluid Amount (mB)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "create",
+      "requiresAddon": "kubejs-create",
+      "argsTemplate": "event.recipes.createEmptying([{input}, Fluid.of({field:fluidOutputId}, {field:fluidOutputAmount})], {output})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 2,
+          "y": 26,
+          "required": true,
+          "label": "Item a vaciar",
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 107,
+          "y": 45,
+          "required": true,
+          "label": "Item resultante"
+        }
+      ],
+      "fieldTanks": [
+        {
+          "x": 107,
+          "y": 26,
+          "h": 18,
+          "idField": "fluidOutputId",
+          "amountField": "fluidOutputAmount",
+          "role": "output",
+          "label": "Fluido extraido"
+        }
+      ],
+      "arrow": {
+        "x": 50,
+        "y": 29,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredients": [
+        "$slot:main_input:ingredient"
+      ],
+      "results": [
+        "$slot:output_item:create_result",
+        "$field:fluidOutputId:create_fluid_result:fluidOutputAmount"
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "create:mechanical_crafting",
+    "displayName": "Create - Mechanical Crafting (Mechanical Crafters)",
+    "stationItem": "create:mechanical_crafter",
+    "modId": "create",
+    "editorView": "node_grid",
+    "extraFields": [
+      {
+        "key": "acceptMirrored",
+        "type": "boolean",
+        "default": "true",
+        "label": "Accept Mirrored Pattern"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "create:sequenced_assembly",
+    "displayName": "Create - Sequenced Assembly",
+    "modId": "create",
+    "extraFields": [
+      {
+        "key": "transitionalItem",
+        "type": "item",
+        "default": "",
+        "label": "Transitional Item",
+        "required": true
+      },
+      {
+        "key": "loops",
+        "type": "int",
+        "default": "5",
+        "label": "Loops"
+      }
+    ]
+  }
+]

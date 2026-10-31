@@ -1,0 +1,16 @@
+[
+  {
+    "entityTypeId": "ribbits:ribbit",
+    "displayName": "Ribbit (Ribbits)",
+    "requiresMod": "ribbits",
+    "abstractVillagerCompatible": false,
+    "professionGetter": "getRibbitData.getProfession",
+    "professions": [
+      "ribbits:merchant",
+      "ribbits:fisherman",
+      "ribbits:gardener",
+      "ribbits:sorcerer",
+      "ribbits:nitwit"
+    ]
+  }
+]

@@ -1,0 +1,763 @@
+[
+  {
+    "recipeSerializer": "goety:ritual",
+    "displayName": "Goety - Dark Altar Ritual",
+    "stationItem": "goety:dark_altar",
+    "modId": "goety",
+    "extraFields": [
+      {
+        "key": "ritualType",
+        "type": "string",
+        "default": "goety:craft",
+        "label": "Ritual Type (use the picker button above - a pack can also register custom ritual types via kubejs-goety's GoetyEvents.registerRitual, type any id here if yours isn't in the list)",
+        "required": true,
+        "options": [
+          "goety:craft",
+          "goety:enchant",
+          "goety:summon",
+          "goety:summon_tamed",
+          "goety:convert",
+          "goety:convert_tamed",
+          "goety:convert_complete_tamed",
+          "goety:teleport"
+        ]
+      },
+      {
+        "key": "activationItem",
+        "type": "item",
+        "default": "minecraft:ender_pearl",
+        "label": "Activation Item",
+        "required": true
+      },
+      {
+        "key": "craftType",
+        "type": "string",
+        "default": "forge",
+        "label": "Craft Type / ritual structure required (use the picker button above for the 5 confirmed against goety.wiki.gg's Rituals page - newer Goety versions add more, e.g. deep, frost, sky, storm, adept_nether, expert_nether, end, sabbath - type any of those manually if yours isn't listed)",
+        "required": true,
+        "options": [
+          "forge",
+          "animation",
+          "geoturgy",
+          "magic",
+          "necroturgy"
+        ]
+      },
+      {
+        "key": "soulCost",
+        "type": "int",
+        "default": "5",
+        "label": "Soul Cost"
+      },
+      {
+        "key": "duration",
+        "type": "int",
+        "default": "20",
+        "label": "Duration (seconds)"
+      },
+      {
+        "key": "enchantment",
+        "type": "string",
+        "default": "",
+        "label": "(only for ritualType=goety:enchant) Enchantment ID to apply - leave blank otherwise"
+      },
+      {
+        "key": "xpLevelCost",
+        "type": "int",
+        "default": "0",
+        "label": "(only for ritualType=goety:enchant) XP level cost - leave 0 otherwise"
+      },
+      {
+        "key": "entityToSummon",
+        "type": "string",
+        "default": "",
+        "label": "(only for ritualType=goety:summon / summon_tamed) Entity ID to summon - leave blank otherwise"
+      },
+      {
+        "key": "summonLife",
+        "type": "int",
+        "default": "-1",
+        "label": "(only for summon rituals) Summoned entity lifespan in ticks, -1 = permanent"
+      },
+      {
+        "key": "entityToSacrificeTag",
+        "type": "string",
+        "default": "",
+        "label": "(optional, any ritualType) Entity tag required as a sacrifice - leave blank if this ritual needs no sacrifice"
+      },
+      {
+        "key": "entityToSacrificeDisplayName",
+        "type": "string",
+        "default": "",
+        "label": "(pairs with entityToSacrificeTag) Display name for the sacrifice requirement"
+      },
+      {
+        "key": "entityToConvertTag",
+        "type": "string",
+        "default": "",
+        "label": "(only for ritualType=goety:convert / convert_tamed / convert_complete_tamed) Entity tag to convert - leave blank otherwise"
+      },
+      {
+        "key": "entityToConvertDisplayName",
+        "type": "string",
+        "default": "",
+        "label": "(pairs with entityToConvertTag) Display name for the entity being converted"
+      },
+      {
+        "key": "entityToConvertInto",
+        "type": "string",
+        "default": "",
+        "label": "(only for convert rituals) Entity ID to convert into - leave blank otherwise"
+      },
+      {
+        "key": "research",
+        "type": "string",
+        "default": "",
+        "label": "(optional) Required research id, e.g. 'forbidden', 'haunting' - leave blank if none required"
+      },
+      {
+        "key": "structureToLocateTag",
+        "type": "string",
+        "default": "",
+        "label": "Structure To Locate Tag (goety:locate)"
+      },
+      {
+        "key": "structureToLocateDisplayName",
+        "type": "string",
+        "default": "",
+        "label": "Structure To Locate Display Name"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "goety",
+      "requiresAddon": "kubejs-goety",
+      "argsTemplate": "event.recipes.goety.ritual({output}, {field:ritualType}, {inputs}).activationItem({field:activationItem}).craftType({field:craftType}){extra}",
+      "extraFieldCallTemplates": {
+        "soulCost": ".soulCost({value})",
+        "duration": ".duration({value})",
+        "enchantment": ".enchantment({value})",
+        "xpLevelCost": ".xpLevelCost({value})",
+        "entityToSummon": ".entityToSummon({value})",
+        "summonLife": ".summonLife({value})",
+        "entityToSacrificeTag": ".entityToSacrificeTag({value})",
+        "entityToSacrificeDisplayName": ".entityToSacrificeDisplayName({value})",
+        "entityToConvertTag": ".entityToConvertTag({value})",
+        "entityToConvertDisplayName": ".entityToConvertDisplayName({value})",
+        "entityToConvertInto": ".entityToConvertInto({value})",
+        "research": ".research({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        }
+      ]
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 12,
+      "centerField": "activationItem",
+      "ringFromInputs": true,
+      "positions": [
+        [
+          0,
+          -30
+        ],
+        [
+          30,
+          0
+        ],
+        [
+          0,
+          30
+        ],
+        [
+          -30,
+          0
+        ],
+        [
+          15,
+          -30
+        ],
+        [
+          30,
+          -30
+        ],
+        [
+          -15,
+          30
+        ],
+        [
+          -30,
+          30
+        ],
+        [
+          -15,
+          -30
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          15,
+          30
+        ],
+        [
+          -30,
+          -30
+        ]
+      ]
+    },
+    "rawJson": {
+      "ritual_type": "$field:ritualType",
+      "activation_item": "$field:activationItem:ingredient",
+      "craftType": "$field:craftType",
+      "soulCost": "$field:soulCost",
+      "duration": "$field:duration",
+      "ingredients": "$inputs:ingredient",
+      "result": "$slot:output_item:item_stack",
+      "entity_to_summon": "$field:entityToSummon",
+      "summonLife": "$field:summonLife",
+      "entity_to_sacrifice": {
+        "tag": "$field:entityToSacrificeTag",
+        "display_name": "$field:entityToSacrificeDisplayName"
+      },
+      "entity_to_convert": {
+        "tag": "$field:entityToConvertTag",
+        "display_name": "$field:entityToConvertDisplayName"
+      },
+      "entity_to_convert_into": "$field:entityToConvertInto",
+      "structure_to_locate": {
+        "tag": "$field:structureToLocateTag",
+        "display_name": "$field:structureToLocateDisplayName"
+      },
+      "enchantment": "$field:enchantment",
+      "xpLevelCost": "$field:xpLevelCost",
+      "research": "$field:research"
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          2,
+          0,
+          0
+        ],
+        "block": "goety:pedestal"
+      },
+      {
+        "pos": [
+          -2,
+          0,
+          0
+        ],
+        "block": "goety:pedestal"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          2
+        ],
+        "block": "goety:pedestal"
+      },
+      {
+        "pos": [
+          0,
+          0,
+          -2
+        ],
+        "block": "goety:pedestal"
+      }
+    ]
+  },
+  {
+    "recipeSerializer": "goety:brazier",
+    "displayName": "Goety - Brazier",
+    "stationItem": "goety:stone_brazier",
+    "modId": "goety",
+    "extraFields": [
+      {
+        "key": "soulCost",
+        "type": "int",
+        "default": "0",
+        "label": "Soul Cost"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "goety",
+      "requiresAddon": "kubejs-goety",
+      "argsTemplate": "event.recipes.goety.brazier({output}, {inputs}).soulCost({field:soulCost})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        }
+      ]
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 8,
+      "centerSlotId": "main_input",
+      "ringFromInputs": true
+    },
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "result": "$slot:output_item:item_stack",
+      "soulCost": "$field:soulCost"
+    }
+  },
+  {
+    "recipeSerializer": "goety:cursed_infuser_recipes",
+    "displayName": "Goety - Cursed Infuser",
+    "stationItem": "goety:cursed_infuser",
+    "modId": "goety",
+    "extraFields": [
+      {
+        "key": "cookingTime",
+        "type": "int",
+        "default": "60",
+        "label": "Cooking Time (ticks)"
+      },
+      {
+        "key": "grim",
+        "type": "boolean",
+        "default": "false",
+        "label": "Grim Recipe"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "goety",
+      "requiresAddon": "kubejs-goety",
+      "argsTemplate": "event.recipes.goety.cursed_infuser_recipes({output}, {input}){extra}",
+      "extraFieldCallTemplates": {
+        "cookingTime": ".cookingTime({value})",
+        "grim": ".grim({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredient": "$slot:main_input:ingredient",
+      "result": "$slot:output_item:item_stack",
+      "cookingTime": "$field:cookingTime",
+      "grim": "$field:grim"
+    }
+  },
+  {
+    "recipeSerializer": "goety:brewing",
+    "displayName": "Goety - Witch's Cauldron Brewing (catalyst)",
+    "stationItem": "goety:witch_cauldron",
+    "modId": "goety",
+    "extraFields": [
+      {
+        "key": "effectId",
+        "type": "string",
+        "default": "minecraft:regeneration",
+        "label": "Potion Effect ID produced by this catalyst (this is NOT an item - Goety brewing recipes have no item output)",
+        "required": true
+      },
+      {
+        "key": "soulCost",
+        "type": "int",
+        "default": "15",
+        "label": "Soul Cost"
+      },
+      {
+        "key": "capacityExtra",
+        "type": "int",
+        "default": "0",
+        "label": "Extra Capacity"
+      },
+      {
+        "key": "duration",
+        "type": "int",
+        "default": "600",
+        "label": "Effect Duration (ticks)"
+      },
+      {
+        "key": "entityType",
+        "type": "string",
+        "default": "",
+        "label": "(optional) Required entity type for this catalyst - leave blank if not entity-specific"
+      },
+      {
+        "key": "entityTag",
+        "type": "string",
+        "default": "",
+        "label": "(optional) Required entity tag for this catalyst - leave blank if not entity-specific"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "goety",
+      "requiresAddon": "kubejs-goety",
+      "argsTemplate": "event.recipes.goety.brewing({input}, {field:effectId}){extra}",
+      "extraFieldCallTemplates": {
+        "soulCost": ".soulCost({value})",
+        "capacityExtra": ".capacityExtra({value})",
+        "duration": ".duration({value})",
+        "entityType": ".entityType({value})",
+        "entityTag": ".entityTag({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredient": "$input:ingredient",
+      "effect": "$field:effectId",
+      "soulCost": "$field:soulCost",
+      "capacityExtra": "$field:capacityExtra",
+      "duration": "$field:duration",
+      "entity": {
+        "entity_type": "$field:entityType",
+        "tag": "$field:entityTag"
+      }
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Ingrediente"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:potion",
+          "label": "Efecto de la pocion"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "goety:pulverize",
+    "displayName": "Goety - Haunted Block Pulverizer",
+    "modId": "goety",
+    "extraFields": [
+      {
+        "key": "itemResultId",
+        "type": "item",
+        "default": "",
+        "label": "Item Result (leave blank if this recipe only produces a block result)"
+      },
+      {
+        "key": "blockResultId",
+        "type": "string",
+        "default": "",
+        "label": "Block Result ID (leave blank if this recipe only produces an item result; at least one of the two results is required)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "goety",
+      "requiresAddon": "kubejs-goety",
+      "argsTemplate": "event.recipes.goety.pulverize({input}){extra}",
+      "extraFieldCallTemplates": {
+        "itemResultId": ".itemResult({value})",
+        "blockResultId": ".blockResult({value})"
+      },
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredient": [
+        "$input:ingredient"
+      ],
+      "item_result": "$output:item_stack||$field:itemResultId:item_stack",
+      "block_result": "$field:blockResultId"
+    }
+  },
+  {
+    "recipeSerializer": "goety:soul_absorber_recipes",
+    "displayName": "Goety - Soul Absorber",
+    "stationItem": "goety:soul_absorber",
+    "modId": "goety",
+    "extraFields": [
+      {
+        "key": "soulIncrease",
+        "type": "int",
+        "default": "25",
+        "label": "Soul Increase Amount"
+      },
+      {
+        "key": "cookingTime",
+        "type": "int",
+        "default": "200",
+        "label": "Cooking Time (ticks)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "goety",
+      "requiresAddon": "kubejs-goety",
+      "argsTemplate": "event.recipes.goety.soul_absorber_recipes({input}).soulIncrease({field:soulIncrease}).cookingTime({field:cookingTime})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": false
+    },
+    "rawJson": {
+      "ingredient": "$input:ingredient",
+      "soulIncrease": "$field:soulIncrease",
+      "cookingtime": "$field:cookingTime"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Item que da almas"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:soul_lantern",
+          "label": "Almas"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "goety:cauldron",
+    "displayName": "Goety - Witch's Cauldron",
+    "stationItem": "goety:witch_cauldron",
+    "modId": "goety",
+    "extraFields": [
+      {
+        "key": "soulCost",
+        "type": "int",
+        "default": "0",
+        "label": "Soul Cost"
+      },
+      {
+        "key": "levelLeft",
+        "type": "int",
+        "default": "3",
+        "label": "Nivel de agua que deja en el caldero (0-3)"
+      },
+      {
+        "key": "color",
+        "type": "int",
+        "default": "4159204",
+        "label": "Color del liquido (entero RGB)"
+      }
+    ],
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Ingrediente"
+        },
+        {
+          "id": "take_with",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 22,
+          "label": "Se saca con (botella, bol...)"
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredients": "$inputs:ingredient:take_with",
+      "take_with": "$slot:take_with:ingredient",
+      "result": "$slot:output_item:item_stack",
+      "soulCost": "$field:soulCost",
+      "levelLeft": "$field:levelLeft",
+      "color": "$field:color",
+      "id": "$recipeId"
+    }
+  },
+  {
+    "recipeSerializer": "goety:cauldron_sus",
+    "displayName": "Goety - Witch's Cauldron (suspicious stew)",
+    "stationItem": "goety:witch_cauldron",
+    "modId": "goety",
+    "extraFields": [
+      {
+        "key": "takeWith",
+        "type": "item",
+        "default": "minecraft:bowl",
+        "label": "Se saca con (bol)"
+      },
+      {
+        "key": "soulCost",
+        "type": "int",
+        "default": "0",
+        "label": "Soul Cost"
+      },
+      {
+        "key": "levelLeft",
+        "type": "int",
+        "default": "3",
+        "label": "Nivel de agua que deja en el caldero (0-3)"
+      },
+      {
+        "key": "color",
+        "type": "int",
+        "default": "12747584",
+        "label": "Color del liquido (entero RGB)"
+      }
+    ],
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "take_with": "$field:takeWith:ingredient",
+      "soulCost": "$field:soulCost",
+      "levelLeft": "$field:levelLeft",
+      "color": "$field:color",
+      "id": "$recipeId"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true
+        },
+        {
+          "id": "extra",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 26,
+          "repeatable": true
+        }
+      ],
+      "arrow": {
+        "x": 68,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 96,
+          "y": 26,
+          "item": "minecraft:suspicious_stew",
+          "label": "Mezcla del caldero"
+        }
+      ]
+    }
+  }
+]

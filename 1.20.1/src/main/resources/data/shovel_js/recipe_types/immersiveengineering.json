@@ -1,0 +1,715 @@
+[
+  {
+    "recipeSerializer": "immersiveengineering:alloy",
+    "displayName": "Immersive Engineering - Alloy Kiln",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Time (ticks, optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.alloy({output}, {input}, {input2}, {field:time})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "extra_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 108,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 84,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:alloy_kiln",
+    "rawJson": {
+      "input0": "$inputAt:0:ie_ingredient",
+      "input1": "$inputAt:1:ie_ingredient",
+      "result": "$slot:output_item:ie_output",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:blast_furnace",
+    "displayName": "Immersive Engineering - Blast Furnace",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "slag",
+        "type": "item",
+        "default": "immersiveengineering:slag",
+        "label": "Slag (item id, optional)"
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Time (ticks, optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.blast_furnace({output}, {input}, {field:slag}, {field:time})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:blast_furnace",
+    "rawJson": {
+      "input": "$slot:main_input:ie_ingredient",
+      "result": "$slot:output_item:ie_output",
+      "slag": "$field:slag:ie_output",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:blast_furnace_fuel",
+    "displayName": "Immersive Engineering - Blast Furnace Fuel",
+    "modId": "immersiveengineering",
+    "stationItem": "immersiveengineering:blast_furnace",
+    "extraFields": [
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Burn Time (ticks)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.blast_furnace_fuel({input}, {field:time})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "rawJson": {
+      "input": "$input:ingredient",
+      "time": "$field:time"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fuel",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Combustible"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:fire_charge",
+          "label": "Combustible del alto horno"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:coke_oven",
+    "displayName": "Immersive Engineering - Coke Oven",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "creosote",
+        "type": "int",
+        "default": "100",
+        "label": "Creosote Output (mB, optional)"
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Time (ticks, optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.coke_oven({output}, {input}, {field:creosote}, {field:time})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:coke_oven",
+    "rawJson": {
+      "input": "$slot:main_input:ie_ingredient",
+      "result": "$slot:output_item:ie_output",
+      "creosote": "$field:creosote",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:crusher",
+    "displayName": "Immersive Engineering - Crusher",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "3200",
+        "label": "Energy (RF)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.crusher({output}, {input})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:crusher",
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "result": "$slot:output_item:ie_output",
+      "secondaries": [],
+      "energy": "$field:energy"
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:metal_press",
+    "displayName": "Immersive Engineering - Metal Press",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "mold",
+        "type": "item",
+        "default": "immersiveengineering:mold_plate",
+        "label": "Mold (item id)",
+        "required": true
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "800",
+        "label": "Energy (optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.metal_press({output}, {input}, {field:mold}, {field:energy})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:metal_press",
+    "rawJson": {
+      "input": "$slot:main_input:ie_ingredient",
+      "result": "$slot:output_item:ie_output",
+      "mold": "$field:mold",
+      "energy": "$field:energy"
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:sawmill",
+    "displayName": "Immersive Engineering - Sawmill",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "stripped",
+        "type": "item",
+        "default": "",
+        "label": "Stripped item (optional, e.g. minecraft:stripped_oak_log)"
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "2000",
+        "label": "Energy (optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.sawmill({output}, {input}, [], {field:stripped}, {field:energy})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:sawmill",
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "result": "$slot:output_item:ie_output",
+      "stripped": "$field:stripped:ie_output",
+      "secondaries": [],
+      "energy": "$field:energy"
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:fermenter",
+    "displayName": "Immersive Engineering - Fermenter",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "fluidOutputId",
+        "type": "string",
+        "default": "immersiveengineering:ethanol",
+        "label": "Fluid Output ID"
+      },
+      {
+        "key": "fluidOutputAmount",
+        "type": "int",
+        "default": "40",
+        "label": "Fluid Output Amount (mB)"
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "400",
+        "label": "Energy (optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.fermenter({input}, Fluid.of({field:fluidOutputId}, {field:fluidOutputAmount}), {output}, {field:energy})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:fermenter",
+    "rawJson": {
+      "input": "$slot:main_input:ie_ingredient",
+      "fluid": "$field:fluidOutputId:create_fluid:fluidOutputAmount",
+      "result": "$slot:output_item:ie_output",
+      "energy": "$field:energy"
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:fertilizer",
+    "displayName": "Immersive Engineering - Fertilizer (Garden Cloche)",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "growthModifier",
+        "type": "float",
+        "default": "1.0",
+        "label": "Growth Modifier"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.fertilizer({input}, {field:growthModifier})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "immersiveengineering:cloche",
+    "rawJson": {
+      "input": "$input:ingredient",
+      "growthModifier": "$field:growthModifier"
+    },
+    "noOutput": true,
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fertilizer",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 26,
+          "required": true,
+          "maxCount": 1,
+          "label": "Fertilizante"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 29,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 56,
+          "y": 26,
+          "item": "minecraft:bone_meal",
+          "label": "Acelera la Garden Cloche"
+        }
+      ]
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:cloche",
+    "displayName": "Immersive Engineering - Garden Cloche Crop",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "soil",
+        "type": "string",
+        "default": "minecraft:dirt",
+        "label": "Soil (item or #tag)",
+        "required": true
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "800",
+        "label": "Growth Time (ticks)"
+      },
+      {
+        "key": "renderType",
+        "type": "string",
+        "default": "crop",
+        "label": "Render type",
+        "options": [
+          "crop",
+          "generic",
+          "stacking",
+          "doubleflower"
+        ]
+      },
+      {
+        "key": "renderBlock",
+        "type": "string",
+        "default": "minecraft:wheat",
+        "label": "Render block (crop block id)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.cloche([{output}], {input}, {field:soil})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:cloche",
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "soil": "$field:soil:ingredient",
+      "results": "$outputs:ie_output",
+      "time": "$field:time",
+      "render": {
+        "type": "$field:renderType",
+        "block": "$field:renderBlock"
+      }
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:blueprint",
+    "displayName": "Immersive Engineering - Engineer's Workbench Blueprint",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "blueprintCategory",
+        "type": "string",
+        "default": "components",
+        "label": "Blueprint Category (bannerpatterns/bullet/specialBullet/components/molds/electrode)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.blueprint({output}, {inputs}, {field:blueprintCategory})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "immersiveengineering:workbench",
+    "rawJson": {
+      "category": "$field:blueprintCategory",
+      "inputs": "$inputs:ie_ingredient",
+      "result": "$output:ie_output"
+    }
+  },
+  {
+    "recipeSerializer": "immersiveengineering:arc_furnace",
+    "displayName": "Immersive Engineering - Arc Furnace",
+    "modId": "immersiveengineering",
+    "extraFields": [
+      {
+        "key": "slag",
+        "type": "item",
+        "default": "",
+        "label": "Slag (item id, optional)"
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "200",
+        "label": "Time (ticks, optional)"
+      },
+      {
+        "key": "energy",
+        "type": "int",
+        "default": "6400",
+        "label": "Energy (optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "immersiveengineering",
+      "requiresAddon": "kubejs-immersiveengineering",
+      "argsTemplate": "event.recipes.immersiveengineering.arc_furnace([{output}], {input}, [], {field:slag}, {field:time}, {field:energy})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true
+        },
+        {
+          "id": "secondary_input",
+          "role": "input",
+          "type": "item",
+          "x": 20,
+          "y": 0
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 108,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 84,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "stationItem": "immersiveengineering:arc_furnace",
+    "rawJson": {
+      "input": "$slot:main_input:ie_ingredient",
+      "additives": "$inputs:ie_ingredient:main_input||[]",
+      "results": "$outputs:ie_output",
+      "slag": "$field:slag:ie_output",
+      "time": "$field:time",
+      "energy": "$field:energy"
+    }
+  }
+]

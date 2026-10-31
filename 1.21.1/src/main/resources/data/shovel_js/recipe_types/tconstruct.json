@@ -1,0 +1,284 @@
+[
+  {
+    "recipeSerializer": "tconstruct:alloy",
+    "displayName": "Tinkers' Construct - Alloying",
+    "modId": "tconstruct",
+    "extraFields": [
+      {
+        "key": "temperature",
+        "type": "int",
+        "default": "760",
+        "label": "Temperature",
+        "required": true
+      }
+    ],
+    "stationItem": "tconstruct:smeltery_controller",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input_1",
+          "role": "input",
+          "type": "fluid",
+          "x": 18,
+          "y": 18,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido 1"
+        },
+        {
+          "id": "fluid_input_2",
+          "role": "input",
+          "type": "fluid",
+          "x": 36,
+          "y": 18,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido 2"
+        },
+        {
+          "id": "fluid_input_3",
+          "role": "input",
+          "type": "fluid",
+          "x": 54,
+          "y": 18,
+          "tank": true,
+          "h": 34,
+          "label": "Fluido 3 (opcional)"
+        },
+        {
+          "id": "fluid_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 136,
+          "y": 18,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Aleacion resultante"
+        }
+      ],
+      "arrow": {
+        "x": 95,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "inputs": "$inputs:fluid_ingredient",
+      "result": "$slot:fluid_output:fluid_ingredient",
+      "temperature": "$field:temperature"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:melting",
+    "displayName": "Tinkers' Construct - Melting (Melter / Smeltery)",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_melter",
+    "extraFields": [
+      {
+        "key": "temperature",
+        "type": "int",
+        "default": "800",
+        "label": "Temperatura minima",
+        "required": true
+      },
+      {
+        "key": "time",
+        "type": "int",
+        "default": "60",
+        "label": "Tiempo (ticks)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "item_input",
+          "role": "input",
+          "type": "item",
+          "x": 23,
+          "y": 25,
+          "required": true,
+          "label": "Item a fundir",
+          "maxCount": 1
+        },
+        {
+          "id": "fluid_output",
+          "role": "output",
+          "type": "fluid",
+          "x": 95,
+          "y": 11,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido resultante"
+        }
+      ],
+      "arrow": {
+        "x": 60,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "ingredient": "$slot:item_input:ingredient",
+      "result": "$slot:fluid_output:fluid_ingredient",
+      "temperature": "$field:temperature",
+      "time": "$field:time"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:casting_table",
+    "displayName": "Tinkers' Construct - Casting Table",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_table",
+    "extraFields": [
+      {
+        "key": "cooling_time",
+        "type": "int",
+        "default": "60",
+        "label": "Tiempo de enfriado (ticks)",
+        "required": true
+      },
+      {
+        "key": "cast_consumed",
+        "type": "boolean",
+        "default": "false",
+        "label": "El molde se consume"
+      },
+      {
+        "key": "switch_slots",
+        "type": "boolean",
+        "default": "false",
+        "label": "Intercambiar molde y resultado"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 10,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido"
+        },
+        {
+          "id": "cast",
+          "role": "input",
+          "type": "item",
+          "x": 37,
+          "y": 26,
+          "label": "Molde (opcional)",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 92,
+          "y": 25,
+          "required": true,
+          "label": "Resultado (cantidad 1)",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 64,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "cast": "$slot:cast:ingredient",
+      "cast_consumed": "$field:cast_consumed",
+      "fluid": "$slot:fluid_input:fluid_ingredient",
+      "result": "$slot:result:item_id",
+      "cooling_time": "$field:cooling_time",
+      "switch_slots": "$field:switch_slots"
+    }
+  },
+  {
+    "recipeSerializer": "tconstruct:casting_basin",
+    "displayName": "Tinkers' Construct - Casting Basin",
+    "modId": "tconstruct",
+    "stationItem": "tconstruct:seared_basin",
+    "extraFields": [
+      {
+        "key": "cooling_time",
+        "type": "int",
+        "default": "60",
+        "label": "Tiempo de enfriado (ticks)",
+        "required": true
+      },
+      {
+        "key": "cast_consumed",
+        "type": "boolean",
+        "default": "false",
+        "label": "El molde se consume"
+      },
+      {
+        "key": "switch_slots",
+        "type": "boolean",
+        "default": "false",
+        "label": "Intercambiar molde y resultado"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "fluid_input",
+          "role": "input",
+          "type": "fluid",
+          "x": 2,
+          "y": 10,
+          "tank": true,
+          "h": 34,
+          "required": true,
+          "label": "Fluido"
+        },
+        {
+          "id": "cast",
+          "role": "input",
+          "type": "item",
+          "x": 37,
+          "y": 26,
+          "label": "Molde (opcional)",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 92,
+          "y": 25,
+          "required": true,
+          "label": "Resultado (cantidad 1)",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 64,
+        "y": 28,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "cast": "$slot:cast:ingredient",
+      "cast_consumed": "$field:cast_consumed",
+      "fluid": "$slot:fluid_input:fluid_ingredient",
+      "result": "$slot:result:item_id",
+      "cooling_time": "$field:cooling_time",
+      "switch_slots": "$field:switch_slots"
+    }
+  }
+]

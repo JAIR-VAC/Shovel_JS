@@ -1,0 +1,131 @@
+[
+  {
+    "recipeSerializer": "twilightforest:crumble_horn",
+    "displayName": "Twilight Forest - Crumble Horn",
+    "modId": "twilightforest",
+    "stationItem": "twilightforest:crumble_horn",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 18,
+          "required": true,
+          "label": "Bloque original",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 62,
+          "y": 18,
+          "required": true,
+          "label": "Bloque desmoronado",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 31,
+        "y": 19,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 31,
+          "y": 0,
+          "item": "twilightforest:crumble_horn",
+          "label": "Crumble Horn (clic derecho sobre el bloque)"
+        }
+      ]
+    },
+    "rawJson": {
+      "from": "$slot:input:item_id",
+      "to": "$slot:result:item_id"
+    }
+  },
+  {
+    "recipeSerializer": "twilightforest:transformation_powder",
+    "displayName": "Twilight Forest - Transformation Powder",
+    "modId": "twilightforest",
+    "stationItem": "twilightforest:transformation_powder",
+    "extraFields": [
+      {
+        "key": "reversible",
+        "type": "boolean",
+        "default": "true",
+        "label": "Reversible (el polvo tambien deshace la transformacion)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "from",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 12,
+          "required": true,
+          "label": "Huevo de generacion: entidad original",
+          "maxCount": 1
+        },
+        {
+          "id": "to",
+          "role": "output",
+          "type": "item",
+          "x": 68,
+          "y": 12,
+          "required": true,
+          "label": "Huevo de generacion: entidad resultante",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 34,
+        "y": 13,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 34,
+          "y": 32,
+          "item": "twilightforest:transformation_powder",
+          "label": "Transformation Powder (clic derecho sobre la entidad)"
+        }
+      ],
+      "notes": [
+        {
+          "x": 0,
+          "y": 0,
+          "text": "Usa huevos de generacion"
+        }
+      ]
+    },
+    "rawJson": {
+      "from": "$slot:from:entity_id",
+      "to": "$slot:to:entity_id",
+      "reversible": "$field:reversible"
+    }
+  },
+  {
+    "recipeSerializer": "twilightforest:uncrafting",
+    "displayName": "Twilight Forest - Uncrafting Table",
+    "modId": "twilightforest",
+    "stationItem": "twilightforest:uncrafting_table",
+    "extraFields": [
+      {
+        "key": "cost",
+        "type": "int",
+        "default": "0",
+        "label": "Coste (niveles de XP)",
+        "required": true
+      }
+    ],
+    "gridWidth": 3,
+    "gridHeight": 3
+  }
+]

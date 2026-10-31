@@ -1,0 +1,257 @@
+[
+  {
+    "recipeSerializer": "deep_aether:combining",
+    "displayName": "Deep Aether - Combiner",
+    "modId": "deep_aether",
+    "stationItem": "deep_aether:combiner",
+    "extraFields": [
+      {
+        "key": "category",
+        "type": "string",
+        "default": "combinable_misc",
+        "label": "Categoria (libro de recetas)",
+        "options": [
+          "combinable_misc",
+          "combinable_fodder"
+        ]
+      },
+      {
+        "key": "experience",
+        "type": "float",
+        "default": "0.1",
+        "label": "Experiencia"
+      },
+      {
+        "key": "processing_time",
+        "type": "int",
+        "default": "100",
+        "label": "Tiempo (ticks)"
+      },
+      {
+        "key": "effect",
+        "type": "string",
+        "default": "",
+        "label": "Efecto del Moa Fodder (opcional)"
+      },
+      {
+        "key": "amplifier",
+        "type": "int",
+        "default": "",
+        "label": "Amplificador del efecto (opcional)"
+      },
+      {
+        "key": "duration",
+        "type": "int",
+        "default": "",
+        "label": "Duracion del efecto (ticks, opcional)"
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input_1",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Ingrediente 1"
+        },
+        {
+          "id": "input_2",
+          "role": "input",
+          "type": "item",
+          "x": 23,
+          "y": 0,
+          "required": true,
+          "label": "Ingrediente 2"
+        },
+        {
+          "id": "input_3",
+          "role": "input",
+          "type": "item",
+          "x": 46,
+          "y": 0,
+          "required": true,
+          "label": "Ingrediente 3"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 23,
+          "y": 38,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 24,
+        "y": 19,
+        "direction": "down"
+      }
+    },
+    "rawJson": {
+      "category": "$field:category",
+      "experience": "$field:experience",
+      "ingredients": [
+        "$slot:input_1:ingredient",
+        "$slot:input_2:ingredient",
+        "$slot:input_3:ingredient"
+      ],
+      "output": "$slot:result:item_stack",
+      "processing_time": "$field:processing_time",
+      "effect": "$field:effect",
+      "amplifier": "$field:amplifier",
+      "duration": "$field:duration"
+    }
+  },
+  {
+    "recipeSerializer": "deep_aether:poison_recipe",
+    "displayName": "Deep Aether - Veneno (sumergir)",
+    "modId": "deep_aether",
+    "stationItem": "deep_aether:poison_bucket",
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Entrada",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "deep_aether:poison_bucket",
+          "label": "Se tira el item dentro del Veneno"
+        }
+      ]
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:ingredient",
+      "result": "$slot:result:item_stack"
+    }
+  },
+  {
+    "recipeSerializer": "deep_aether:glowing_spores_recipe",
+    "displayName": "Deep Aether - Glowing Spores",
+    "modId": "deep_aether",
+    "stationItem": "deep_aether:glowing_spores",
+    "extraFields": [],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Bloque",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Bloque resultante",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "deep_aether:glowing_spores",
+          "label": "Clic derecho sobre el bloque"
+        }
+      ],
+      "notes": []
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:block",
+      "result": "$slot:result:block"
+    }
+  },
+  {
+    "recipeSerializer": "deep_aether:golden_swet_ball_recipe",
+    "displayName": "Deep Aether - Golden Swet Ball",
+    "modId": "deep_aether",
+    "stationItem": "deep_aether:golden_swet_ball",
+    "extraFields": [],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "label": "Bloque",
+          "maxCount": 1
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 56,
+          "y": 0,
+          "required": true,
+          "label": "Bloque resultante",
+          "maxCount": 1
+        }
+      ],
+      "arrow": {
+        "x": 28,
+        "y": 1,
+        "direction": "right"
+      },
+      "decorItems": [
+        {
+          "x": 28,
+          "y": 20,
+          "item": "deep_aether:golden_swet_ball",
+          "label": "Clic derecho sobre el bloque"
+        }
+      ],
+      "notes": []
+    },
+    "rawJson": {
+      "ingredient": "$slot:input:block",
+      "result": "$slot:result:block"
+    }
+  }
+]

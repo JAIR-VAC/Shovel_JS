@@ -1,0 +1,250 @@
+[
+  {
+    "recipeSerializer": "botania:petal_apothecary",
+    "displayName": "Botania - Petal Apothecary",
+    "modId": "botania",
+    "extraFields": [
+      {
+        "key": "reagent",
+        "type": "string",
+        "default": "#botania:seed_apothecary_reagent",
+        "label": "Reagent (item or #tag que se tira al final)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botania",
+      "requiresAddon": "kubejs-botania",
+      "argsTemplate": "event.recipes.botania.petal_apothecary({output}, {inputs})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "offering",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 16,
+      "ringFromInputs": true
+    },
+    "stationItem": "botania:apothecary_default",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "reagent": "$field:reagent:ingredient"
+    }
+  },
+  {
+    "recipeSerializer": "botania:runic_altar",
+    "displayName": "Botania - Runic Altar",
+    "modId": "botania",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "6400",
+        "label": "Mana Cost (max 99999 per recipe)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botania",
+      "requiresAddon": "kubejs-botania",
+      "argsTemplate": "event.recipes.botania.runic_altar({output}, {inputs}, {field:mana})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "offering",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 16,
+      "ringFromInputs": true
+    },
+    "stationItem": "botania:runic_altar",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "mana": "$field:mana"
+    }
+  },
+  {
+    "recipeSerializer": "botania:terra_plate",
+    "displayName": "Botania - Terrestrial Agglomeration Plate (Terrasteel)",
+    "modId": "botania",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "99999",
+        "label": "Mana Cost (max 99999 per recipe)",
+        "required": true
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botania",
+      "requiresAddon": "kubejs-botania",
+      "argsTemplate": "event.recipes.botania.terra_plate({output}, {inputs}, {field:mana})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "offering",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 160,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "unified": true,
+      "arrow": {
+        "x": 130,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 16,
+      "ringFromInputs": true
+    },
+    "stationItem": "botania:terra_plate",
+    "rawJson": {
+      "ingredients": "$inputs:ingredient",
+      "result": "$slot:output_item:item_stack",
+      "mana": "$field:mana"
+    }
+  },
+  {
+    "recipeSerializer": "botania:mana_infusion",
+    "displayName": "Botania - Mana Pool Infusion",
+    "modId": "botania",
+    "extraFields": [
+      {
+        "key": "mana",
+        "type": "int",
+        "default": "8000",
+        "label": "Mana Cost (max 99999 per recipe)",
+        "required": true
+      },
+      {
+        "key": "catalyst",
+        "type": "string",
+        "default": "",
+        "label": "Catalyst block (block id or #tag, optional)"
+      }
+    ],
+    "dedicatedCall": {
+      "requiresMod": "botania",
+      "requiresAddon": "kubejs-botania",
+      "argsTemplate": "event.recipes.botania.mana_infusion({output}, {input}, {field:mana}, {field:catalyst})",
+      "extraFieldCallTemplates": {},
+      "preferOverRawJson": true
+    },
+    "stationItem": "botania:mana_pool",
+    "slotLayout": {
+      "slots": [
+        {
+          "id": "main_input",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "maxCount": 1
+        },
+        {
+          "id": "output_item",
+          "role": "output",
+          "type": "item",
+          "x": 86,
+          "y": 0,
+          "required": true
+        }
+      ],
+      "sameRow": true,
+      "arrow": {
+        "x": 64,
+        "y": 3,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "input": "$slot:main_input:ingredient",
+      "output": "$slot:output_item:item_stack",
+      "mana": "$field:mana",
+      "catalyst": "$field:catalyst:state_ingredient"
+    },
+    "stationStructure": [
+      {
+        "pos": [
+          0,
+          -1,
+          0
+        ],
+        "block": "botania:alchemy_catalyst"
+      }
+    ]
+  }
+]

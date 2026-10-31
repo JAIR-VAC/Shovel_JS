@@ -1,0 +1,79 @@
+[
+  {
+    "recipeSerializer": "draconicevolution:fusion_crafting",
+    "displayName": "Draconic Evolution - Fusion Crafting",
+    "modId": "draconicevolution",
+    "stationItem": "draconicevolution:crafting_core",
+    "extraFields": [
+      {
+        "key": "tier",
+        "type": "string",
+        "default": "draconium",
+        "label": "Nivel de inyector minimo",
+        "options": [
+          "DRACONIUM",
+          "WYVERN",
+          "DRACONIC",
+          "CHAOTIC"
+        ]
+      },
+      {
+        "key": "total_energy",
+        "type": "long",
+        "default": "1000000",
+        "label": "Energia total (OP)",
+        "required": true
+      }
+    ],
+    "slotLayout": {
+      "unified": true,
+      "slots": [
+        {
+          "id": "catalyst",
+          "role": "input",
+          "type": "item",
+          "x": 50,
+          "y": 30,
+          "required": true,
+          "label": "Catalizador (nucleo)"
+        },
+        {
+          "id": "injector",
+          "role": "input",
+          "type": "item",
+          "x": 0,
+          "y": 0,
+          "required": true,
+          "repeatable": true,
+          "label": "Inyectores"
+        },
+        {
+          "id": "result",
+          "role": "output",
+          "type": "item",
+          "x": 130,
+          "y": 30,
+          "required": true,
+          "label": "Resultado"
+        }
+      ],
+      "arrow": {
+        "x": 100,
+        "y": 33,
+        "direction": "right"
+      }
+    },
+    "rawJson": {
+      "catalyst": "$slot:catalyst:de_catalyst",
+      "ingredients": "$inputs:de_fusion_ingredient:catalyst",
+      "result": "$slot:result:item_stack",
+      "techLevel": "$field:tier:lower",
+      "totalEnergy": "$field:total_energy"
+    },
+    "editorView": "ritual_ring",
+    "ritualView": {
+      "maxOfferings": 16,
+      "centerSlotId": "catalyst"
+    }
+  }
+]
