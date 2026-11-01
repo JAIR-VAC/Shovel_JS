@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.core.BlockPos;
@@ -91,26 +92,10 @@ public final class StructureGhostPreviewRenderer {
         RenderSystem.polygonOffset(-1.0f, -10.0f);
         RenderSystem.enablePolygonOffset();
 
-        if (blocksVbo != null) {
-            RenderType translucent = RenderType.translucent();
-            translucent.setupRenderState();
-            RenderSystem.depthMask(true);
-            blocksVbo.bind();
-            blocksVbo.drawWithShader(poseStack.last().pose(), RenderSystem.getProjectionMatrix(), RenderSystem.getShader());
-            VertexBuffer.unbind();
-            translucent.clearRenderState();
-        }
-
         if (blocksCutoutVbo != null) {
             RenderSystem.polygonOffset(-1.0f, -30.0f);
             RenderSystem.disableCull();
-            // Cutout blocks (grass, ferns, saplings, vines, glass panes,
-            // cobwebs, ...) are drawn with their OWN real render type
-            // otherwise untouched: no depthMask() hack. Cutout's alpha-test
-            // already writes depth correctly only where the texel isn't
-            // transparent - the default setupRenderState()/
-            // clearRenderState() pair is exactly what vanilla's own chunk
-            // mesher uses for this same layer.
+            // bloques opacos y con recorte (grama, pasto, hojas): el recorte solo escribe profundidad donde hay textura
             RenderType cutout = RenderType.cutoutMipped();
             cutout.setupRenderState();
             blocksCutoutVbo.bind();
@@ -118,6 +103,18 @@ public final class StructureGhostPreviewRenderer {
             VertexBuffer.unbind();
             cutout.clearRenderState();
             RenderSystem.enableCull();
+        }
+
+        if (blocksVbo != null) {
+            // despues de los opacos, para que el vidrio y el agua dejen ver lo que hay detras
+            RenderSystem.polygonOffset(-1.0f, -10.0f);
+            RenderType translucent = RenderType.translucent();
+            translucent.setupRenderState();
+            RenderSystem.depthMask(true);
+            blocksVbo.bind();
+            blocksVbo.drawWithShader(poseStack.last().pose(), RenderSystem.getProjectionMatrix(), RenderSystem.getShader());
+            VertexBuffer.unbind();
+            translucent.clearRenderState();
         }
 
 
@@ -169,7 +166,10 @@ public final class StructureGhostPreviewRenderer {
         boolean[] hasContent = new boolean[] { false, false };
         boolean[] currentCellNonFull = new boolean[] { false };
         MultiBufferSource singleSink = rt -> {
-            if (rt == RenderType.cutout() || rt == RenderType.cutoutMipped() || currentCellNonFull[0]) {
+            // renderSingleBlock pide Sheets.cutoutBlockSheet() para todo lo que no es translucido
+            boolean translucentLayer = rt == RenderType.translucent()
+                    || rt == Sheets.translucentCullBlockSheet() || rt == Sheets.translucentItemSheet();
+            if (!translucentLayer || currentCellNonFull[0]) {
                 hasContent[1] = true;
                 return cutoutBuf;
             }
