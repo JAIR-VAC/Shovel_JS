@@ -10,12 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Tooltips al final del fotograma en las pantallas del mod. Las pantallas (y el Studio, que dibuja
- * la pestania activa y despues sus barras) piden el tooltip de un item en medio de su render; vanilla
- * los deja para el final. Mods como Tooltip Overhaul cambian el estado de dibujo al pintar el tooltip
- * de un item, y todo lo que se dibujaba despues (pestanias, barras, botones) parpadeaba o desaparecia.
- * Mientras se dibuja una pantalla del mod, {@code GuiGraphicsTooltipScaleMixin} guarda cada tooltip
- * y aca se dibujan todos juntos, despues de la pantalla.
+ * Tooltips al final del fotograma en las pantallas del mod, como hace vanilla. Mientras se dibuja una
+ * pantalla del mod, {@code GuiGraphicsTooltipScaleMixin} guarda cada tooltip en vez de dibujarlo, y aca
+ * se dibujan todos juntos despues de la pantalla, encima de pestanias, barras y botones.
  */
 @OnlyIn(Dist.CLIENT)
 public final class KveTooltipDefer {

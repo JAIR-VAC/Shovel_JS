@@ -18,15 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import java.util.List;
 import java.util.function.Consumer;
 
-/**
- * Editor de {@link CombatProps} de un item - las 5 features de
- * "Combate y efectos" (efectos al golpear, efectos pasivos, robo de vida,
- * incendiar objetivo, enfriamiento al usar). Mismo patron de dialogo que
- * {@link ItemFoodScreen} (lista de efectos con EffectPickerScreen/
- * EffectValueScreen reutilizados), un Consumer de vuelta al confirmar.
- * La aplicacion real en el juego la hace
- * {@code com.kve.common.itemrules.ItemCombatEnforcer}.
- */
+
 @OnlyIn(Dist.CLIENT)
 public class ItemCombatScreen extends Screen {
 

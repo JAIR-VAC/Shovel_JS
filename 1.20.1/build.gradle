@@ -2,24 +2,11 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-    // Bug fix (2026-08-30, build real: "No valid input files for searge
-    // could be read" -> luego, tras encontrar el SRG, "Unable to locate
-    // obfuscation mapping for @Inject target place"): cablear
-    // -AreobfSrgFile a mano contra build/createSrgToMcp/output.srg (ver
-    // historial debajo) apuntaba al mapping en la direccion equivocada
-    // para lo que el Annotation Processor de Mixin necesita en compile
-    // time. MixinGradle es el mecanismo oficial (recomendado por la wiki
-    // de SpongePowered/Mixin y usado por mods reales en 1.20.1 - ej.
-    // Curios, ver issue #502 de su repo) que localiza el mapping CORRECTO
-    // automaticamente y lo pasa al AP - reemplaza toda la config manual
-    // de compileJava de abajo.
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = '1.0.0'
 group = 'com.kve'
-// 2026-10-06: dos jars - shovel_api (mod shovel_api, lo que el juego
-// necesita) y shovel_js (mod shovel_js, la interfaz). Ver jar/editorJar abajo.
 archivesBaseName = 'shovel_api'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -28,23 +15,8 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-// Mixin (2026-08-30): MixinGradle (plugin agregado arriba) genera
-// src/main/resources/shovel_api.refmap.json automaticamente en cada compile -
-// esto reemplaza el bloque compileJava.options.compilerArgs +
-// compileJava.dependsOn 'createSrgToMcp' que se usaba antes a mano
-// (ver historial de fixes: fallaba porque el mapping que necesita el
-// Annotation Processor de Mixin en compile time no es simplemente
-// build/createSrgToMcp/output.srg leido crudo - MixinGradle sabe
-// resolver esto solo). Nombre de sourceSet + refmap deben matchear
-// "refmap" en shovel_api.mixins.json.
 mixin {
     add sourceSets.main, 'shovel_api.refmap.json'
-    // Bug real 2026-09-30 (log de juego: "AttributeMap cannot be cast to
-    // AttributeMapAccessor"): Forge 1.20.1 carga los mixins de un mod SOLO
-    // desde el atributo MixinConfigs del MANIFEST.MF - el bloque [[mixins]]
-    // de mods.toml es de NeoForge y Forge 47 lo ignora. Sin esto ningun
-    // mixin de KVE se aplicaba en el juego (spawn caps en generacion
-    // natural, atributos modded, velocidad de ataque de mobs).
     config 'shovel_api.mixins.json'
     config 'shovel_js.mixins.json'
 }
@@ -58,10 +30,6 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            // Bug fix (2026-08-30, "spawn caps no aplican en generacion
-            // natural/jigsaw"): habilita el Mixin de com.kve.mixin en el
-            // run de dev - sin esto el refmap no se remapea y el mixin no
-            // se aplica al arrancar. Ver shovel_api.mixins.json / SinglePoolElementMixin.
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             mods {
@@ -129,28 +97,10 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.20.1-47.4.28'
 
-    // Mixin (2026-08-30, "spawn caps no aplican en generacion natural/
-    // jigsaw"): Forge ya trae Mixin en el runtime classpath, esto solo
-    // agrega el annotation processor que genera el refmap en compile time
-    // (shovel_api.refmap.json, ver compileJava.options.compilerArgs abajo y
-    // shovel_api.mixins.json). No se agrega como dependencia normal - solo
-    // annotationProcessor, igual que cualquier setup Mixin+ForgeGradle.
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-
-    // KubeJS integration is OPTIONAL at runtime (see mods.toml: modId=kubejs,
-    // mandatory=false). compileOnly gives javac/the IDE the real KubeJS
-    // classes to check KveKubeJSPlugin.java against, WITHOUT bundling KubeJS
-    // into kve's jar or requiring it to be installed for KVE to run.
     compileOnly fg.deobf("dev.latvian.mods:kubejs-forge:${kubejs_version}")
     compileOnly fg.deobf("dev.latvian.mods:rhino-forge:${rhino_version}")
     compileOnly fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
-
-    // Jade integration is OPTIONAL at runtime (see mods.toml: modId=jade,
-    // mandatory=false) - same compileOnly/fg.deobf treatment as the
-    // KubeJS deps above, for the same reason (Jade ships an
-    // official/Mojang-mapped jar already in newer builds, but fg.deobf is
-    // a harmless no-op if so, and required if the resolved build still
-    // ships SRG-named classes).
     compileOnly fg.deobf("maven.modrinth:jade:${jade_version}")
 
     // JEI/EMI: solo la API, solo compile time (ver repositorios arriba).
@@ -172,14 +122,7 @@ sourceSets {
     }
 }
 
-// Plain JUnit 5 tests for the copy()/undo data-model logic (see
-// src/test/java/com/kve/common/kubejs/*CopyTest.java). These only exercise
-// the 5 undo systems' copy() methods on plain data objects (ItemStack.EMPTY,
-// not real registered items), so they don't need a running game or FML
-// bootstrap - just the vanilla classes on the compile/runtime classpath,
-// which ForgeGradle already provides to sourceSets.main and therefore to
-// sourceSets.test through the normal testImplementation/implementation
-// extension.
+
 test {
     useJUnitPlatform()
 }

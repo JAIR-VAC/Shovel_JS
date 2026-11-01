@@ -2,11 +2,6 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         maven { url = 'https://maven.minecraftforge.net' }
-        // Bug fix (2026-08-30, log de build real: "Unable to locate
-        // obfuscation mapping for @Inject target place"): MixinGradle no
-        // esta en el Gradle Plugin Portal, solo en el maven de Sponge -
-        // sin este repo el plugin 'org.spongepowered.mixin' que agregamos
-        // en build.gradle no resuelve. Ver ese archivo para el porque.
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
     }
 }

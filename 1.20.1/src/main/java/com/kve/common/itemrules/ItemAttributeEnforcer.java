@@ -22,13 +22,13 @@ public final class ItemAttributeEnforcer {
     @SubscribeEvent
     public static void onItemAttributes(ItemAttributeModifierEvent event) {
         ItemStack stack = event.getItemStack();
-        if (stack.isEmpty() || !KubeJSItemAttrExporter.hasAppliedEntries() || ItemTooltipEnforcer.isPreview(stack))
+        if (stack.isEmpty() || KubeJSItemAttrExporter.getEntries().isEmpty() || ItemTooltipEnforcer.isPreview(stack))
             return;
         ResourceLocation itemId = ForgeRegistries.ITEMS.getKey(stack.getItem());
         if (itemId == null)
             return;
 
-        KubeJSItemAttrExporter.ItemEntry e = KubeJSItemAttrExporter.getAppliedEntry(ItemIds.idOf(stack.getItem()));
+        KubeJSItemAttrExporter.ItemEntry e = KubeJSItemAttrExporter.getEntry(ItemIds.idOf(stack.getItem()));
         if (e == null || !e.enabled || !KubeJSItemAttrExporter.hasAttributeEdits(e))
             return;
 
@@ -63,6 +63,7 @@ public final class ItemAttributeEnforcer {
         return rl == null ? null : ForgeRegistries.ATTRIBUTES.getValue(rl);
     }
 
+    
     static UUID uuidFor(String itemId, String attrId, EquipmentSlot slot, boolean addMode) {
         if (!addMode && attrId.equals("minecraft:generic.attack_damage"))
             return VanillaUuids.ATTACK_DAMAGE;

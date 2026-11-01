@@ -102,3 +102,6 @@ venv/
 # Notas personales de Obsidian: no forman parte del mod
 /Brain/
 /DESIGN.md
+
+# Skills y ajustes locales de Claude Code: no se suben
+/.claude/

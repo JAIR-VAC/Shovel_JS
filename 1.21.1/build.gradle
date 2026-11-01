@@ -1,17 +1,11 @@
 plugins {
     id 'eclipse'
     id 'idea'
-    // Fase 0.2 - MDG (ModDevGradle) reemplaza ForgeGradle. Version confirmada en spec S2
-    // (net.neoforged.moddev v2.0.148 el 2026-10-22). Revisar
-    // https://projects.neoforged.net/neoforged/ModDevGradle por si hay build mas nueva
-    // el dia real de arranque del porteo.
     id 'net.neoforged.moddev' version '2.0.148'
 }
 
 version = '1.0.0'
 group = 'com.kve'
-// 2026-10-06: dos jars - shovel_api (mod shovel_api, lo que el juego
-// necesita) y shovel_js (mod shovel_js, la interfaz). Ver jar/editorJar abajo.
 archivesBaseName = 'shovel_api'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -24,8 +18,7 @@ tasks.withType(JavaCompile).configureEach {
 neoForge {
     version = neoforge_version
 
-    // Falla temprano si algun accesstransformer.cfg apunta a un target invalido,
-    // en vez de fallar silenciosamente en runtime.
+    
     validateAccessTransformers = true
 
     runs {
@@ -46,10 +39,6 @@ neoForge {
         }
     }
 
-    // Tests: en NeoForge, Bootstrap.bootStrap() (MinecraftBootstrapExtension)
-    // necesita FML cargado - FeatureFlags lee LoadingModList, que sin FML es
-    // null (NPE al inicializar Blocks). unitTest arranca FML con este mod
-    // antes de JUnit (verificado 2026-09-30: sin esto fallaban 125 tests).
     unitTest {
         enable()
         testedMod = mods.shovel_api
@@ -96,14 +85,6 @@ repositories {
 }
 
 dependencies {
-    // KubeJS integration is OPTIONAL at runtime (see neoforge.mods.toml: modId=kubejs,
-    // type=optional). compileOnly gives javac/the IDE the real KubeJS classes to check
-    // KveKubeJSPlugin.java against, WITHOUT bundling KubeJS into kve's jar or requiring
-    // it to be installed for KVE to run.
-    // NOTE (Fase 0.2, mecanico): fg.deobf() ya no existe/no aplica bajo MDG - los builds
-    // NeoForge de estas 3 libs ya publican en mappings oficiales (Mojang), se consumen
-    // directo. Si el jar resuelto todavia trae nombres SRG/intermediary, este punto
-    // necesita revisarse en Fase 1 al primer intento de compilacion real.
     compileOnly "dev.latvian.mods:kubejs-neoforge:${kubejs_version}"
     compileOnly "dev.latvian.mods:rhino:${rhino_version}"
     compileOnly "dev.architectury:architectury-neoforge:${architectury_version}"
@@ -120,29 +101,12 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
-// Plain JUnit 5 tests for the copy()/undo data-model logic (see
-// src/test/java/com/kve/common/kubejs/*CopyTest.java). These only exercise
-// the 5 undo systems' copy() methods on plain data objects (ItemStack.EMPTY,
-// not real registered items), so they don't need a running game or FML
-// bootstrap - just the vanilla classes on the compile/runtime classpath
-// (see neoForge.addModdingDependenciesTo above).
 test {
     useJUnitPlatform()
     // ArchitectureRulesTest lee src/main/java: con unitTest el cwd es build/minecraft-junit.
     systemProperty 'kve.projectDir', projectDir.absolutePath
 }
 
-// ---------------------------------------------------------------------------
-// Separacion runtime / editor (2026-10-06). Mismo source set, dos jars:
-//  - jar        -> shovel_api-<ver>.jar (mod "shovel_api"): todo menos los
-//                  paquetes del editor, mas todos los recursos (assets/data/lang).
-//  - editorJar  -> shovel_js-<ver>.jar (mod "shovel_js"): solo los paquetes
-//                  del editor. Depende del runtime.
-// Los paquetes no se pueden repartir entre jars (cada jar es un modulo de
-// Java): la lista va por paquete entero. RuntimeEditorSplitTest verifica que
-// ninguna clase del runtime referencie estos paquetes.
-// ---------------------------------------------------------------------------
-// Version de Minecraft en el nombre de los jars (CurseForge: no confundir 1.20.1 con 1.21.1).
 def MC_VERSION_TAG = '1.21.1'
 
 def EDITOR_PACKAGES = [

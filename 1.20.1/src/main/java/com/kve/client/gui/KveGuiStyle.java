@@ -1382,16 +1382,6 @@ public final class KveGuiStyle {
         return hov;
     }
 
-    // =========================================================
-    // Error badge - ("validacion
-    // en vivo": "Mostrar un badge rojo '!'... apenas se detecta"). Same
-    // render-time-only shape as helpIcon() above (no click handling of its
-    // own), just red instead of gold and driven by a list of already-
-    // translated problem messages instead of a single static tip - a
-    // section with 2 problems shows both, stacked, in one tooltip instead
-    // of the caller having to juggle multiple hotspots for the same field.
-    // =========================================================
-
     private static final int ERROR_BADGE_SIZE = 8;
 
     /**
