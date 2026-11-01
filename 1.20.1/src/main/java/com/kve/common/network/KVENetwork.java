@@ -75,6 +75,9 @@ public final class KVENetwork {
                 CHANNEL.registerMessage(id++, WorldGenLabTeleportPacket.class,
                                 WorldGenLabTeleportPacket::encode, WorldGenLabTeleportPacket::decode,
                                 WorldGenLabTeleportPacket::handle);
+                CHANNEL.registerMessage(id++, KveSplitPacket.class,
+                                KveSplitPacket::encode, KveSplitPacket::decode,
+                                KveSplitPacket::handle);
 
                 CraftEditorMod.LOGGER.info("[Shovel JS] Network channel registered ({} packet types).", id);
         }
@@ -109,7 +112,7 @@ public final class KVENetwork {
 
         public static void requestWorldGenerate(int requestId, net.minecraft.core.BlockPos origin,
                         net.minecraft.nbt.CompoundTag structureTag, boolean inPlace) {
-                CHANNEL.sendToServer(new StructureWorldGenerateRequestPacket(requestId, origin, structureTag, inPlace));
+                KveSplitPacket.sendToServer(new StructureWorldGenerateRequestPacket(requestId, origin, structureTag, inPlace));
         }
 
         public static void requestWorldScan(int requestId, net.minecraft.core.BlockPos origin, int sizeX, int sizeY,

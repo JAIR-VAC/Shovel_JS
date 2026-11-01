@@ -62,7 +62,7 @@ public class StructureRemoteRequestPacket {
                 data = StructureNbtIO.readRawBytesFromServer(server, id);
             } catch (RuntimeException ignored) {
             }
-            KVENetwork.CHANNEL.reply(new StructureRemoteResponsePacket(msg.requestId, msg.id, data), ctx);
+            KveSplitPacket.reply(new StructureRemoteResponsePacket(msg.requestId, msg.id, data), ctx);
         });
         ctx.setPacketHandled(true);
     }

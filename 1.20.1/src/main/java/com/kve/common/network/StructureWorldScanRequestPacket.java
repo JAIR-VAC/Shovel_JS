@@ -106,7 +106,7 @@ public class StructureWorldScanRequestPacket {
             CraftEditorMod.LOGGER.info("[Shovel JS] {} scanned world region at {} ({}x{}x{}) in {}",
                     sender.getGameProfile().getName(), msg.origin, msg.sizeX, msg.sizeY, msg.sizeZ,
                     level.dimension().location());
-            KVENetwork.CHANNEL.reply(StructureWorldScanResponsePacket.success(
+            KveSplitPacket.reply(StructureWorldScanResponsePacket.success(
                     msg.requestId, result.tag, result.occupiedMin, result.occupiedMax), ctx);
         });
         ctx.setPacketHandled(true);
