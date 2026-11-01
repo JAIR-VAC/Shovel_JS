@@ -226,20 +226,23 @@ public final class StructureSceneRenderer {
                     failCount);
         }
 
+        // build() devuelve null si el builder no tiene vertices: ese buffer se cierra y no se dibuja.
         if (placeholderBuf != null) {
             VertexBuffer pvbo = new VertexBuffer(VertexBuffer.Usage.STATIC);
             pvbo.bind();
-            placeholderBuf.uploadTo(pvbo);
+            boolean ok = placeholderBuf.uploadTo(pvbo);
             VertexBuffer.unbind();
-            bakedPlaceholderVbo = pvbo;
+            if (ok) bakedPlaceholderVbo = pvbo;
+            else pvbo.close();
         }
 
         for (var entry : buildersByType.entrySet()) {
             VertexBuffer vbo = new VertexBuffer(VertexBuffer.Usage.STATIC);
             vbo.bind();
-            entry.getValue().uploadTo(vbo);
+            boolean ok = entry.getValue().uploadTo(vbo);
             VertexBuffer.unbind();
-            bakedByType.put(entry.getKey(), vbo);
+            if (ok) bakedByType.put(entry.getKey(), vbo);
+            else vbo.close();
         }
 
         blockGeoBakedGrid = grid;

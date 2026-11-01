@@ -111,6 +111,10 @@ public final class StructureVoxelGrid {
         final Map<BlockPos, CellPatchEntry> scopedPatch;
         final String id;
         final boolean dirty;
+        /** Solo en las completas: girar, reflejar y recentrar mueven tambien los mobs y el origen del escaneo. */
+        List<CompoundTag> fullScannedEntities;
+        BlockPos fullScanOrigin;
+        String fullScanDimension;
 
         private Snapshot(Map<BlockPos, BlockState> fullCells, Map<BlockPos, CompressedBlockEntity> fullBlockEntityNbt,
                           Map<BlockPos, StructureSpawnCap> fullSpawnCaps, Map<BlockPos, CellPatchEntry> scopedPatch,
@@ -129,7 +133,12 @@ public final class StructureVoxelGrid {
     }
 
     private Snapshot fullSnapshot() {
-        return new Snapshot(new HashMap<>(cells), new HashMap<>(blockEntityNbt), new HashMap<>(spawnCaps), null, id, dirty);
+        Snapshot s = new Snapshot(new HashMap<>(cells), new HashMap<>(blockEntityNbt), new HashMap<>(spawnCaps), null, id, dirty);
+        s.fullScannedEntities = new ArrayList<>(scannedEntities.size());
+        for (CompoundTag e : scannedEntities) s.fullScannedEntities.add(e.copy());
+        s.fullScanOrigin = scanOrigin;
+        s.fullScanDimension = scanDimension;
+        return s;
     }
 
     private Snapshot scopedSnapshot(java.util.Collection<BlockPos> positions) {
@@ -157,6 +166,12 @@ public final class StructureVoxelGrid {
             blockEntityNbt.putAll(s.fullBlockEntityNbt);
             spawnCaps.clear();
             spawnCaps.putAll(s.fullSpawnCaps);
+            if (s.fullScannedEntities != null) {
+                scannedEntities.clear();
+                for (CompoundTag e : s.fullScannedEntities) scannedEntities.add(e.copy());
+                scanOrigin = s.fullScanOrigin;
+                scanDimension = s.fullScanDimension;
+            }
         }
         id = s.id;
         dirty = s.dirty;
@@ -351,8 +366,8 @@ public final class StructureVoxelGrid {
     }
 
     /**
-     * Bloques reales de la estructura. {@link #cellCount()} tambien cuenta el aire explicito
-     * (lo que se borra queda como celda de aire), asi que crecia al borrar.
+     * Bloques reales de la estructura, sin el aire explicito que deja borrar una celda
+     * ({@link #cellCount()} si lo cuenta).
      */
     public int blockCount() {
         int n = 0;
@@ -999,6 +1014,7 @@ public final class StructureVoxelGrid {
             spawnCaps.clear();
             spawnCaps.putAll(rotatedCaps);
         }
+        transformScannedEntities(sizeX, sizeZ, MultiCellTransform.ROTATE_CW_90);
         dirty = true;
         version++;
         assert sizeX >= 0;
@@ -1019,7 +1035,8 @@ public final class StructureVoxelGrid {
         int[] size = computeSize();
         if (size == null) return;
         int sizeX = size[0], sizeZ = size[2];
-        Mirror mirror = alongX ? Mirror.LEFT_RIGHT : Mirror.FRONT_BACK;
+        // alongX invierte la X de las posiciones; en Minecraft FRONT_BACK invierte X y LEFT_RIGHT invierte Z
+        Mirror mirror = alongX ? Mirror.FRONT_BACK : Mirror.LEFT_RIGHT;
         Map<BlockPos, BlockState> flipped = new HashMap<>(cells.size());
         Map<BlockPos, CompressedBlockEntity> flippedNbt = new HashMap<>(blockEntityNbt.size());
         for (Map.Entry<BlockPos, BlockState> e : cells.entrySet()) {
@@ -1041,8 +1058,63 @@ public final class StructureVoxelGrid {
             spawnCaps.clear();
             spawnCaps.putAll(flippedCaps);
         }
+        transformScannedEntities(sizeX, sizeZ, alongX ? MultiCellTransform.MIRROR_X : MultiCellTransform.MIRROR_Z);
         dirty = true;
         version++;
+    }
+
+    /** Mueve los mobs escaneados igual que las celdas: posicion, celda y hacia donde miran (como Entity#rotate/#mirror). */
+    private void transformScannedEntities(int sizeX, int sizeZ, MultiCellTransform transform) {
+        if (scannedEntities.isEmpty()) return;
+        List<CompoundTag> moved = new ArrayList<>(scannedEntities.size());
+        for (CompoundTag entry : scannedEntities) {
+            CompoundTag copy = entry.copy();
+            if (copy.contains("pos", 9)) {
+                ListTag posTag = copy.getList("pos", 6);
+                if (posTag.size() >= 3) {
+                    double x = posTag.getDouble(0), y = posTag.getDouble(1), z = posTag.getDouble(2);
+                    double nx = x, nz = z;
+                    switch (transform) {
+                        case ROTATE_CW_90 -> { nx = sizeZ - z; nz = x; }
+                        case MIRROR_X -> nx = sizeX - x;
+                        case MIRROR_Z -> nz = sizeZ - z;
+                    }
+                    ListTag newPos = new ListTag();
+                    newPos.add(DoubleTag.valueOf(nx));
+                    newPos.add(DoubleTag.valueOf(y));
+                    newPos.add(DoubleTag.valueOf(nz));
+                    copy.put("pos", newPos);
+                    copy.put("blockPos", intListOf((int) Math.floor(nx), (int) Math.floor(y), (int) Math.floor(nz)));
+                }
+            }
+            if (copy.contains("nbt", 10)) {
+                CompoundTag data = copy.getCompound("nbt");
+                ListTag rot = data.getList("Rotation", 5);
+                if (rot.size() >= 2) {
+                    float yaw = rot.getFloat(0);
+                    float newYaw = switch (transform) {
+                        case ROTATE_CW_90 -> yaw + 90f;
+                        case MIRROR_X -> -yaw;
+                        case MIRROR_Z -> 180f - yaw;
+                    };
+                    ListTag newRot = new ListTag();
+                    newRot.add(net.minecraft.nbt.FloatTag.valueOf(newYaw));
+                    newRot.add(net.minecraft.nbt.FloatTag.valueOf(rot.getFloat(1)));
+                    data.put("Rotation", newRot);
+                }
+            }
+            moved.add(copy);
+        }
+        scannedEntities.clear();
+        scannedEntities.addAll(moved);
+    }
+
+    private static ListTag intListOf(int a, int b, int c) {
+        ListTag t = new ListTag();
+        t.add(IntTag.valueOf(a));
+        t.add(IntTag.valueOf(b));
+        t.add(IntTag.valueOf(c));
+        return t;
     }
 
     private static BlockPos mirrorPos(BlockPos p, boolean alongX, int sizeX, int sizeZ) {

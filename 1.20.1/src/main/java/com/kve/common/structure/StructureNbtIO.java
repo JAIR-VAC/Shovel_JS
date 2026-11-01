@@ -373,6 +373,11 @@ public final class StructureNbtIO {
         grid.setId(id.toString());
 
         ListTag paletteTag = root.getList("palette", 10 );
+        // plantillas con varias paletas (naufragios vanilla...) guardan "palettes"; se usa la primera
+        if (paletteTag.isEmpty() && root.contains("palettes", 9)) {
+            ListTag palettes = root.getList("palettes", 9);
+            if (!palettes.isEmpty()) paletteTag = palettes.getList(0);
+        }
         List<BlockState> palette = new ArrayList<>(paletteTag.size());
         HolderGetter<net.minecraft.world.level.block.Block> blockLookup = blockLookup();
         for (int i = 0; i < paletteTag.size(); i++) {

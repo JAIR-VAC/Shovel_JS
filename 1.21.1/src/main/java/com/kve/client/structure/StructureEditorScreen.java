@@ -742,6 +742,8 @@ public class StructureEditorScreen extends Screen implements KveStudioTab {
             int cleared = grid.cellCount();
             grid.pushUndo();
             grid.clear();
+            // los mobs escaneados tambien son parte de la estructura (deshacer los devuelve)
+            grid.setScannedEntities(java.util.List.of());
             grid.recordHistory(Lang.get("gui.kve.structure.history.clear", cleared));
         }
         flash(Lang.get("gui.kve.structure.clear.done"), true);

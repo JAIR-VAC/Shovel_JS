@@ -236,34 +236,20 @@ public final class StructureGhostPreviewRenderer {
                     failCount);
         }
 
-        if (placeholderBuf != null) {
-            VertexBuffer pvbo = new VertexBuffer(VertexBuffer.Usage.STATIC);
-            pvbo.bind();
-            placeholderBuf.uploadTo(pvbo);
-            VertexBuffer.unbind();
-            placeholderVbo = pvbo;
-        }
+        if (placeholderBuf != null) placeholderVbo = upload(placeholderBuf);
 
         // Only build/upload a VertexBuffer for a bucket that actually
         // received geometry - an empty structure (or one that's 100%
         // cutout, or 100% solid) must not upload an empty buffer, same
         // caution the code already takes with boundsVbo below.
         if (blockBufHasContent) {
-            VertexBuffer vbo = new VertexBuffer(VertexBuffer.Usage.STATIC);
-            vbo.bind();
-            blockBuf.uploadTo(vbo);
-            VertexBuffer.unbind();
-            blocksVbo = vbo;
+            blocksVbo = upload(blockBuf);
         } else {
             blockBuf.discard();
         }
 
         if (cutoutBufHasContent) {
-            VertexBuffer cvbo = new VertexBuffer(VertexBuffer.Usage.STATIC);
-            cvbo.bind();
-            cutoutBuf.uploadTo(cvbo);
-            VertexBuffer.unbind();
-            blocksCutoutVbo = cvbo;
+            blocksCutoutVbo = upload(cutoutBuf);
         } else {
             cutoutBuf.discard();
         }
@@ -275,15 +261,22 @@ public final class StructureGhostPreviewRenderer {
             RenderType lines = RenderType.lines();
             KveMeshBuilder lineBuf = new KveMeshBuilder(1024, lines.mode(), lines.format());
             LevelRenderer.renderLineBox(new PoseStack(), lineBuf.buffer, box, 0.30f, 0.85f, 1.00f, 0.85f);
-            VertexBuffer lvbo = new VertexBuffer(VertexBuffer.Usage.STATIC);
-            lvbo.bind();
-            lineBuf.uploadTo(lvbo);
-            VertexBuffer.unbind();
-            boundsVbo = lvbo;
+            boundsVbo = upload(lineBuf);
         }
 
         bakedGrid = grid;
         bakedGridVersion = targetVersion;
+    }
+
+    /** Sube el builder a un VertexBuffer nuevo, o devuelve null si el builder no tiene vertices. */
+    private static VertexBuffer upload(KveMeshBuilder builder) {
+        VertexBuffer vbo = new VertexBuffer(VertexBuffer.Usage.STATIC);
+        vbo.bind();
+        boolean ok = builder.uploadTo(vbo);
+        VertexBuffer.unbind();
+        if (ok) return vbo;
+        vbo.close();
+        return null;
     }
 
     /** Celdas dibujadas por su BlockEntityRenderer real en vez de horneadas - ver StructureSceneRenderer#isDrawnByBlockEntityRenderer(). Las BlockEntity de preview tienen referencia al ClientLevel, por eso se sueltan en freeBuffers() (y con el, en resetCache() al salir del mundo). */
