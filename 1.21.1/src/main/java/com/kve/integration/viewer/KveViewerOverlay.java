@@ -21,7 +21,7 @@ public final class KveViewerOverlay {
     public static final int BTN_W = 14, BTN_H = 14;
     public static final int BTN_X = -BTN_W - 2, BTN_Y = 0;
 
-    private static final ResourceLocation ICON = ResourceLocation.fromNamespaceAndPath("shovel_js", "textures/gui/shovel.png");
+    private static final ResourceLocation ICON = ResourceLocation.fromNamespaceAndPath("shovel_js", "textures/gui/shovel_14.png");
 
     private record Hit(Screen screen, int x, int y, ResourceLocation recipeId) {}
 
@@ -29,7 +29,7 @@ public final class KveViewerOverlay {
 
     /** Dibujo compartido por JEI y EMI, en las coordenadas que el caller ya tiene aplicadas. */
     public static void drawButton(GuiGraphics g, int x, int y, boolean hovered) {
-        g.blit(ICON, x, y, BTN_W, BTN_H, 0, 0, 16, 16, 16, 16);
+        g.blit(ICON, x, y, BTN_W, BTN_H, 0, 0, 14, 14, 14, 14);
         if (hovered) g.fill(x + 2, y + 2, x + BTN_W - 2, y + BTN_H - 2, 0x38FFFFFF);
     }
 
